@@ -1,0 +1,33 @@
+<RCC>
+    <qresource prefix="/">
+        <file>kaptan.qss</file>
+        <file>data/images/applications-other.png</file>
+        <file>data/images/arrow-left.png</file>
+        <file>data/images/arrow-right.png</file>
+        <file>data/images/basket.png</file>
+        <file>data/images/bg2.png</file>
+        <file>data/images/kaptan-icon.png</file>
+        <file>data/images/cross.png</file>
+        <file>data/images/kaptan-left.png</file>
+        <file>data/images/kaptan-logo.png</file>
+        <file>data/images/kaptan_settings.png</file>
+        <file>data/images/kaptan_welcome.png</file>
+        <file>data/images/kde.png</file>
+        <file>data/images/menu-arrow-left.png</file>
+        <file>data/images/menu-arrow-right.png</file>
+        <file>data/images/preferences-desktop-color.png</file>
+        <file>data/images/preferences-desktop-peripherals.png</file>
+        <file>data/images/preferences-desktop-personal.png</file>
+        <file>data/images/preferences-desktop-wallpaper.png</file>
+        <file>data/images/preferences-system.png</file>
+        <file>data/images/system-help.png</file>
+        <file>data/images/tick.png</file>
+        <file>data/images/view-refresh.png</file>
+        <file>data/images/webcamreceive.png</file>
+        <file>data/images/oxygen-set.png</file>
+        <file>data/images/breeze-set.png</file>
+        <file>data/images/menu-kicker.png</file>
+        <file>data/images/menu-kickoff.png</file>
+        <file>data/images/menu-kimpanel.png</file>
+    </qresource>
+</RCC>

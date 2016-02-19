@@ -1,0 +1,25 @@
+License
+-------
+GPLv3 (please read the COPYING file)
+
+
+Dependencies
+------------
+Python3, PyQt5, KDE5
+
+
+Building & Installation - FIXME
+-----------------------
+* Build Kaptan "without installing" to your system:
+
+    ./setup build
+
+* Running Kaptan after building:
+
+    python build/kaptan.py
+
+* Build and "install" Kaptan to your system:
+
+    ./setup install
+
+
