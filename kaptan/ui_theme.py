@@ -105,7 +105,7 @@ class ThemeWidget(QWizardPage):
         if value == 0:
             self.desktopType = "org.kde.desktopcontainment"
         else:
-            self.desktopType = "ork.kde.folder"
+            self.desktopType = "org.kde.folder"
         print(self.desktopType)
 
     def execute(self):

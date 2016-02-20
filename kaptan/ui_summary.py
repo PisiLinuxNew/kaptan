@@ -5,8 +5,7 @@ from PyQt5.QtCore import *
 class SummaryWidget(QWizardPage):
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.setTitle("<h2>Ayarlarınızı Kaydedin</h2>")
-        self.setSubTitle(" ")
+        self.setSubTitle(self.tr("<h2>Ayarlarınızı Kaydedin</h2>"))
 
         vlayout = QVBoxLayout(self)
 

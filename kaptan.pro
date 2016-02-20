@@ -8,12 +8,11 @@ SOURCES += kaptan/ui_theme.py
 SOURCES += kaptan/ui_wallpaper.py
 SOURCES += kaptan/ui_welcome.py
 
-SOURCES += kaptan/.py
+SOURCES += kaptan.py
 SOURCES += kaptan/.py
 SOURCES += kaptan/.py
 SOURCES += kaptan/.py
 SOURCES += kaptan/.py
 SOURCES += kaptan/.py
 
-TRANSLATIONS += languages/en_US.ts
 TRANSLATIONS += languages/tr_TR.ts

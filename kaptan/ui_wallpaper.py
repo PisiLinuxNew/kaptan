@@ -6,8 +6,7 @@ from PyQt5.QtCore import *
 class WallpaperWidget(QWizardPage):
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.setTitle("<h2>Duvar Kağıdı Seçin</h2>")
-        self.setSubTitle(" ")
+        self.setSubTitle(self.tr("<h2>Duvar Kağıdı Seçin</h2>"))
 
         vlayout = QVBoxLayout(self)
 
@@ -49,8 +48,10 @@ class WallpaperWidget(QWizardPage):
     def wallpaperChecked(self):
         if self.checkbox.isChecked():
             self.listWidget.setDisabled(True)
+            self.button.setDisabled(True)
         else:
             self.listWidget.setEnabled(True)
+            self.button.setEnabled(True)
 
     def wallpaperSelect(self):
         file_url, file_type = QFileDialog.getOpenFileName(self, self.tr("Duvar Kağıdını Seç"), QDir.homePath(), "Image (*.png *.jpg)")
