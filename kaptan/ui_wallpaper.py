@@ -1,7 +1,9 @@
 from PyQt5.QtWidgets import QWizardPage, QLabel, QGroupBox, QListWidget, QVBoxLayout, QSpacerItem, QSizePolicy, QHBoxLayout,\
-    QCheckBox, QPushButton, QFileDialog
+    QCheckBox, QPushButton, QFileDialog, QListView, QDesktopWidget, QListWidgetItem
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
+from os.path import join, dirname, abspath
+import os
 
 class WallpaperWidget(QWizardPage):
     def __init__(self, parent=None):
@@ -31,6 +33,8 @@ class WallpaperWidget(QWizardPage):
 
         grLayout = QVBoxLayout(groupBox)
         self.listWidget = QListWidget()
+        self.listWidget.setViewMode(QListView.IconMode)
+        self.listWidget.setIconSize(QSize(250, 150))
         grLayout.addWidget(self.listWidget)
         vlayout.addWidget(groupBox)
 
@@ -50,9 +54,30 @@ class WallpaperWidget(QWizardPage):
         vlayout.addLayout(hlayout)
 
         self.checkbox.clicked.connect(self.wallpaperChecked)
-        self.button.clicked.connect(self.wallpaperSelect)
+        self.button.clicked.connect(self.wallpaperSelectDialog)
+        self.listWidget.itemClicked.connect(self.wallpaperSelect)
 
         self.selectWallpaper = None
+        self.wallpapersParser()
+
+    def wallpapersParser(self):
+        wallpaperPath = "/usr/share/wallpapers"
+        for folder in os.listdir(wallpaperPath):
+            path = join(wallpaperPath,folder, "contents")
+            thumbFolder = os.listdir(path)
+            for thumb in thumbFolder:
+                if thumb.startswith("scre"):
+                    item = QListWidgetItem(self.listWidget)
+                    item.setIcon(QIcon(join(path, thumb)))
+                    item.screenshotPath = join(path, thumb)
+
+
+    def wallpaperSelect(self, item):
+        if hasattr(item, "userSelect"):
+            self.selectWallpaper = item.screenshotPath
+        else:
+            path = dirname(abspath(item.screenshotPath))
+            self.selectWallpaper = ""
 
     def wallpaperChecked(self):
         if self.checkbox.isChecked():
@@ -62,10 +87,15 @@ class WallpaperWidget(QWizardPage):
             self.listWidget.setEnabled(True)
             self.button.setEnabled(True)
 
-    def wallpaperSelect(self):
+    def wallpaperSelectDialog(self):
         file_url, file_type = QFileDialog.getOpenFileName(self, self.tr("Duvar Kağıdını Seç"), QDir.homePath(), "Image (*.png *.jpg)")
         print(file_url)
         if not "" == file_url:
             self.selectWallpaper = file_url
+            item = QListWidgetItem(self.listWidget)
+            item.setIcon(QIcon(file_url))
+            item.screenshotPath = file_url
+            item.userSelect = True
+            self.listWidget.setCurrentItem(item)
 
     def execute(self): pass
