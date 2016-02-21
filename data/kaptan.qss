@@ -10,3 +10,5 @@ QGroupBox {}
 
 QWizardPage {}
 
+//QFrame {background: #8F2556;}
+

@@ -99,14 +99,12 @@ class ThemeWidget(QWizardPage):
 
     def desktopCreate(self, value):
         self.desktopCount = value
-        print(self.desktopCount)
 
     def desktopTypeCreate(self, value):
         if value == 0:
             self.desktopType = "org.kde.desktopcontainment"
         else:
             self.desktopType = "org.kde.folder"
-        print(self.desktopType)
 
     def execute(self):
         settings1 = QSettings(join(QDir.homePath(), ".config5", "kwinrc"), QSettings.IniFormat)

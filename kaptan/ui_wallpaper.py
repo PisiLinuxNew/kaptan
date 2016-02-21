@@ -10,11 +10,18 @@ class WallpaperWidget(QWizardPage):
 
         vlayout = QVBoxLayout(self)
 
+        labelLayout = QHBoxLayout()
+        labelImage = QLabel()
+        labelImage.setMaximumSize(64,64)
+        labelImage.setPixmap(QPixmap(":/data/images/preferences-desktop-wallpaper.png"))
+        labelLayout.addWidget(labelImage)
+
         label = QLabel(self)
         label.setText(self.tr("<p>Masaüstünüz için en beğendiğiniz duvar kağıdını seçin. <strong>Masaüstü Ayarları</strong>'na \
         girerek yeni ve havalı duvar kağıtları indirebileeğinizi unutmayın.</p>"))
         label.setWordWrap(True)
-        vlayout.addWidget(label)
+        labelLayout.addWidget(label)
+        vlayout.addLayout(labelLayout)
 
         vlayout.addItem(QSpacerItem(20, 40, QSizePolicy.Preferred, QSizePolicy.Preferred))
 
@@ -45,6 +52,8 @@ class WallpaperWidget(QWizardPage):
         self.checkbox.clicked.connect(self.wallpaperChecked)
         self.button.clicked.connect(self.wallpaperSelect)
 
+        self.selectWallpaper = None
+
     def wallpaperChecked(self):
         if self.checkbox.isChecked():
             self.listWidget.setDisabled(True)
@@ -57,6 +66,6 @@ class WallpaperWidget(QWizardPage):
         file_url, file_type = QFileDialog.getOpenFileName(self, self.tr("Duvar Kağıdını Seç"), QDir.homePath(), "Image (*.png *.jpg)")
         print(file_url)
         if not "" == file_url:
-            pass
+            self.selectWallpaper = file_url
 
     def execute(self): pass
