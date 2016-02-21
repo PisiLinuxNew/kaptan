@@ -60,6 +60,7 @@ class AvatarWidget(QWizardPage):
             self.imageProcessing.setSharpeningLevel(1)
             self.imageProcessing.setDenoisingLevel(1)
             #self.imageProcessing.setColorFilter(QCameraImageProcessing.ColorFilterWhiteboard) #FIXME Qt5.5
+            self.cameraImageCapture.imageCaptured.connect(self.imageCapture)
 
         self.buttonCam = QPushButton()
         self.buttonCam.setText(self.tr("Çek"))
@@ -106,24 +107,25 @@ class AvatarWidget(QWizardPage):
         comboBox.currentIndexChanged.connect(self.avatarSelect)
         self.buttonCam.clicked.connect(self.buttonCamChanged)
         self.buttonReplay.clicked.connect(self.buttonReplayChanged)
-        self.cameraImageCapture.imageCaptured.connect(self.imageCapture)
 
         self.userAvatar = None
 
     def avatarSelect(self, index):
         if index == 0:
+            if self.camera != None:
+                self.camera.stop()
             self.buttonReplay.hide()
             self.buttonCam.hide()
             self.cameraView.hide()
             self.cameraLabel.show()
-            self.camera.stop()
         elif index == 1:
+            if self.camera != None:
+                self.camera.stop()
             self.userAvatar = None
             self.buttonReplay.hide()
             self.buttonCam.hide()
             self.cameraView.hide()
             self.cameraLabel.show()
-            self.camera.stop()
             file_url, file_type = QFileDialog.getOpenFileName(self, self.tr("Avatar Seçin"), QDir.homePath(), "Image (*.png *.jpg)")
             if file_url != "":
                 p = QPixmap(file_url)
