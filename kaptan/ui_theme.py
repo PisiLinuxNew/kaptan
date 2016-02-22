@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import QWizardPage, QLabel, QGroupBox, QListWidget, QVBoxLa
 from PyQt5.QtGui import QPixmap, QIcon
 from PyQt5.QtCore import *
 from os.path import join
+from kaptan.tools import getDesktopStyle, setDesktopStyle
 
 class ThemeWidget(QWizardPage):
     def __init__(self, parent=None):
@@ -112,10 +113,21 @@ class ThemeWidget(QWizardPage):
         settings1.setValue("Desktops/Rows", 2)
         settings1.sync()
 
-        settings2 = QSettings(join(QDir.homePath(), ".config5", "plasma-org.kde.plasma.desktop-appletsrc"), QSettings.IniFormat)
+        configFilePath = join(QDir.homePath(), ".config5", "plasma-org.kde.plasma.desktop-appletsrc")
+
+        settings2 = QSettings(configFilePath, QSettings.IniFormat)
         settings2.setValue("Containments/plugin", self.desktopType)
         settings2.sync()
 
         settings3 = QSettings(join(QDir.homePath(), ".config5", "kdeglobals"), QSettings.IniFormat)
         settings3.setValue("Icons/Theme", self.iconSet)
         settings3.sync()
+
+
+        configFile = open(configFilePath).read()
+        desktopView = getDesktopStyle(configFile)
+
+        if self.desktopType != desktopView[1]:
+            with open(configFilePath, "w") as newConfigFile:
+                newConfigFile.write(setDesktopStyle(configFile))
+                newConfigFile.close()

@@ -52,7 +52,16 @@ class Kaptan(QWizard):
     def optionsAccepted(self, id):
         if id == self.otherId:
 
+            #MouseWidget
             self.page(1).execute()
+            #ThemeWidget
+            self.page(2).execute()
+            #MenuWidget
+            self.page(3).execute()
+            #WallpaperWidget
+            self.page(4).execute()
+            #AvatarWidget
+            self.page(5).execute()
 
 
             proc1 = QProcess()
