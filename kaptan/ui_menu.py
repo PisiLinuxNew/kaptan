@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import QWizardPage, QLabel, QVBoxLayout, QSpacerItem, QSize
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from os.path import join
+from kaptan.tools import *
 
 
 class MenuWidget(QWizardPage):
@@ -72,6 +73,20 @@ class MenuWidget(QWizardPage):
         self.labelText.setText(self.menus[index][1])
 
     def execute(self):
+        menus = ["org.kde.plasma.kickoff", "org.kde.plasma.kicker", "org.kde.plasma.kimpanel"]
+        menu = menus[self.menuSelected]
+
+        configFilePath = join(QDir.homePath(), ".config5", "plasma-org.kde.plasma.desktop-appletsrc")
+        configFile = open(configFilePath).read()
+        menuStyle = getMenuStyle(configFile)
+
+        if menu != menuStyle[1]:
+            with open(configFilePath, "w") as newConfigFile:
+                newConfigFile.write(setMenuStyle(configFile))
+                newConfigFile.close()
+
+
+
         settings1 = QSettings(join(QDir.homePath(), ".config5", "plasma-org.kde.plasma.desktop-appletsrc"), QSettings.IniFormat)
         #settings1.setValue("", 2)
         #settings1.setValue("", 2)
