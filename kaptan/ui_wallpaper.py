@@ -103,11 +103,13 @@ class WallpaperWidget(QWizardPage):
             item.userSelect = True
             self.listWidget.setCurrentItem(item)
 
-    def execute(self): #FIXME
+    def execute(self):
         screenRect = QDesktopWidget.screenGeometry()
         width = screenRect.width()
-        heigth =screenRect.height()
+        height =screenRect.height()
 
         settings = QSettings(join(QDir.homePath(), ".config5", "plasma-org.kde.plasma.desktop-appletsrc"), QSettings.IniFormat)
-
+        settings.setValue("Containments/Image", QUrl(self.selectWallpaper))
+        settings.setValue("Containments/width", width)
+        settings.setValue("Containments/height", height)
         settings.sync()
