@@ -84,6 +84,7 @@ class AvatarWidget(QWizardPage):
         hlayout2.addItem(QSpacerItem(40, 20, QSizePolicy.Preferred, QSizePolicy.Preferred))
 
         self.cameraLabel = QLabel()
+        self.cameraLabel.setScaledContents(True)
         self.cameraLabel.setStyleSheet("background-color: black;")
         self.cameraLabel.setMinimumSize(320, 240)
         self.cameraLabel.setMaximumSize(320, 240)
@@ -129,7 +130,6 @@ class AvatarWidget(QWizardPage):
             file_url, file_type = QFileDialog.getOpenFileName(self, self.tr("Avatar Seçin"), QDir.homePath(), "Image (*.png *.jpg)")
             if file_url != "":
                 p = QPixmap(file_url)
-                p.scaledToWidth(320)
                 self.cameraLabel.setPixmap(p)
                 self.userAvatar = file_url
         elif index == 2:
@@ -159,9 +159,7 @@ class AvatarWidget(QWizardPage):
 
     #FIXME image scaled
     def imageCapture(self, id, preview):
-        preview.scaledToWidth(320)
         pixmap = QPixmap.fromImage(preview)
-        pixmap.scaledToWidth(320, Qt.FastTransformation)
         self.camera.stop()
         self.cameraView.hide()
         self.cameraLabel.show()
