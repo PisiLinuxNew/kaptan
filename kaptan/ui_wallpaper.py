@@ -71,19 +71,24 @@ class WallpaperWidget(QWizardPage):
                     item.setIcon(QIcon(join(path, thumb)))
                     item.screenshotPath = join(path, thumb)
 
-
     def wallpaperSelect(self, item):
         if hasattr(item, "userSelect"):
             self.selectWallpaper = item.screenshotPath
         else:
-            path = dirname(abspath(item.screenshotPath))
-            self.selectWallpaper = ""
+            path = join(dirname(abspath(item.screenshotPath)), "images")
+            list = os.listdir(path)
+            list.sort()
+            self.selectWallpaper = join(path, list[-1])
+            r = QDesktopWidget().screenGeometry()
+            print(r.width())
 
     def wallpaperChecked(self):
         if self.checkbox.isChecked():
+            self.selectWallpaper = None
             self.listWidget.setDisabled(True)
             self.button.setDisabled(True)
         else:
+            self.listWidget.clearSelection()
             self.listWidget.setEnabled(True)
             self.button.setEnabled(True)
 
@@ -98,4 +103,11 @@ class WallpaperWidget(QWizardPage):
             item.userSelect = True
             self.listWidget.setCurrentItem(item)
 
-    def execute(self): pass
+    def execute(self): #FIXME
+        screenRect = QDesktopWidget.screenGeometry()
+        width = screenRect.width()
+        heigth =screenRect.height()
+
+        settings = QSettings(join(QDir.homePath(), ".config5", "plasma-org.kde.plasma.desktop-appletsrc"), QSettings.IniFormat)
+
+        settings.sync()
