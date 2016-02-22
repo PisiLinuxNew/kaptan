@@ -84,10 +84,3 @@ class MenuWidget(QWizardPage):
             with open(configFilePath, "w") as newConfigFile:
                 newConfigFile.write(setMenuStyle(configFile))
                 newConfigFile.close()
-
-
-
-        settings1 = QSettings(join(QDir.homePath(), ".config5", "plasma-org.kde.plasma.desktop-appletsrc"), QSettings.IniFormat)
-        #settings1.setValue("", 2)
-        #settings1.setValue("", 2)
-        settings1.sync()

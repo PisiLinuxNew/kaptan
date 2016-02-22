@@ -5,7 +5,7 @@ import rc_kaptan
 from kaptan import *
 from PyQt5.QtWidgets import QWizard, QApplication
 from PyQt5.QtGui import QPixmap, QIcon
-from PyQt5.QtCore import QTranslator, QLocale, Qt
+from PyQt5.QtCore import QTranslator, QLocale, Qt, QProcess
 
 class Kaptan(QWizard):
     def __init__(self):
@@ -51,7 +51,17 @@ class Kaptan(QWizard):
 
     def optionsAccepted(self, id):
         if id == self.otherId:
-            pass # execute() methodları sırayla çalışacak ve plasma kill sonra start
+
+            self.page(1).execute()
+
+
+            proc1 = QProcess()
+            proc2 = QProcess()
+
+            proc1.startDetached("killall plasmashell")
+            proc2.waitForStarted(2000)
+            proc2.startDetached("kstart plasmashell")
+             # execute() methodları sırayla çalışacak ve plasma kill sonra start
         if id == self.sumId:
             self.setButtonText(QWizard.NextButton, self.tr("Apply Settings"))
         else:
