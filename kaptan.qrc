@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>kaptan.qss</file>
         <file>data/images/applications-other.png</file>
         <file>data/images/arrow-left.png</file>
         <file>data/images/arrow-right.png</file>

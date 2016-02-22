@@ -81,5 +81,5 @@ class OtherWidget(QWizardPage):
         QDesktopServices.openUrl(QUrl(self.wiki_url))
 
     def systemSettingsOpen(self):
-        self.procSettings = QProcess()
-        self.procSettings.start("systemsettings5")
+        procSettings = QProcess()
+        procSettings.start("systemsettings5")

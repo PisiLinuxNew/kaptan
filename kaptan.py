@@ -45,11 +45,13 @@ class Kaptan(QWizard):
         self.addPage(AvatarWidget())
         #self.addPage(PMWidget()) FIXME
         self.sumId = self.addPage(SummaryWidget())
-        self.addPage(OtherWidget())
+        self.otherId = self.addPage(OtherWidget())
 
         self.currentIdChanged.connect(self.optionsAccepted)
 
     def optionsAccepted(self, id):
+        if id == self.otherId:
+            pass # execute() methodları sırayla çalışacak ve plasma kill sonra start
         if id == self.sumId:
             self.setButtonText(QWizard.NextButton, self.tr("Apply Settings"))
         else:
