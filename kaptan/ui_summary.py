@@ -21,14 +21,15 @@ class SummaryWidget(QWizardPage):
         groupBox.setMinimumHeight(350)
 
         groupLayout = QVBoxLayout(groupBox)
-        summaryLabel = QLabel()
-        groupLayout.addWidget(summaryLabel)
+        self.labelSummary = QLabel()
+        groupLayout.addWidget(    self.labelSummary)
         vlayout.addWidget(groupBox)
 
         vlayout.addItem(QSpacerItem(20, 40, QSizePolicy.Preferred, QSizePolicy.Preferred))
 
         self.summary = {}
         self.parent().summaryVisible.connect(self.summaryWrite)
+
 
     def summaryWrite(self):
         # -----------QFrame ---QWidget---Kaptan :S
@@ -44,17 +45,86 @@ class SummaryWidget(QWizardPage):
         #AvatarWidget
         avatarWidget = parent.page(5)
 
-        self.summary["Mouse"] = [{"mouseButtonMap" : mouseWidget.mouseButtonMap},
-                                 {"reverseScrollPolarity" : mouseWidget.reverseScrollPolarity},
-                                 {"folderSingleClick" : mouseWidget.folderSingleClick}]
+        if mouseWidget.mouseButtonMap == "RightHanded":
+            mouseWidget.mouseButtonMap = self.tr("Right Handed")
+        else:
+            mouseWidget.mouseButtonMap = self.tr("Left Handed")
 
-        self.summary["Theme"] = [{"desktopCount" : themeWidget.desktopCount},
-                                 {"desktopType" : themeWidget.desktopType},
-                                 {"iconSet" : themeWidget.iconSet},
-                                 {"themeSet" : themeWidget.themeSet}]
+        if mouseWidget.folderSingleClick:
+            mouseWidget.folderSingleClick = self.tr("Single Click")
+        else:
+            mouseWidget.folderSingleClick = self.tr("Double Click")
+
+        if themeWidget.desktopType == "org.kde.desktopcontainment":
+            themeWidget.desktopType = self.tr("Desktop View")
+        else:
+            themeWidget.desktopType = self.tr("Folder View")
+
+        if menuWidget.menuSelected == 0:
+            menuWidget.menuSelected = self.tr("Application Launcher")
+        elif menuWidget.menuSelected == 1:
+            menuWidget.menuSelected = self.tr("Application Menu")
+        else:
+            menuWidget.menuSelected = self.tr("Application Panel")
+
+        if wallpaperWidget.selectWallpaper:
+            wallpaperWidget.selectWallpaper = "<img src='{}' width='128' height='96'/>".format(wallpaperWidget.selectWallpaper)
+
+        if avatarWidget.userAvatar:
+            avatarWidget.userAvatar = "<img src='{}' width='128' height='128'/>".format(avatarWidget.userAvatar)
+
+
+        self.summary["Mouse"] = [{"mouseButtonMap" : mouseWidget.mouseButtonMap,
+                                  "folderSingleClick" : mouseWidget.folderSingleClick}]
+
+
+        self.summary["Theme"] = [{"desktopCount" : themeWidget.desktopCount,
+                                  "desktopType" : themeWidget.desktopType,
+                                  "iconSet" : themeWidget.iconSet.capitalize(),
+                                  "themeSet" : themeWidget.themeSet or self.tr("Unspecified.")}]
 
         self.summary["Menu"] = {"menuSelected" : menuWidget.menuSelected}
 
-        self.summary["Wallpaper"] = {"selectWallpaper" : wallpaperWidget.selectWallpaper}
+        self.summary["Wallpaper"] = {"selectWallpaper" : wallpaperWidget.selectWallpaper or self.tr("Unspecified.")}
 
-        self.summary["Avatar"] = {"userAvatar" : avatarWidget.userAvatar}
+        self.summary["Avatar"] = {"userAvatar" : avatarWidget.userAvatar or self.tr("Unspecified.")}
+
+
+        html = self.tr("""
+        <ul>
+            <li><strong>Mouse Options</strong>
+            </li>
+                <ul>
+                    <li>Selected Hand: <strong>{}</strong></li>
+                    <li>Selected Clicking Behavior: <strong>{}</strong></li>
+                </ul>
+            <li><strong>Theme Options</strong>
+                <ul>
+                    <li>Desktop Count: <strong>{}</strong></li>
+                    <li>Desktop Type: <strong>{}</strong></li>
+                    <li>İcon Set: <strong>{}</strong></li>
+                    <li>Theme Set: <strong>{}</strong></li>
+                </ul>
+            </li>
+            <li><strong>Menu Option</strong>
+                <ul>
+                    <li>Selected Menu: <strong>{}</strong></li>
+                </ul>
+            </li>
+            <li><strong>Selected Wallpaper</strong>
+                <ul>
+                    <li><strong>{}</strong></li>
+                </ul>
+            </li>
+            <li><strong>Selected Avatar</strong>
+                <ul>
+                    <li><strong>{}</strong></li>
+                </ul>
+            </li>
+        </ul> """).format(self.summary["Mouse"][0]["mouseButtonMap"], self.summary["Mouse"][0]["folderSingleClick"],
+                          self.summary["Theme"][0]["desktopCount"], self.summary["Theme"][0]["desktopType"],
+                          self.summary["Theme"][0]["iconSet"], self.summary["Theme"][0]["themeSet"],
+                          self.summary["Menu"]["menuSelected"], self.summary["Wallpaper"]["selectWallpaper"],
+                          self.summary["Avatar"]["userAvatar"])
+
+        self.labelSummary.setText(html)

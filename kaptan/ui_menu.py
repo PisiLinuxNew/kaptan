@@ -8,7 +8,7 @@ from kaptan.tools import *
 class MenuWidget(QWizardPage):
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.setSubTitle(self.tr("<h2>Bir Menü Stili Seçin</h2>"))
+        self.setSubTitle(self.tr("<h2>Select Menu Style</h2>"))
 
         texts = [
             self.tr("<p>Application Launcher is the default menu for Pisi Linux.</p>\
