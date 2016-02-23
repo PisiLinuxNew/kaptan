@@ -11,11 +11,11 @@ class MenuWidget(QWizardPage):
         self.setSubTitle(self.tr("<h2>Bir Menü Stili Seçin</h2>"))
 
         texts = [
-            self.tr("<p>Uygulama Başlatıcı, Pisi Linux'un ön tanımlı menüsüdür.</p>\
-            <p>Uygulama kısayolları hızlı ve kolay erişebilecek şekilde düzenlenmiştir.</p>"),
-            self.tr("<p>Uygulama Menüsü oldukça hafif yapısı yüzünden yavaş bilgisayarlar için önerilir.</p>"),
-            self.tr("<p>Uygulama Paneli, geniş ve oldukça kişiselleştirilebilir bir menüdür.</p>\
-            <p>Uygulama kısayolları hızlı ve kolay erişilebilecek şekilde düzenlenmiştir.</p>")
+            self.tr("<p>Application Launcher is the default menu for Pisi Linux.</p>\
+            <p>Application shortcuts are arranged so that you can access quickly and easily.</p>"),
+            self.tr("<p>Application Menu is recommended for slow computers because of extremely lightweight structure.</p>"),
+            self.tr("<p>Aplication Panel is a full screen menu style.</p>\
+            <p>Application shortcuts are arranged so that you can access quickly and easily.</p>")
         ]
 
         self.menus = [[":/data/images/menu-kickoff.png", texts[0]],
