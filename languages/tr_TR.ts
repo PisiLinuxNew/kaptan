@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS><TS version="2.0">
+<context>
+    <name>AvatarWidget</name>
+    <message>
+        <location filename="../kaptan/ui_avatar.py" line="13"/>
+        <source>&lt;h2&gt;Create Your Avatar&lt;/h2&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_avatar.py" line="25"/>
+        <source>&lt;p&gt;This screen helps you set your &lt;strong&gt;user picture&lt;/strong&gt;. You can either choose an image from a         file or you can capture an image from your camera. Select an option from the &lt;strong&gt;options&lt;/strong&gt; menu.&lt;/p&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_avatar.py" line="42"/>
+        <source>Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_avatar.py" line="42"/>
+        <source>Choose an image...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_avatar.py" line="52"/>
+        <source>Camera </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_avatar.py" line="66"/>
+        <source>Capture</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_avatar.py" line="71"/>
+        <source>Recapture</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_avatar.py" line="130"/>
+        <source>Choose Avatar</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Kaptan</name>
+    <message>
+        <location filename="../kaptan.py" line="78"/>
+        <source>Next</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan.py" line="26"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan.py" line="31"/>
+        <source>Back</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan.py" line="36"/>
+        <source>Finish</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan.py" line="75"/>
+        <source>Apply Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MenuWidget</name>
+    <message>
+        <location filename="../kaptan/ui_menu.py" line="11"/>
+        <source>&lt;h2&gt;Select Menu Style&lt;/h2&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_menu.py" line="14"/>
+        <source>&lt;p&gt;Application Launcher is the default menu for Pisi Linux.&lt;/p&gt;            &lt;p&gt;Application shortcuts are arranged so that you can access quickly and easily.&lt;/p&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_menu.py" line="16"/>
+        <source>&lt;p&gt;Application Menu is recommended for slow computers because of extremely lightweight structure.&lt;/p&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_menu.py" line="17"/>
+        <source>&lt;p&gt;Aplication Panel is a full screen menu style.&lt;/p&gt;            &lt;p&gt;Application shortcuts are arranged so that you can access quickly and easily.&lt;/p&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_menu.py" line="35"/>
+        <source>You can also customize your &lt;b&gt;KDE menu&lt;/b&gt; as you like. Please choose one from the following styles.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_menu.py" line="42"/>
+        <source>Application Launcher</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_menu.py" line="43"/>
+        <source>Application Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_menu.py" line="44"/>
+        <source>Application Dashboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MouseWidget</name>
+    <message>
+        <location filename="../kaptan/ui_mouse.py" line="14"/>
+        <source>&lt;h2&gt;Setup Mouse Behavior&lt;/h2&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_mouse.py" line="46"/>
+        <source>Clicking Behavior</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_mouse.py" line="55"/>
+        <source>Double-click to open files and folders.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_mouse.py" line="60"/>
+        <source>Single-click to open files and folders.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_mouse.py" line="69"/>
+        <source>Button Order</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_mouse.py" line="78"/>
+        <source>Right hand.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_mouse.py" line="83"/>
+        <source>Left hand.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_mouse.py" line="92"/>
+        <source>Reverse scrolling.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>OtherWidget</name>
+    <message>
+        <location filename="../kaptan/ui_other.py" line="9"/>
+        <source>&lt;h2&gt;Tebrikler!&lt;/h2&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_other.py" line="19"/>
+        <source>&lt;p&gt;&lt;strong&gt;Your settings have been applied.&lt;/strong&gt; Now you can start enjoying Pisi Linux         or you can and support. Don&apos;t forget to &lt;strong&gt;join our community!&lt;strong&gt;&lt;/p&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_other.py" line="39"/>
+        <source>System Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_other.py" line="36"/>
+        <source>Configuration tools for Pisi Linux such as the display, firewall, keyboard, user manager...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_other.py" line="63"/>
+        <source>Help and Support</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_other.py" line="60"/>
+        <source>Pisi Linux community, mailing lists, chat rooms, Wiki documents, help and support pages...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SummaryWidget</name>
+    <message>
+        <location filename="../kaptan/ui_summary.py" line="8"/>
+        <source>&lt;h2&gt;Save Your Settings&lt;/h2&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_summary.py" line="14"/>
+        <source>&lt;p&gt;You have successfully finished all steps. Here&apos;s a summary of the settings you want to apply.         Click &lt;strong&gt;Apply Settings&lt;/strong&gt; to save them now. You are now ready to enjoy Pisi Linux!&lt;/p&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_summary.py" line="20"/>
+        <source>The following settings will be applied</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_summary.py" line="49"/>
+        <source>Right Handed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_summary.py" line="51"/>
+        <source>Left Handed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_summary.py" line="54"/>
+        <source>Single Click</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_summary.py" line="56"/>
+        <source>Double Click</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_summary.py" line="59"/>
+        <source>Desktop View</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_summary.py" line="61"/>
+        <source>Folder View</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_summary.py" line="64"/>
+        <source>Application Launcher</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_summary.py" line="66"/>
+        <source>Application Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_summary.py" line="68"/>
+        <source>Application Panel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_summary.py" line="90"/>
+        <source>Unspecified.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_summary.py" line="93"/>
+        <source>
+        &lt;ul&gt;
+            &lt;li&gt;&lt;strong&gt;Mouse Options&lt;/strong&gt;
+            &lt;/li&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;Selected Hand: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
+                    &lt;li&gt;Selected Clicking Behavior: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;li&gt;&lt;strong&gt;Theme Options&lt;/strong&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;Desktop Count: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
+                    &lt;li&gt;Desktop Type: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
+                    &lt;li&gt;&#xc4;&#xb0;con Set: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
+                    &lt;li&gt;Theme Set: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;Menu Option&lt;/strong&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;Selected Menu: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;Selected Wallpaper&lt;/strong&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;Selected Avatar&lt;/strong&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt; </source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ThemeWidget</name>
+    <message>
+        <location filename="../kaptan/ui_theme.py" line="11"/>
+        <source>&lt;h2&gt;Customize Your Desktop&lt;/h2&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_theme.py" line="22"/>
+        <source>&lt;p&gt;Choose your favorite theme and desktop type. Customize Pisi Linux with colorful styles and themes.&lt;/p&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_theme.py" line="38"/>
+        <source>KDE Themes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_theme.py" line="50"/>
+        <source>&#xc4;&#xb0;con Sets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_theme.py" line="85"/>
+        <source>Desktop Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_theme.py" line="88"/>
+        <source>Number of Desktops</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_theme.py" line="92"/>
+        <source>Desktop View</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_theme.py" line="93"/>
+        <source>Folder View</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>WallpaperWidget</name>
+    <message>
+        <location filename="../kaptan/ui_wallpaper.py" line="11"/>
+        <source>&lt;h2&gt;Choose Wallpaper&lt;/h2&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_wallpaper.py" line="22"/>
+        <source>&lt;p&gt;Choose your favorite wallpaper for Pisi Linux. Don&apos;t forget to check out         &lt;strong&gt;Desktop Settings&lt;/strong&gt; for downloading new and cool wallpapers.&lt;/p&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_wallpaper.py" line="31"/>
+        <source>Wallpapers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_wallpaper.py" line="45"/>
+        <source>Choose wallpaper from file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_wallpaper.py" line="51"/>
+        <source>Don&apos;t change wallpaper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_wallpaper.py" line="96"/>
+        <source>Choose wallpaper</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>WelcomeWidget</name>
+    <message>
+        <location filename="../kaptan/ui_welcome.py" line="15"/>
+        <source>&lt;h2&gt;Welcome to Pisi Linux!&lt;/h2&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+</TS>
