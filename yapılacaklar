@@ -2,5 +2,11 @@ yapılacak:
 
 tema sayfasında kde temaları yapılmadı.
 Özet sayfası ve "ayarları kaydet"(me) kısmı yapılmadı.
+dil dosyaları oluşturulmadı.
+setup.py oluşturulacak.
+Still kodları yazılacak.
+readme düzeltilecek.
+help içindeki metinler düzeltilecek.
 
-parse modülü yazılacak: masaüstü görünümü, teması.
+
+parse modülü yazılacak: teması.

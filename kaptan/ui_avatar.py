@@ -10,7 +10,7 @@ from PyQt5.QtMultimedia import QCamera, QCameraInfo, QCameraImageCapture, QCamer
 class AvatarWidget(QWizardPage):
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.setSubTitle(self.tr("<h2>Kullanıcı Resminizi Yaratın</h2>"))
+        self.setSubTitle(self.tr("<h2>Create Your Avatar</h2>"))
 
         vlayout = QVBoxLayout(self)
 
@@ -22,8 +22,8 @@ class AvatarWidget(QWizardPage):
 
         label = QLabel(self)
         label.setWordWrap(True)
-        label.setText(self.tr("<p>Bu ekran <strong>kullanıcı resminizi</strong> seçmenize yardımcı olur. Dosyalarınız arasından bir resim seçebilir \
-        ya da kameradan aldığınız görüntüyü kullanabilirsiniz. <strong>Seçenekler</strong> menüsünden seçiminizi yapabilirsiniz.</p>"))
+        label.setText(self.tr("<p>This screen helps you set your <strong>user picture</strong>. You can either choose an image from a \
+        file or you can capture an image from your camera. Select an option from the <strong>options</strong> menu.</p>"))
         labelLayout.addWidget(label)
         vlayout.addLayout(labelLayout)
 
@@ -39,7 +39,7 @@ class AvatarWidget(QWizardPage):
 
         comboBox = QComboBox()
         comboBox.setMinimumWidth(250)
-        comboBox.addItems([self.tr("Seçenekler"), self.tr("Resim seç...")])
+        comboBox.addItems([self.tr("Options"), self.tr("Choose an image...")])
 
         #Camera control
         self.cameraInfo = None
@@ -63,12 +63,12 @@ class AvatarWidget(QWizardPage):
             self.cameraImageCapture.imageCaptured.connect(self.imageCapture)
 
         self.buttonCam = QPushButton()
-        self.buttonCam.setText(self.tr("Çek"))
+        self.buttonCam.setText(self.tr("Capture"))
         self.buttonCam.setIcon(QIcon(":/data/images/webcamreceive.png"))
         self.buttonCam.setVisible(False)
 
         self.buttonReplay = QPushButton()
-        self.buttonReplay.setText(self.tr("Yeniden Çek"))
+        self.buttonReplay.setText(self.tr("Recapture"))
         self.buttonReplay.setIcon(QIcon(":/data/images/view-refresh.png"))
         self.buttonReplay.setVisible(False)
 
@@ -127,7 +127,7 @@ class AvatarWidget(QWizardPage):
             self.buttonCam.hide()
             self.cameraView.hide()
             self.cameraLabel.show()
-            file_url, file_type = QFileDialog.getOpenFileName(self, self.tr("Avatar Seçin"), QDir.homePath(), "Image (*.png *.jpg)")
+            file_url, file_type = QFileDialog.getOpenFileName(self, self.tr("Choose Avatar"), QDir.homePath(), "Image (*.png *.jpg)")
             if file_url != "":
                 p = QPixmap(file_url)
                 self.cameraLabel.setPixmap(p)

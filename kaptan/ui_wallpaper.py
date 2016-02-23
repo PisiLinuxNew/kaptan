@@ -8,7 +8,7 @@ import os
 class WallpaperWidget(QWizardPage):
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.setSubTitle(self.tr("<h2>Duvar Kağıdı Seçin</h2>"))
+        self.setSubTitle(self.tr("<h2>Choose Wallpaper</h2>"))
 
         vlayout = QVBoxLayout(self)
 
@@ -19,8 +19,8 @@ class WallpaperWidget(QWizardPage):
         labelLayout.addWidget(labelImage)
 
         label = QLabel(self)
-        label.setText(self.tr("<p>Masaüstünüz için en beğendiğiniz duvar kağıdını seçin. <strong>Masaüstü Ayarları</strong>'na \
-        girerek yeni ve havalı duvar kağıtları indirebileeğinizi unutmayın.</p>"))
+        label.setText(self.tr("<p>Choose your favorite wallpaper for Pisi Linux. Don't forget to check out \
+        <strong>Desktop Settings</strong> for downloading new and cool wallpapers.</p>"))
         label.setWordWrap(True)
         labelLayout.addWidget(label)
         vlayout.addLayout(labelLayout)
@@ -28,7 +28,7 @@ class WallpaperWidget(QWizardPage):
         vlayout.addItem(QSpacerItem(20, 40, QSizePolicy.Preferred, QSizePolicy.Preferred))
 
         groupBox = QGroupBox(self)
-        groupBox.setTitle(self.tr("Duvar Kağıtları"))
+        groupBox.setTitle(self.tr("Wallpapers"))
         groupBox.setMinimumHeight(350)
 
         grLayout = QVBoxLayout(groupBox)
@@ -42,13 +42,13 @@ class WallpaperWidget(QWizardPage):
 
         hlayout = QHBoxLayout()
         self.button = QPushButton()
-        self.button.setText(self.tr("Kendi Duvar Kağıdını Seç"))
+        self.button.setText(self.tr("Choose wallpaper from file"))
         hlayout.addWidget(self.button)
 
         hlayout.addItem(QSpacerItem(400, 20, QSizePolicy.Preferred, QSizePolicy.Preferred))
 
         self.checkbox = QCheckBox()
-        self.checkbox.setText(self.tr("Duvar Kağıdını değiştirme"))
+        self.checkbox.setText(self.tr("Don't change wallpaper"))
         hlayout.addWidget(self.checkbox)
 
         vlayout.addLayout(hlayout)
@@ -93,7 +93,7 @@ class WallpaperWidget(QWizardPage):
             self.button.setEnabled(True)
 
     def wallpaperSelectDialog(self):
-        file_url, file_type = QFileDialog.getOpenFileName(self, self.tr("Duvar Kağıdını Seç"), QDir.homePath(), "Image (*.png *.jpg)")
+        file_url, file_type = QFileDialog.getOpenFileName(self, self.tr("Choose wallpaper"), QDir.homePath(), "Image (*.png *.jpg)")
         print(file_url)
         if not "" == file_url:
             self.selectWallpaper = file_url

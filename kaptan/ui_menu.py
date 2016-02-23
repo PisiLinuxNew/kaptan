@@ -11,11 +11,10 @@ class MenuWidget(QWizardPage):
         self.setSubTitle(self.tr("<h2>Bir Menü Stili Seçin</h2>"))
 
         texts = [
-            self.tr("<p>Kickoff Menü, Pisi Linux'un ön tanımlı menüsüdür.</p>\
+            self.tr("<p>Uygulama Başlatıcı, Pisi Linux'un ön tanımlı menüsüdür.</p>\
             <p>Uygulama kısayolları hızlı ve kolay erişebilecek şekilde düzenlenmiştir.</p>"),
-            self.tr("<p>Basit menü KDE 3'ten kalma eski bir menü stilidir.</p>\
-            <p>Oldukça hafif yapısı yüzünden yavaş bilgisayarlar için önerilir.</p>"),
-            self.tr("<p>Lancelot menü, geniş ve oldukça kişiselleştirilebilir bir menüdür.</p>\
+            self.tr("<p>Uygulama Menüsü oldukça hafif yapısı yüzünden yavaş bilgisayarlar için önerilir.</p>"),
+            self.tr("<p>Uygulama Paneli, geniş ve oldukça kişiselleştirilebilir bir menüdür.</p>\
             <p>Uygulama kısayolları hızlı ve kolay erişilebilecek şekilde düzenlenmiştir.</p>")
         ]
 
@@ -33,16 +32,16 @@ class MenuWidget(QWizardPage):
         labelLayout.addWidget(iconLabel)
 
         label = QLabel(self)
-        label.setText(self.tr("KDE menüsünü istediğiniz stili seçerek kişiselleştirebilirsiniz.!"))
+        label.setText(self.tr("You can also customize your <b>KDE menu</b> as you like. Please choose one from the following styles."))
         labelLayout.addWidget(label)
         vlayout.addLayout(labelLayout)
 
         vlayout.addItem(QSpacerItem(20, 40, QSizePolicy.Preferred, QSizePolicy.Preferred))
 
         self.comboBox = QComboBox(self)
-        self.comboBox.addItem(self.tr("Kickoff Menü"))
-        self.comboBox.addItem(self.tr("Kicker Menü"))
-        self.comboBox.addItem(self.tr("KimPanel Menü"))
+        self.comboBox.addItem(self.tr("Application Launcher"))
+        self.comboBox.addItem(self.tr("Application Menu"))
+        self.comboBox.addItem(self.tr("Application Dashboard"))
         vlayout.addWidget(self.comboBox)
 
         vlayout.addItem(QSpacerItem(20, 40, QSizePolicy.Preferred, QSizePolicy.Preferred))

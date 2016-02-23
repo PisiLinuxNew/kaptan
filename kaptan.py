@@ -6,12 +6,13 @@ from kaptan import *
 from PyQt5.QtWidgets import QWizard, QApplication
 from PyQt5.QtGui import QPixmap, QIcon
 from PyQt5.QtCore import QTranslator, QLocale, Qt, QProcess
+from os.path import abspath
 
 class Kaptan(QWizard):
     def __init__(self):
         super().__init__()
 
-        self.setWindowTitle("Kaptan Masaüstü")
+        self.setWindowTitle("Kaptan Desktop")
         self.setWindowIcon(QIcon(":/data/images/kaptan-icon.png"))
         self.setMinimumSize(900, 640)
         self.setMaximumSize(1000, 650)
@@ -36,23 +37,23 @@ class Kaptan(QWizard):
         self.button(QWizard.FinishButton).setIcon(QIcon(":/data/images/tick.png"))
 
 
-
-        self.addPage(WelcomeWidget())
-        self.addPage(MouseWidget())
-        self.addPage(ThemeWidget())
-        self.addPage(MenuWidget())
-        self.addPage(WallpaperWidget())
-        self.addPage(AvatarWidget())
+        self.addPage(WelcomeWidget(self))
+        self.addPage(MouseWidget(self))
+        self.addPage(ThemeWidget(self))
+        self.addPage(MenuWidget(self))
+        self.addPage(WallpaperWidget(self))
+        self.addPage(AvatarWidget(self))
         #self.addPage(PMWidget()) FIXME
-        self.sumId = self.addPage(SummaryWidget())
-        self.otherId = self.addPage(OtherWidget())
+        self.sumId = self.addPage(SummaryWidget(self))
+        self.otherId = self.addPage(OtherWidget(self))
 
         self.currentIdChanged.connect(self.optionsAccepted)
 
+    summaryVisible = pyqtSignal()
     def optionsAccepted(self, id):
         if id == self.otherId:
 
-            #MouseWidget
+            """#MouseWidget
             self.page(1).execute()
             #ThemeWidget
             self.page(2).execute()
@@ -61,25 +62,25 @@ class Kaptan(QWizard):
             #WallpaperWidget
             self.page(4).execute()
             #AvatarWidget
-            self.page(5).execute()
+            self.page(5).execute()"""
 
 
             proc1 = QProcess()
             proc2 = QProcess()
 
             proc1.startDetached("killall plasmashell")
-            proc2.waitForStarted(2000)
+            proc2.waitForStarted(1000)
             proc2.startDetached("kstart plasmashell")
-             # execute() methodları sırayla çalışacak ve plasma kill sonra start
         if id == self.sumId:
             self.setButtonText(QWizard.NextButton, self.tr("Apply Settings"))
+            self.summaryVisible.emit()
         else:
             self.setButtonText(QWizard.NextButton, self.tr("Next"))
 
 
 def main():
     app = QApplication(sys.argv)
-    #app.setStyleSheet(open("data/kaptan.qss").read())
+    #app.setStyleSheet(open(abspath("data/kaptan.qss").read())
 
     locale = QLocale.system().name()
     translator = QTranslator(app)

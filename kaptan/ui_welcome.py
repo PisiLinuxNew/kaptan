@@ -2,18 +2,17 @@ from PyQt5.QtWidgets import QWizardPage, QLabel, QHBoxLayout, QVBoxLayout, QSpac
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtCore import Qt
 
-Welcome = """<h1>Pisi Linux Nedir?</h1>
-<p><strong>Pisi Linux</strong> güvenilir, hızlı ve kullanıcı dostu bir işletim sistemidir.</p>
-<p>Pisi Linux ile internete bağlanabilir, e-postalarınızı okuyabilir, ofis dökümanlarıyla çalışabilir, film izleyebilir,\
- müzik dinleyebilir, yazılım geliştirebilir, oyunlar oynayabilir ve daha fazlasını yapabilirsiniz!</p>
-<p><strong>Kaptan</strong>, Pisi Linux çalışma ortamınızı hızlı ve kolayca kişiselleştirmenize yardımcı olan bir uygulamadır. Lütfen \
-başlamak için <strong>İleri</strong>'ye tıklayın.</p>
-"""
+Welcome = """<h1>What is Pisi Linux?</h1>
+<p><strong>Pisi Linux</strong> is a reliable, secure, fast and user friendly operating system.</p>
+<p>With Pisi Linux, you can connect to the internet, read your e-mails, work with your office documents, watch movies, play music, \
+develop applications, play games and much more!</p>
+<p><strong>Kaptan</strong>,  will help you personalize your Pisi Linux workspace easily and quickly. Please click \
+<strong>Next</strong> in order to begin.</p>"""
 
 class WelcomeWidget(QWizardPage):
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.setSubTitle(self.tr("<h2>Pisi Linux'a Hoş Geldiniz!</h2>"))
+        self.setSubTitle(self.tr("<h2>Welcome to Pisi Linux!</h2>"))
 
         vlayout = QVBoxLayout(self)
         vlayout.addItem(QSpacerItem(20, 150, QSizePolicy.Preferred, QSizePolicy.Minimum))

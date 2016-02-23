@@ -5,14 +5,13 @@ from PyQt5.QtCore import *
 
 from os.path import join
 
-Description = "<p><strong>Tıklama Biçimi</strong> dosya açarken simgelere kaç kere tıklamanız gerektiğini belirlemenize yardımcı olur. \
-Eğer <strong>sol elinizi</strong> kullanıyorsanız, fare butonlarının yerini değiştirerek farenizi daha rahat kullanabilirsiniz.</p>"
+Description = "<p>The <strong>clicking behavior</strong> defines how many times you want to click when you are opening a file. \
+If you are <strong>left handed</strong>, you may prefer to swap the left and right buttons of your pointing device.</p>"
 
 class MouseWidget(QWizardPage):
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.setSubTitle(self.tr("<h2>Fare Tıklama Davranışını Belirleyin</h2>"))
-
+        self.setSubTitle(self.tr("<h2>Setup Mouse Behavior</h2>"))
 
         vlayout = QVBoxLayout(self)
 
@@ -44,7 +43,7 @@ class MouseWidget(QWizardPage):
 
     def createGroupBox(self, layout):
         group1 = QGroupBox(self)
-        group1.setTitle(self.tr("Tıklama Biçimi"))
+        group1.setTitle(self.tr("Clicking Behavior"))
         group1.setMinimumHeight(150)
         group1.setMaximumWidth(300)
         layout.addWidget(group1)
@@ -53,12 +52,12 @@ class MouseWidget(QWizardPage):
         buttonGroup = QButtonGroup(group1)
 
         self.radiobutton1 = QRadioButton(group1)
-        self.radiobutton1.setText(self.tr("Dosya ve dizinleri açmak için çift tıkla."))
+        self.radiobutton1.setText(self.tr("Double-click to open files and folders."))
         self.radiobutton1.setChecked(True)
         vlayout1.addWidget(self.radiobutton1)
 
         self.radiobutton2 = QRadioButton(group1)
-        self.radiobutton2.setText(self.tr("Dosya ve dizinleri açmak için tek tıkla."))
+        self.radiobutton2.setText(self.tr("Single-click to open files and folders."))
         vlayout1.addWidget(self.radiobutton2)
 
         buttonGroup.addButton(self.radiobutton1)
@@ -67,7 +66,7 @@ class MouseWidget(QWizardPage):
         buttonGroup.buttonClicked.connect(self.folderClick)
 
         group2 = QGroupBox(self)
-        group2.setTitle(self.tr("Düğme Sırası"))
+        group2.setTitle(self.tr("Button Order"))
         group2.setMinimumHeight(150)
         group2.setMaximumWidth(300)
         layout.addWidget(group2)
@@ -76,12 +75,12 @@ class MouseWidget(QWizardPage):
         buttonGroup2 = QButtonGroup(group2)
 
         self.radiobutton3 = QRadioButton(group2)
-        self.radiobutton3.setText(self.tr("Sağ el."))
+        self.radiobutton3.setText(self.tr("Right hand."))
         self.radiobutton3.setChecked(True)
         vlayout2.addWidget(self.radiobutton3)
 
         self.radiobutton4 = QRadioButton(group2)
-        self.radiobutton4.setText(self.tr("Sol el."))
+        self.radiobutton4.setText(self.tr("Left hand."))
         vlayout2.addWidget(self.radiobutton4)
 
         buttonGroup2.addButton(self.radiobutton3)
@@ -90,7 +89,7 @@ class MouseWidget(QWizardPage):
         buttonGroup2.buttonClicked.connect(self.mouseButton)
 
         self.checkbox = QCheckBox(group2)
-        self.checkbox.setText(self.tr("Tekerlek ters kaydırsın."))
+        self.checkbox.setText(self.tr("Reverse scrolling."))
         self.checkbox.clicked.connect(self.reverseScroll)
         vlayout2.addWidget(self.checkbox)
 

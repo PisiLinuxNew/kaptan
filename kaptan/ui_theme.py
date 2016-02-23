@@ -8,7 +8,7 @@ from kaptan.tools import getDesktopStyle, setDesktopStyle
 class ThemeWidget(QWizardPage):
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.setSubTitle(self.tr("<h2>Masaüstünüzü Kişiselleştirin</h2>"))
+        self.setSubTitle(self.tr("<h2>Customize Your Desktop</h2>"))
 
         vlayout = QVBoxLayout(self)
 
@@ -19,7 +19,7 @@ class ThemeWidget(QWizardPage):
         labelLayout.addWidget(imageLabel)
 
         label = QLabel(self)
-        label.setText(self.tr("<p>Favori temanızı ve masaüstü tipini seçip, Pisi Linux'u renkli stil ve temalarla kişiselleştirebilirsiniz.</p>"))
+        label.setText(self.tr("<p>Choose your favorite theme and desktop type. Customize Pisi Linux with colorful styles and themes.</p>"))
         labelLayout.addWidget(label)
         vlayout.addLayout(labelLayout)
 
@@ -30,11 +30,12 @@ class ThemeWidget(QWizardPage):
         self.desktopCount = 1
         self.desktopType = "org.kde.desktopcontainment"
         self.iconSet = "breeze"
+        self.themeSet = None
 
     def createGroupBox(self, layout):
 
         group1 = QGroupBox(self)
-        group1.setTitle(self.tr("KDE Temaları"))
+        group1.setTitle(self.tr("KDE Themes"))
         group1.setMinimumHeight(180)
         layout.addWidget(group1)
 
@@ -46,7 +47,7 @@ class ThemeWidget(QWizardPage):
 
 
         group2 = QGroupBox(self)
-        group2.setTitle(self.tr("Simge Setleri"))
+        group2.setTitle(self.tr("İcon Sets"))
         group2.setMinimumHeight(140)
         group2.setMaximumHeight(150)
         layout.addWidget(group2)
@@ -81,15 +82,15 @@ class ThemeWidget(QWizardPage):
         hlayout.addLayout(vlayout2)
 
         label1 = QLabel()
-        label1.setText(self.tr("Masaüstü Tipi"))
+        label1.setText(self.tr("Desktop Type"))
         vlayout1.addWidget(label1)
         label2 = QLabel()
-        label2.setText(self.tr("Masaüstü Sayısı"))
+        label2.setText(self.tr("Number of Desktops"))
         vlayout2.addWidget(label2)
 
         comboBox = QComboBox()
-        comboBox.addItem(self.tr("Masaüstü Görünümü"))
-        comboBox.addItem(self.tr("Dizin Görünümü"))
+        comboBox.addItem(self.tr("Desktop View"))
+        comboBox.addItem(self.tr("Folder View"))
         comboBox.currentIndexChanged.connect(self.desktopTypeCreate)
         vlayout1.addWidget(comboBox)
         spinBox = QSpinBox()
@@ -113,16 +114,12 @@ class ThemeWidget(QWizardPage):
         settings1.setValue("Desktops/Rows", 2)
         settings1.sync()
 
-        configFilePath = join(QDir.homePath(), ".config5", "plasma-org.kde.plasma.desktop-appletsrc")
-
-        settings2 = QSettings(configFilePath, QSettings.IniFormat)
-        settings2.setValue("Containments/plugin", self.desktopType)
-        settings2.sync()
 
         settings3 = QSettings(join(QDir.homePath(), ".config5", "kdeglobals"), QSettings.IniFormat)
         settings3.setValue("Icons/Theme", self.iconSet)
         settings3.sync()
 
+        configFilePath = join(QDir.homePath(), ".config5", "plasma-org.kde.plasma.desktop-appletsrc")
 
         configFile = open(configFilePath).read()
         desktopView = getDesktopStyle(configFile)
