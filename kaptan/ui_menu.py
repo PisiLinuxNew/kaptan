@@ -11,11 +11,11 @@ class MenuWidget(QWizardPage):
         self.setSubTitle(self.tr("<h2>Select Menu Style</h2>"))
 
         texts = [
-            self.tr("<p>Application Launcher is the default menu for Pisi Linux.</p>\
-            <p>Application shortcuts are arranged so that you can access quickly and easily.</p>"),
+            self.tr("<p>Application Launcher is the default menu for Pisi Linux. \
+            Application shortcuts are arranged so that you can access quickly and easily.</p>"),
             self.tr("<p>Application Menu is recommended for slow computers because of extremely lightweight structure.</p>"),
-            self.tr("<p>Aplication Panel is a full screen menu style.</p>\
-            <p>Application shortcuts are arranged so that you can access quickly and easily.</p>")
+            self.tr("<p>Aplication Panel is a full screen menu style. \
+            Application shortcuts are arranged so that you can access quickly and easily.</p>")
         ]
 
         self.menus = [[":/data/images/menu-kickoff.png", texts[0]],
@@ -32,7 +32,8 @@ class MenuWidget(QWizardPage):
         labelLayout.addWidget(iconLabel)
 
         label = QLabel(self)
-        label.setText(self.tr("You can also customize your <b>KDE menu</b> as you like. Please choose one from the following styles."))
+        label.setText(self.tr("<p>You can also customize your <strong>KDE menu</strong> as you like. \
+        Please choose one from the following styles.</p>"))
         labelLayout.addWidget(label)
         vlayout.addLayout(labelLayout)
 

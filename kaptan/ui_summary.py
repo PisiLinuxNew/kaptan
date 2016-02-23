@@ -102,7 +102,7 @@ class SummaryWidget(QWizardPage):
                 <ul>
                     <li>Desktop Count: <strong>{}</strong></li>
                     <li>Desktop Type: <strong>{}</strong></li>
-                    <li>İcon Set: <strong>{}</strong></li>
+                    <li>Icon Set: <strong>{}</strong></li>
                     <li>Theme Set: <strong>{}</strong></li>
                 </ul>
             </li>
@@ -121,10 +121,10 @@ class SummaryWidget(QWizardPage):
                     <li><strong>{}</strong></li>
                 </ul>
             </li>
-        </ul> """).format(self.summary["Mouse"][0]["mouseButtonMap"], self.summary["Mouse"][0]["folderSingleClick"],
+        </ul>""")
+
+        self.labelSummary.setText(html.format(self.summary["Mouse"][0]["mouseButtonMap"], self.summary["Mouse"][0]["folderSingleClick"],
                           self.summary["Theme"][0]["desktopCount"], self.summary["Theme"][0]["desktopType"],
                           self.summary["Theme"][0]["iconSet"], self.summary["Theme"][0]["themeSet"],
                           self.summary["Menu"]["menuSelected"], self.summary["Wallpaper"]["selectWallpaper"],
-                          self.summary["Avatar"]["userAvatar"])
-
-        self.labelSummary.setText(html)
+                          self.summary["Avatar"]["userAvatar"]))

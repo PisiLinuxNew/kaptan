@@ -47,7 +47,7 @@ class ThemeWidget(QWizardPage):
 
 
         group2 = QGroupBox(self)
-        group2.setTitle(self.tr("İcon Sets"))
+        group2.setTitle(self.tr("Icon Sets"))
         group2.setMinimumHeight(140)
         group2.setMaximumHeight(150)
         layout.addWidget(group2)

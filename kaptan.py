@@ -12,7 +12,7 @@ class Kaptan(QWizard):
     def __init__(self):
         super().__init__()
 
-        self.setWindowTitle("Kaptan Desktop")
+        self.setWindowTitle(self.tr("Kaptan Desktop"))
         self.setWindowIcon(QIcon(":/data/images/kaptan-icon.png"))
         self.setMinimumSize(900, 640)
         self.setMaximumSize(1000, 650)
@@ -84,6 +84,7 @@ def main():
 
     locale = QLocale.system().name()
     translator = QTranslator(app)
+    translator.load(abspath("languages/{}.qm".format(locale)))
     app.installTranslator(translator)
 
     kaptan = Kaptan()

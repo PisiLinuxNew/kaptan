@@ -6,7 +6,7 @@ from PyQt5.QtCore import *
 class OtherWidget(QWizardPage):
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.setSubTitle(self.tr("<h2>Tebrikler!</h2>"))
+        self.setSubTitle(self.tr("<h2>Congratulations!</h2>"))
 
         self.homepage_url = "http://www.pisilinux.org"
         self.forum_url = "http://forum.pisilinux.org"
@@ -33,7 +33,7 @@ class OtherWidget(QWizardPage):
         groupHLayout1.addWidget(groupLabelImage)
         groupLabel1 = QLabel()
         groupLabel1.setWordWrap(True)
-        groupLabel1.setText(self.tr("Configuration tools for Pisi Linux such as the display, firewall, keyboard, user manager..."))
+        groupLabel1.setText(self.tr("<p>Configuration tools for Pisi Linux such as the display, firewall, keyboard, user manager...</p>"))
         groupButton1 = QPushButton()
         groupButton1.setMaximumWidth(200)
         groupButton1.setText(self.tr("System Settings"))
@@ -57,7 +57,7 @@ class OtherWidget(QWizardPage):
         groupLabelImage2.setMaximumSize(64,64)
         groupLabel2 = QLabel()
         groupLabel2.setWordWrap(True)
-        groupLabel2.setText(self.tr("Pisi Linux community, mailing lists, chat rooms, Wiki documents, help and support pages..."))
+        groupLabel2.setText(self.tr("<p>Pisi Linux community, mailing lists, chat rooms, Wiki documents, help and support pages...</p>"))
         groupButton2 = QPushButton()
         groupButton2.setMaximumWidth(200)
         groupButton2.setText(self.tr("Help and Support"))

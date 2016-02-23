@@ -5,9 +5,6 @@ from PyQt5.QtCore import *
 
 from os.path import join
 
-Description = "<p>The <strong>clicking behavior</strong> defines how many times you want to click when you are opening a file. \
-If you are <strong>left handed</strong>, you may prefer to swap the left and right buttons of your pointing device.</p>"
-
 class MouseWidget(QWizardPage):
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -22,7 +19,9 @@ class MouseWidget(QWizardPage):
         labelLayout.addWidget(imageLabel)
 
         mouseLabel = QLabel(self)
-        mouseLabel.setText(self.tr(Description))
+        mouseLabel.setText(self.tr("""<p>The <strong>clicking behavior</strong> defines how many times you want
+        to click when you are opening a file. If you are <strong>left handed</strong>, you may prefer to
+        swap the left and right buttons of your pointing device.</p>"""))
         mouseLabel.setWordWrap(True)
         labelLayout.addWidget(mouseLabel)
         vlayout.addLayout(labelLayout)
