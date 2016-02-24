@@ -1,9 +1,10 @@
 from PyQt5.QtWidgets import QWizardPage, QLabel, QGroupBox, QListWidget, QVBoxLayout, QSpacerItem, QSizePolicy, QHBoxLayout,\
-    QCheckBox, QPushButton, QFileDialog, QListView, QDesktopWidget, QListWidgetItem
+    QCheckBox, QPushButton, QFileDialog, QListView, QListWidgetItem
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from os.path import join, dirname, abspath
 import os
+from kaptan.tools import getWallpaperGroup, setWallpaperGroup
 
 class WallpaperWidget(QWizardPage):
     def __init__(self, parent=None):
@@ -79,8 +80,6 @@ class WallpaperWidget(QWizardPage):
             list = os.listdir(path)
             list.sort()
             self.selectWallpaper = join(path, list[-1])
-            r = QDesktopWidget().screenGeometry()
-            print(r.width())
 
     def wallpaperChecked(self):
         if self.checkbox.isChecked():
@@ -104,12 +103,12 @@ class WallpaperWidget(QWizardPage):
             self.listWidget.setCurrentItem(item)
 
     def execute(self):
-        screenRect = QDesktopWidget.screenGeometry()
-        width = screenRect.width()
-        height =screenRect.height()
+        configFilePath = join(QDir.homePath(), ".config5", "plasma-org.kde.plasma.desktop-appletsrc")
 
-        settings = QSettings(join(QDir.homePath(), ".config5", "plasma-org.kde.plasma.desktop-appletsrc"), QSettings.IniFormat)
-        settings.setValue("Containments/Image", QUrl(self.selectWallpaper))
-        settings.setValue("Containments/width", width)
-        settings.setValue("Containments/height", height)
-        settings.sync()
+        configFile = open(configFilePath).read()
+        getWallpaper = getWallpaperGroup(configFile)
+
+        if "file://"+self.selectWallpaper != getWallpaper[1]:
+            with open(configFilePath, "w") as newConfigFile:
+                newConfigFile.write(setWallpaperGroup(configFile, "file://"+self.selectWallpaper))
+                newConfigFile.close()
