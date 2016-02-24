@@ -73,7 +73,7 @@ class MenuWidget(QWizardPage):
         self.labelText.setText(self.menus[index][1])
 
     def execute(self):
-        menus = ["org.kde.plasma.kickoff", "org.kde.plasma.kicker", "org.kde.plasma.kimpanel"]
+        menus = ["org.kde.plasma.kickoff", "org.kde.plasma.kicker", "org.kde.plasma.kickerdash"]
         menu = menus[self.menuSelected]
 
         configFilePath = join(QDir.homePath(), ".config5", "plasma-org.kde.plasma.desktop-appletsrc")
@@ -82,5 +82,5 @@ class MenuWidget(QWizardPage):
 
         if menu != menuStyle[1]:
             with open(configFilePath, "w") as newConfigFile:
-                newConfigFile.write(setMenuStyle(configFile))
+                newConfigFile.write(setMenuStyle(configFile, menu))
                 newConfigFile.close()
