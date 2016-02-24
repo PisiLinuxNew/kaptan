@@ -45,49 +45,52 @@ class SummaryWidget(QWizardPage):
         #AvatarWidget
         avatarWidget = parent.page(5)
 
+        selectWallpaper = ""
+        userAvatar = ""
+
         if mouseWidget.mouseButtonMap == "RightHanded":
-            mouseWidget.mouseButtonMap = self.tr("Right Handed")
+            mouseButtonMap = self.tr("Right Handed")
         else:
-            mouseWidget.mouseButtonMap = self.tr("Left Handed")
+            mouseButtonMap = self.tr("Left Handed")
 
         if mouseWidget.folderSingleClick:
-            mouseWidget.folderSingleClick = self.tr("Single Click")
+            folderSingleClick = self.tr("Single Click")
         else:
-            mouseWidget.folderSingleClick = self.tr("Double Click")
+            folderSingleClick = self.tr("Double Click")
 
         if themeWidget.desktopType == "org.kde.desktopcontainment":
-            themeWidget.desktopType = self.tr("Desktop View")
+            desktopType = self.tr("Desktop View")
         else:
-            themeWidget.desktopType = self.tr("Folder View")
+            desktopType = self.tr("Folder View")
 
         if menuWidget.menuSelected == 0:
-            menuWidget.menuSelected = self.tr("Application Launcher")
+            menuSelected = self.tr("Application Launcher")
         elif menuWidget.menuSelected == 1:
-            menuWidget.menuSelected = self.tr("Application Menu")
+            menuSelected = self.tr("Application Menu")
         else:
-            menuWidget.menuSelected = self.tr("Application Panel")
+            menuSelected = self.tr("Application Panel")
 
         if wallpaperWidget.selectWallpaper:
-            wallpaperWidget.selectWallpaper = "<img src='{}' width='128' height='96'/>".format(wallpaperWidget.selectWallpaper)
+            selectWallpaper = "<img src='{}' width='128' height='96'/>".format(wallpaperWidget.selectWallpaper)
 
         if avatarWidget.userAvatar:
-            avatarWidget.userAvatar = "<img src='{}' width='128' height='128'/>".format(avatarWidget.userAvatar)
+            userAvatar = "<img src='{}' width='128' height='128'/>".format(avatarWidget.userAvatar)
 
 
-        self.summary["Mouse"] = [{"mouseButtonMap" : mouseWidget.mouseButtonMap,
-                                  "folderSingleClick" : mouseWidget.folderSingleClick}]
+        self.summary["Mouse"] = [{"mouseButtonMap" : mouseButtonMap,
+                                  "folderSingleClick" : folderSingleClick}]
 
 
         self.summary["Theme"] = [{"desktopCount" : themeWidget.desktopCount,
-                                  "desktopType" : themeWidget.desktopType,
+                                  "desktopType" : desktopType,
                                   "iconSet" : themeWidget.iconSet.capitalize(),
                                   "themeSet" : themeWidget.themeSet or self.tr("Unspecified.")}]
 
-        self.summary["Menu"] = {"menuSelected" : menuWidget.menuSelected}
+        self.summary["Menu"] = {"menuSelected" : menuSelected}
 
-        self.summary["Wallpaper"] = {"selectWallpaper" : wallpaperWidget.selectWallpaper or self.tr("Unspecified.")}
+        self.summary["Wallpaper"] = {"selectWallpaper" : selectWallpaper or self.tr("Unspecified.")}
 
-        self.summary["Avatar"] = {"userAvatar" : avatarWidget.userAvatar or self.tr("Unspecified.")}
+        self.summary["Avatar"] = {"userAvatar" : userAvatar or self.tr("Unspecified.")}
 
 
         html = self.tr("""
