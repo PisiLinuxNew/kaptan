@@ -8,18 +8,11 @@ Dependencies
 Python3, PyQt5, KDE5
 
 
-Building & Installation - FIXME
+Installation
 -----------------------
-* Build Kaptan "without installing" to your system:
-
-    ./setup build
-
-* Running Kaptan after building:
-
-    python build/kaptan.py
 
 * Build and "install" Kaptan to your system:
 
-    ./setup install
+    python3 setup.py install
 
 
