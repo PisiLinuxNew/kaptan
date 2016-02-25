@@ -6,7 +6,7 @@ from kaptan import *
 from PyQt5.QtWidgets import QWizard, QApplication
 from PyQt5.QtGui import QPixmap, QIcon
 from PyQt5.QtCore import QTranslator, QLocale, Qt, QProcess
-from os.path import abspath
+from os.path import *
 
 class Kaptan(QWizard):
     def __init__(self):
@@ -79,12 +79,15 @@ class Kaptan(QWizard):
 
 
 def main():
+
+    dirPath = dirname(__file__)
+
     app = QApplication(sys.argv)
-    #app.setStyleSheet(open(abspath("data/kaptan.qss").read())
+    #app.setStyleSheet(open(join(dirPath, "data/kaptan.qss").read())
 
     locale = QLocale.system().name()
     translator = QTranslator(app)
-    translator.load(abspath("languages/{}.qm".format(locale)))
+    translator.load(join(dirPath, "languages/{}.qm".format(locale)))
     app.installTranslator(translator)
 
     kaptan = Kaptan()
