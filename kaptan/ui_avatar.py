@@ -6,6 +6,9 @@ from PyQt5.QtCore import *
 from PyQt5.QtMultimediaWidgets import QCameraViewfinder
 from PyQt5.QtMultimedia import QCamera, QCameraInfo, QCameraImageCapture, QCameraImageProcessing
 
+import os
+import shutil
+
 
 class AvatarWidget(QWizardPage):
     def __init__(self, parent=None):
@@ -166,8 +169,7 @@ class AvatarWidget(QWizardPage):
         self.cameraLabel.setPixmap(pixmap)
 
     def execute(self):
-        if self.userAvatar != None:
-            f = QFile("/tmp/avatar.png")
-            if QFile.exists(QDir.homePath()+".face.icon"):
-                QFile.remove(QDir.homePath()+".face.icon")
-            f.copy(QDir.homePath()+".face.icon")
+        if self.userAvatar:
+            if os.path.exists(os.path.join(os.environ["HOME"], ".face.icon")):
+                os.remove(os.path.join(os.environ["HOME"], ".face.icon"))
+            shutil.copy(self.userAvatar, os.path.join(os.environ["HOME"], ".face.icon"))
