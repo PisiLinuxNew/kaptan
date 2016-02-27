@@ -4,42 +4,42 @@
 <context>
     <name>AvatarWidget</name>
     <message>
-        <location filename="../kaptan/ui_avatar.py" line="13"/>
+        <location filename="../kaptan/ui_avatar.py" line="16"/>
         <source>&lt;h2&gt;Create Your Avatar&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;Kullanıcı Resminizi Oluşturun&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../kaptan/ui_avatar.py" line="25"/>
+        <location filename="../kaptan/ui_avatar.py" line="28"/>
         <source>&lt;p&gt;This screen helps you set your &lt;strong&gt;user picture&lt;/strong&gt;. You can either choose an image from a         file or you can capture an image from your camera. Select an option from the &lt;strong&gt;options&lt;/strong&gt; menu.&lt;/p&gt;</source>
         <translation>&lt;p&gt;Bu ekran &lt;strong&gt;kullanıcı resminizi&lt;/strong&gt; seçmenize yardımcı olur. Dosyalarınız  arasından bir resim seçebilir ya da kameradan aldığınız görüntüyü kullanabilirsiniz. &lt;strong&gt;Seçenekler&lt;/strong&gt; menüsünden tercihinizi yapabilirsiniz..&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../kaptan/ui_avatar.py" line="42"/>
+        <location filename="../kaptan/ui_avatar.py" line="45"/>
         <source>Options</source>
         <translation>Seçenekler</translation>
     </message>
     <message>
-        <location filename="../kaptan/ui_avatar.py" line="42"/>
+        <location filename="../kaptan/ui_avatar.py" line="45"/>
         <source>Choose an image...</source>
         <translation>Resim seçin...</translation>
     </message>
     <message>
-        <location filename="../kaptan/ui_avatar.py" line="52"/>
+        <location filename="../kaptan/ui_avatar.py" line="55"/>
         <source>Camera </source>
         <translation>Kamera</translation>
     </message>
     <message>
-        <location filename="../kaptan/ui_avatar.py" line="66"/>
+        <location filename="../kaptan/ui_avatar.py" line="69"/>
         <source>Capture</source>
         <translation>Çek</translation>
     </message>
     <message>
-        <location filename="../kaptan/ui_avatar.py" line="71"/>
+        <location filename="../kaptan/ui_avatar.py" line="74"/>
         <source>Recapture</source>
         <translation>Tekrar Çek</translation>
     </message>
     <message>
-        <location filename="../kaptan/ui_avatar.py" line="130"/>
+        <location filename="../kaptan/ui_avatar.py" line="133"/>
         <source>Choose Avatar</source>
         <translation>Kullanıcı Resmi Seç</translation>
     </message>
@@ -256,52 +256,52 @@
         <translation>Aşağıdaki ayarlar uygulanacaktır</translation>
     </message>
     <message>
-        <location filename="../kaptan/ui_summary.py" line="49"/>
+        <location filename="../kaptan/ui_summary.py" line="54"/>
         <source>Right Handed</source>
         <translation>Sağlak</translation>
     </message>
     <message>
-        <location filename="../kaptan/ui_summary.py" line="51"/>
+        <location filename="../kaptan/ui_summary.py" line="56"/>
         <source>Left Handed</source>
         <translation>Solak</translation>
     </message>
     <message>
-        <location filename="../kaptan/ui_summary.py" line="54"/>
+        <location filename="../kaptan/ui_summary.py" line="59"/>
         <source>Single Click</source>
         <translation>Tek tıklama</translation>
     </message>
     <message>
-        <location filename="../kaptan/ui_summary.py" line="56"/>
+        <location filename="../kaptan/ui_summary.py" line="61"/>
         <source>Double Click</source>
         <translation>Çift Tıklama</translation>
     </message>
     <message>
-        <location filename="../kaptan/ui_summary.py" line="59"/>
+        <location filename="../kaptan/ui_summary.py" line="64"/>
         <source>Desktop View</source>
         <translation>Masaüstü Görünümü</translation>
     </message>
     <message>
-        <location filename="../kaptan/ui_summary.py" line="61"/>
+        <location filename="../kaptan/ui_summary.py" line="66"/>
         <source>Folder View</source>
         <translation>Dizin Görünümü</translation>
     </message>
     <message>
-        <location filename="../kaptan/ui_summary.py" line="64"/>
+        <location filename="../kaptan/ui_summary.py" line="69"/>
         <source>Application Launcher</source>
         <translation>Uygulama Başlatıcısı</translation>
     </message>
     <message>
-        <location filename="../kaptan/ui_summary.py" line="66"/>
+        <location filename="../kaptan/ui_summary.py" line="71"/>
         <source>Application Menu</source>
         <translation>Uygulama Menüsü</translation>
     </message>
     <message>
-        <location filename="../kaptan/ui_summary.py" line="68"/>
+        <location filename="../kaptan/ui_summary.py" line="73"/>
         <source>Application Panel</source>
         <translation>Uygulama Paneli</translation>
     </message>
     <message>
-        <location filename="../kaptan/ui_summary.py" line="90"/>
+        <location filename="../kaptan/ui_summary.py" line="94"/>
         <source>Unspecified.</source>
         <translation>Belirtilmemiş.</translation>
     </message>
@@ -406,7 +406,7 @@
                 &lt;/ul&gt;
             &lt;/li&gt;
         &lt;/ul&gt;</source>
-        <translation>
+        <translation type="obsolete">
         &lt;ul&gt;
             &lt;li&gt;&lt;strong&gt;Fare Ayarları&lt;/strong&gt;
             &lt;/li&gt;
@@ -419,6 +419,71 @@
                     &lt;li&gt;Masaüstü Sayısı: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
                     &lt;li&gt;Masaüstü Tipi: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
                     &lt;li&gt;İkon Seti: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
+                    &lt;li&gt;Tema Seti: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;Menü Ayarı&lt;/strong&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;Seçilen Menü: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;Seçilen Duvar Kağıdı&lt;/strong&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;Seçilen Kullanıcı Resmi&lt;/strong&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt; </translation>
+    </message>
+    <message>
+        <location filename="../kaptan/ui_summary.py" line="97"/>
+        <source>
+        &lt;ul&gt;
+            &lt;li&gt;&lt;strong&gt;Mouse Options&lt;/strong&gt;
+            &lt;/li&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;Selected Hand: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
+                    &lt;li&gt;Selected Clicking Behavior: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;li&gt;&lt;strong&gt;Theme Options&lt;/strong&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;Desktop Count: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
+                    &lt;li&gt;Desktop Type: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
+                    &lt;li&gt;Theme Set: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;Menu Option&lt;/strong&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;Selected Menu: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;Selected Wallpaper&lt;/strong&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;Selected Avatar&lt;/strong&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;</source>
+        <translation>
+        &lt;ul&gt;
+            &lt;li&gt;&lt;strong&gt;Fare Ayarları&lt;/strong&gt;
+            &lt;/li&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;Seçilen El: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
+                    &lt;li&gt;Seçilen Tıklama Biçimi: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;li&gt;&lt;strong&gt;Tema Ayarları&lt;/strong&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;Masaüstü Sayısı: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
+                    &lt;li&gt;Masaüstü Tipi: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
                     &lt;li&gt;Tema Seti: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
                 &lt;/ul&gt;
             &lt;/li&gt;
@@ -453,7 +518,7 @@
         <translation>&lt;p&gt;Favori temanızı ve masaüstü tipini seçip, Pisi Linux&apos;u renkli stil ve temalarla kişiselleştirebilirsiniz.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../kaptan/ui_theme.py" line="38"/>
+        <location filename="../kaptan/ui_theme.py" line="37"/>
         <source>KDE Themes</source>
         <translation>KDE Temaları</translation>
     </message>
@@ -463,60 +528,60 @@
         <translation type="obsolete">İkon Setleri</translation>
     </message>
     <message>
-        <location filename="../kaptan/ui_theme.py" line="85"/>
+        <location filename="../kaptan/ui_theme.py" line="58"/>
         <source>Desktop Type</source>
         <translation>Masaüstü Tipi</translation>
     </message>
     <message>
-        <location filename="../kaptan/ui_theme.py" line="88"/>
+        <location filename="../kaptan/ui_theme.py" line="61"/>
         <source>Number of Desktops</source>
         <translation>Masaüstü Sayısı</translation>
     </message>
     <message>
-        <location filename="../kaptan/ui_theme.py" line="92"/>
+        <location filename="../kaptan/ui_theme.py" line="65"/>
         <source>Desktop View</source>
         <translation>Masaüstü Görünümü</translation>
     </message>
     <message>
-        <location filename="../kaptan/ui_theme.py" line="93"/>
+        <location filename="../kaptan/ui_theme.py" line="66"/>
         <source>Folder View</source>
         <translation>Dizin görünümü</translation>
     </message>
     <message>
         <location filename="../kaptan/ui_theme.py" line="50"/>
         <source>Icon Sets</source>
-        <translation>İkon Setleri</translation>
+        <translation type="obsolete">İkon Setleri</translation>
     </message>
 </context>
 <context>
     <name>WallpaperWidget</name>
     <message>
-        <location filename="../kaptan/ui_wallpaper.py" line="11"/>
+        <location filename="../kaptan/ui_wallpaper.py" line="12"/>
         <source>&lt;h2&gt;Choose Wallpaper&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;Duvar Kağıdı Seçin&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../kaptan/ui_wallpaper.py" line="22"/>
+        <location filename="../kaptan/ui_wallpaper.py" line="23"/>
         <source>&lt;p&gt;Choose your favorite wallpaper for Pisi Linux. Don&apos;t forget to check out         &lt;strong&gt;Desktop Settings&lt;/strong&gt; for downloading new and cool wallpapers.&lt;/p&gt;</source>
         <translation>&lt;p&gt;Masaüstünüz için en beğendiğiniz duvar kağıdını seçin. &lt;strong&gt;Masaüstü Ayarları&lt;/strong&gt;&apos;na girerek yeni ve havalı duvar kağıtları indirebileceğinizi unutmayın.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../kaptan/ui_wallpaper.py" line="31"/>
+        <location filename="../kaptan/ui_wallpaper.py" line="32"/>
         <source>Wallpapers</source>
         <translation>Duvar Kağıtları</translation>
     </message>
     <message>
-        <location filename="../kaptan/ui_wallpaper.py" line="45"/>
+        <location filename="../kaptan/ui_wallpaper.py" line="46"/>
         <source>Choose wallpaper from file</source>
         <translation>Duvar Kağıdını Dosyadan Seç</translation>
     </message>
     <message>
-        <location filename="../kaptan/ui_wallpaper.py" line="51"/>
+        <location filename="../kaptan/ui_wallpaper.py" line="52"/>
         <source>Don&apos;t change wallpaper</source>
         <translation>Duvar Kağıdını değiştirme</translation>
     </message>
     <message>
-        <location filename="../kaptan/ui_wallpaper.py" line="96"/>
+        <location filename="../kaptan/ui_wallpaper.py" line="95"/>
         <source>Choose wallpaper</source>
         <translation>Duvar Kağıdı Seç</translation>
     </message>
