@@ -29,7 +29,6 @@ class ThemeWidget(QWizardPage):
 
         self.desktopCount = 1
         self.desktopType = "org.kde.desktopcontainment"
-        self.iconSet = "breeze"
         self.themeSet = None
 
     def createGroupBox(self, layout):
@@ -45,32 +44,6 @@ class ThemeWidget(QWizardPage):
 
         layout.addItem(QSpacerItem(20, 40, QSizePolicy.Preferred, QSizePolicy.Preferred))
 
-
-        group2 = QGroupBox(self)
-        group2.setTitle(self.tr("Icon Sets"))
-        group2.setMinimumHeight(140)
-        group2.setMaximumHeight(150)
-        layout.addWidget(group2)
-
-        grLayout2 = QVBoxLayout(group2)
-        listWidget2 = QListWidget(group2)
-        listWidget2.setViewMode(QListView.IconMode)
-        listWidget2.setIconSize(QSize(384, 72))
-        item = QListWidgetItem(listWidget2)
-        item.setIcon(QIcon(":/data/images/oxygen-set.png"))
-        item.setText("Oxygen")
-
-        item = QListWidgetItem(listWidget2)
-        item.setIcon(QIcon(":/data/images/breeze-set.png"))
-        item.setText("Breeze")
-        item.setSelected(True)
-
-        listWidget2.itemClicked.connect(self.iconSetSelect)
-
-        grLayout2.addWidget(listWidget2)
-
-    def iconSetSelect(self, item):
-        self.iconSet = str(item.text()).lower()
 
     def createDesktopOption(self, layout):
         hlayout = QHBoxLayout()
@@ -113,11 +86,6 @@ class ThemeWidget(QWizardPage):
         settings1.setValue("Desktops/Number", self.desktopCount)
         settings1.setValue("Desktops/Rows", 2)
         settings1.sync()
-
-
-        settings3 = QSettings(join(QDir.homePath(), ".config5", "kdeglobals"), QSettings.IniFormat)
-        settings3.setValue("Icons/Theme", self.iconSet)
-        settings3.sync()
 
         configFilePath = join(QDir.homePath(), ".config5", "plasma-org.kde.plasma.desktop-appletsrc")
 

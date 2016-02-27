@@ -83,7 +83,6 @@ class SummaryWidget(QWizardPage):
 
         self.summary["Theme"] = [{"desktopCount" : themeWidget.desktopCount,
                                   "desktopType" : desktopType,
-                                  "iconSet" : themeWidget.iconSet.capitalize(),
                                   "themeSet" : themeWidget.themeSet or self.tr("Unspecified.")}]
 
         self.summary["Menu"] = {"menuSelected" : menuSelected}
@@ -105,7 +104,6 @@ class SummaryWidget(QWizardPage):
                 <ul>
                     <li>Desktop Count: <strong>{}</strong></li>
                     <li>Desktop Type: <strong>{}</strong></li>
-                    <li>Icon Set: <strong>{}</strong></li>
                     <li>Theme Set: <strong>{}</strong></li>
                 </ul>
             </li>
@@ -128,6 +126,5 @@ class SummaryWidget(QWizardPage):
 
         self.labelSummary.setText(html.format(self.summary["Mouse"][0]["mouseButtonMap"], self.summary["Mouse"][0]["folderSingleClick"],
                           self.summary["Theme"][0]["desktopCount"], self.summary["Theme"][0]["desktopType"],
-                          self.summary["Theme"][0]["iconSet"], self.summary["Theme"][0]["themeSet"],
-                          self.summary["Menu"]["menuSelected"], self.summary["Wallpaper"]["selectWallpaper"],
-                          self.summary["Avatar"]["userAvatar"]))
+                          self.summary["Theme"][0]["themeSet"], self.summary["Menu"]["menuSelected"],
+                          self.summary["Wallpaper"]["selectWallpaper"], self.summary["Avatar"]["userAvatar"]))
