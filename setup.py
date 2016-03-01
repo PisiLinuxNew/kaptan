@@ -51,8 +51,7 @@ setup(
     description = "PisiLinux desktop configurate.",
     author = "Metehan Özbek",
     author_email = "mthnzbk@gmail.com",
-    url = "https://github.com/mthnzbk/kaptan",
-    download_url = "https://pypi.python.org/pypi/kaptan",
+    url = "https://github.com/PisiLinuxNew/kaptan",
     keywords = ["PyQt5"],
     classifiers = [
         "Environment :: X11 Applications :: Qt",

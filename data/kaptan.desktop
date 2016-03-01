@@ -8,5 +8,5 @@ X-KDE-autostart-after=plasma-desktop
 X-KDE-autostart-condition=kaptanrc:General:RunOnStart:true
 
 Name=Kaptan
-GenericName=Welcome Wizard
+GenericName=Kaptan
 
