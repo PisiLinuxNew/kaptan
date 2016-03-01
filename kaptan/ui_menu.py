@@ -2,7 +2,7 @@ from PyQt5.QtWidgets import QWizardPage, QLabel, QVBoxLayout, QSpacerItem, QSize
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from os.path import join
-from kaptan.tools import *
+from kaptan.tools import Parser
 
 
 class MenuWidget(QWizardPage):
@@ -77,10 +77,6 @@ class MenuWidget(QWizardPage):
         menu = menus[self.menuSelected]
 
         configFilePath = join(QDir.homePath(), ".config5", "plasma-org.kde.plasma.desktop-appletsrc")
-        configFile = open(configFilePath).read()
-        menuStyle = getMenuStyle(configFile)
+        parser = Parser(configFilePath)
 
-        if menu != menuStyle[1]:
-            with open(configFilePath, "w") as newConfigFile:
-                newConfigFile.write(setMenuStyle(configFile, menu))
-                newConfigFile.close()
+        parser.setMenuStyleOrCreate(menu)

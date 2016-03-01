@@ -160,7 +160,6 @@ class AvatarWidget(QWizardPage):
         self.cameraLabel.hide()
         self.cameraView.show()
 
-    #FIXME image scaled
     def imageCapture(self, id, preview):
         pixmap = QPixmap.fromImage(preview)
         self.camera.stop()

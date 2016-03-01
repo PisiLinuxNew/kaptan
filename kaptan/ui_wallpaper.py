@@ -4,7 +4,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from os.path import join, dirname, abspath
 import os
-from kaptan.tools import getWallpaperGroup, setWallpaperGroup
+from kaptan.tools import Parser
 
 class WallpaperWidget(QWizardPage):
     def __init__(self, parent=None):
@@ -105,10 +105,8 @@ class WallpaperWidget(QWizardPage):
     def execute(self):
         configFilePath = join(QDir.homePath(), ".config5", "plasma-org.kde.plasma.desktop-appletsrc")
 
-        configFile = open(configFilePath).read()
-        getWallpaper = getWallpaperGroup(configFile)
+        parser = Parser(configFilePath)
+        getWallpaper = parser.getWallpaper()
 
         if "file://"+self.selectWallpaper != getWallpaper[1]:
-            with open(configFilePath, "w") as newConfigFile:
-                newConfigFile.write(setWallpaperGroup(configFile, "file://"+self.selectWallpaper))
-                newConfigFile.close()
+            parser.setWallpaper("file://"+self.selectWallpaper)
