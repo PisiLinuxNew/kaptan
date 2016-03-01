@@ -1,198 +1,168 @@
 import re
 
-data = """[ActionPlugins][0]
-MidButton;NoModifier=org.kde.paste
-RightButton;NoModifier=org.kde.contextmenu
-wheel:Vertical;NoModifier=org.kde.switchdesktop
 
-[ActionPlugins][1]
-RightButton;NoModifier=org.kde.contextmenu
+class Parser(object):
+    def __init__(self, file_name):
+        self.file_name = file_name
 
-[ActionPlugins][127]
-RightButton;NoModifier=org.kde.contextmenu
+    def read(self):
+        with open(self.file_name) as config_file:
+            return config_file.read()
 
-[Containments]
-AppletOrder=2
-Image=file:///usr/share/wallpapers/Kite/contents/images/800x600.jpg
-activityId=782e3974-9f83-40bd-b1a4-165f60c3aa75
-extraItems=org.kde.plasma.volume, org.kde.plasma.notifications, org.kde.discovernotifier, org.kde.plasma.mediacontroller, org.kde.plasma.battery, org.kde.plasma.bluetooth, org.kde.plasma.clipboard, org.kde.plasma.networkmanagement, org.kde.plasma.devicenotifier
-favorites=preferred://browser, systemsettings.desktop, org.kde.dolphin.desktop, org.kde.kate.desktop
-formfactor=0
-global=Alt+F1
-height=768
-immutability=1
-knownItems=org.kde.plasma.volume, org.kde.plasma.notifications, org.kde.discovernotifier, org.kde.plasma.mediacontroller, org.kde.plasma.battery, org.kde.plasma.bluetooth, org.kde.plasma.clipboard, org.kde.plasma.networkmanagement, org.kde.plasma.devicenotifier
-lastScreen=0
-location=0
-plugin=org.kde.plasma.desktop
-wallpaperplugin=org.kde.image
-width=1366
+    def sync(self, data):
+        with open(self.file_name, "w") as self.config_file:
+            self.config_file.write(data)
+            self.config_file.flush()
 
-[Containments][1]
-activityId=
-formfactor=2
-immutability=1
-lastScreen=0
-location=4
-plugin=org.kde.panel
-wallpaperplugin=org.kde.image
+    def getApplets(self):
+        regex = "(\n\[Containments\]\[([1-9]+)\]\[Applets\]\[([1-9]+)\]\nimmutability=1\nplugin=(.*)\n)"
 
-[Containments][1][Applets][2]
-immutability=1
-plugin=org.kde.plasma.kickoff
+        all_applets = re.findall(regex, self.read())
 
-[Containments][1][Applets][2][Configuration][General]
-favorites=preferred://browser,systemsettings.desktop,org.kde.dolphin.desktop,org.kde.kate.desktop
+        if all_applets:
+            return all_applets
+    # Example [('[Containments][1][Applets][2]\nimmutability=1\nplugin=org.kde.plasma.kickoff\n', '1', '2', 'org.kde.plasma.kickoff')]
 
-[Containments][1][Applets][2][Configuration][Shortcuts]
-global=Alt+F1
+    def setMenuStyleOrCreate(self, menu_style):
+        is_there = False
+        menu_applet = None
+        applets = self.getApplets()
 
-[Containments][1][Applets][2][Shortcuts]
-global=Alt+F1
+        for applet in applets:
+            if ("org.kde.plasma.kickoff"  in applet) or ("org.kde.plasma.kicker"  in applet) or ("org.kde.plasma.kickerdash" in applet):
+                is_there = True
+                menu_applet = applet
+                break
 
-[Containments][1][Applets][3]
-immutability=1
-plugin=org.kde.plasma.pager
+        if is_there:
+            regex = r"\n\[Containments\]\[%s\]\[Applets\]\[%s\]\nimmutability=.\nplugin=.*\n"%(menu_applet[1], menu_applet[2])
 
-[Containments][1][Applets][4]
-immutability=1
-plugin=org.kde.plasma.taskmanager
+            com = re.compile(regex)
 
-[Containments][1][Applets][5]
-immutability=1
-plugin=org.kde.plasma.systemtray
+            new_data = com.sub(menu_applet[0].replace(menu_applet[3], menu_style), self.read())
+            self.sync(new_data)
+            # '[Containments][1][Applets][2]\nimmutability=1\nplugin=org.kde.plasma.kicker\n'
+        else:
+            last_nums = []
+            first_applet = applets[0]
+            for applet in applets:
+                last_nums.append(int(applet[2]))
 
-[Containments][1][Applets][5][Configuration][Containments][8]
-formfactor=2
-location=4
+            applet_index = str(max(last_nums)+1)
+            applet = "\n[Containments][{}][Applets][{}]\nimmutability=1\nplugin={}\n".format(first_applet[1], applet_index, menu_style)
 
-[Containments][1][Applets][5][Configuration][Containments][8][Applets][10]
-immutability=1
-plugin=org.kde.plasma.devicenotifier
+            com = re.compile("\n\[Containments\]\[%s\]\[Applets\]\[%s\]\nimmutability=.\nplugin=.*\n"%(first_applet[1], first_applet[2]))
 
-[Containments][1][Applets][5][Configuration][Containments][8][Applets][11]
-immutability=1
-plugin=org.kde.plasma.notifications
-
-[Containments][1][Applets][5][Configuration][Containments][8][Applets][12]
-immutability=1
-plugin=org.kde.plasma.clipboard
-
-[Containments][1][Applets][5][Configuration][Containments][8][Applets][13]
-immutability=1
-plugin=org.kde.discovernotifier
-
-[Containments][1][Applets][5][Configuration][Containments][8][Applets][14]
-immutability=1
-plugin=org.kde.plasma.battery
-
-[Containments][1][Applets][5][Configuration][Containments][8][Applets][15]
-immutability=1
-plugin=org.kde.plasma.bluetooth
-
-[Containments][1][Applets][5][Configuration][Containments][8][Applets][16]
-immutability=1
-plugin=org.kde.plasma.networkmanagement
-
-[Containments][1][Applets][5][Configuration][Containments][8][Applets][9]
-immutability=1
-plugin=org.kde.plasma.volume
-
-[Containments][1][Applets][5][Configuration][General]
-extraItems=org.kde.plasma.volume,org.kde.plasma.notifications,org.kde.discovernotifier,org.kde.plasma.mediacontroller,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.clipboard,org.kde.plasma.networkmanagement,org.kde.plasma.devicenotifier
-knownItems=org.kde.plasma.volume,org.kde.plasma.notifications,org.kde.discovernotifier,org.kde.plasma.mediacontroller,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.clipboard,org.kde.plasma.networkmanagement,org.kde.plasma.devicenotifier
-
-[Containments][1][Applets][6]
-immutability=1
-plugin=org.kde.plasma.digitalclock
-
-[Containments][1][General]
-AppletOrder=2;3;4;5;6
-
-[Containments][7]
-activityId=782e3974-9f83-40bd-b1a4-165f60c3aa75
-formfactor=0
-immutability=1
-lastScreen=0
-location=0
-plugin=org.kde.desktopcontainment
-wallpaperplugin=org.kde.image
-
-[Containments][7][Wallpaper][org.kde.image][General]
-height=768
-width=1366
-
-"""
-
-def getMenuStyle(data):
-    regex = "(\[Containments\]\[([1-9])\]\[Applets\]\[([1-9])\]\nimmutability=1\nplugin=(.*)\n)"
-
-    read = re.search(regex, data)
-
-    if read:
-        return read.group(1), read.group(2), read.group(3), read.group(4)
-
-def setMenuStyle(data, style):
-    regex = r"\[Containments\]\[%s\]\[Applets\]\[%s\]\nimmutability=.\nplugin=(.*)\n"%(getMenuStyle(data)[1],
-                                                                                                 getMenuStyle(data)[2])
-
-    com = re.compile(regex)
-
-    return com.sub(getMenuStyle(data)[0].replace(getMenuStyle(data)[3], style), data)
-
-def getDesktopView(data):
-    regex = "(\[Containments\]\[[1-9]*\]\nactivityId=.+\n.*\n.*\nlastScreen=.*\n.*\nplugin=(.*)\n)"
-
-    read = re.search(regex, data)
-
-    if read:
-        return read.group(1), read.group(2)
-
-def setDesktopView(data, view):
-    regex = "\[Containments\]\[[1-9]*\]\nactivityId=.+\n.*\n.*\nlastScreen=.*\n.*\nplugin=(.*)\n"
-
-    com = re.compile(regex)
-
-    return com.sub(getDesktopView(data)[0].replace(getDesktopView(data)[1], view), data)
+            new_data = com.sub(first_applet[0] + applet, self.read())
+            self.sync(new_data)
+            self.setAppletOrder(0, applet_index)
 
 
-def getWallpaperGroup(data):
-    regex = "(\[Containments\]\[[1-9]+\]\[Wallpaper\]\[org.kde.image\]\[General\]\n(.*)=(.*)\n)"
+    def getWallpaper(self):
+        regex = "(\[Containments\]\[[1-9]+\]\[Wallpaper\]\[org.kde.image\]\[General\]\n(.*)=(.*)\n)"
 
-    read = re.search(regex, data)
+        read = re.search(regex, self.read())
 
-    if read:
-        if read.group(2) != "Image":
-            regex = "(\[Containments\]\[[1-9]+\]\[Wallpaper\]\[org.kde.image\]\[General\]\n)((.*)=.*\n.*\n)"
+        if read:
+            if read.group(2) != "Image":
+                regex = "(\[Containments\]\[[1-9]+\]\[Wallpaper\]\[org.kde.image\]\[General\]\n)((.*)=.*\n.*\n)"
 
-            read = re.search(regex, data)
+                read = re.search(regex, self.read())
 
-            if read:
-                return read.group(1), read.group(2), read.group(3)
+                if read:
+                    return read.group(1), read.group(2), read.group(3)
 
-        return read.group(1), read.group(2), read.group(3)
+            return read.group(1), read.group(2), read.group(3)
 
+    def setWallpaper(self, path):
+        if self.getWallpaper()[1] != "Image":
+            regex = "\[Containments\]\[[1-9]+\]\[Wallpaper\]\[org.kde.image\]\[General\]\n.*\n.*\n"
+            com = re.compile(regex)
 
-def setWallpaperGroup(data, path):
-    if getWallpaperGroup(data)[1] != "Image":
-        regex = "\[Containments\]\[[1-9]+\]\[Wallpaper\]\[org.kde.image\]\[General\]\n.*\n.*\n"
-        com = re.compile(regex)
+            new_data =  com.sub((self.getWallpaper()[0]+"Image=%s\n"+self.getWallpaper()[1])%path, self.read())
+            self.sync(new_data)
+        else:
+            regex = r"\[Containments\]\[[1-9]+\]\[Wallpaper\]\[org.kde.image\]\[General\]\n%s=.*\n"%(self.getWallpaper()[1])
 
-        return com.sub((getWallpaperGroup(data)[0]+"Image=%s\n"+getWallpaperGroup(data)[1])%path, data)
-    else:
-        regex = r"\[Containments\]\[[1-9]+\]\[Wallpaper\]\[org.kde.image\]\[General\]\n%s=.*\n"%(getWallpaperGroup(data)[1])
+            com = re.compile(regex)
+
+            new_data = com.sub(self.getWallpaper()[0].replace(self.getWallpaper()[2], path), self.read())
+            self.sync(new_data)
+
+    def getDesktopType(self):
+        regex = "(\[Containments\]\[[1-9]*\]\nactivityId=.+\n.*\n.*\nlastScreen=.*\n.*\nplugin=(.*)\n)"
+
+        read = re.search(regex, self.read())
+
+        if read:
+            return read.group(1), read.group(2)
+
+    def setDesktopType(self, view):
+        regex = "\[Containments\]\[[1-9]*\]\nactivityId=.+\n.*\n.*\nlastScreen=.*\n.*\nplugin=(.*)\n"
 
         com = re.compile(regex)
 
-        return com.sub(getWallpaperGroup(data)[0].replace(getWallpaperGroup(data)[2], path), data)
+        if view != self.getDesktopType()[1]:
+            new_data = com.sub(self.getDesktopType()[0].replace(self.getDesktopType()[1], view), self.read())
+            self.sync(new_data)
+
+    def getAppletOrder(self):
+        regex = "(\n\[Containments\]\[([1-9]+)\]\[General\]\nAppletOrder=(.*)\n)"
+
+        applet_order = re.findall(regex, self.read())
+
+        if applet_order:
+            return applet_order[0]
+
+    def setAppletOrder(self, index = int, value = str):
+        applet_order = self.getAppletOrder()
+
+        order = applet_order[-1].split(";")
+        order.insert(index, value)
+
+        values = ";".join(order)
+
+        regex = r"\n\[Containments\]\[%s\]\[General\]\nAppletOrder=.+\n"%applet_order[1]
+
+        com = re.compile(regex)
+
+        new_data = com.sub(applet_order[0].replace(applet_order[2], values), self.read())
+        self.sync(new_data)
+
+    def setShowDesktopApplet(self):
+        is_there = False
+        applets = self.getApplets()
+
+        for applet in applets:
+            if "org.kde.plasma.showdesktop"  in applet:
+                is_there = True
+                break
+
+        if not is_there:
+            last_nums = []
+            first_applet = applets[0]
+            for applet in applets:
+                last_nums.append(int(applet[2]))
+
+            applet_index = str(max(last_nums)+1)
+            applet = "\n[Containments][{}][Applets][{}]\nimmutability=1\nplugin={}\n".format(first_applet[1],
+                                                                                             applet_index, "org.kde.plasma.showdesktop")
+
+            com = re.compile("\n\[Containments\]\[%s\]\[Applets\]\[%s\]\nimmutability=.\nplugin=.*\n"%(first_applet[1], first_applet[2]))
+
+            new_data = com.sub(first_applet[0] + applet, self.read())
+            self.sync(new_data)
+            self.setAppletOrder(1, applet_index)
 
 
+#parser = Parser("/home/metehan/.config/plasma-org.kde.plasma.desktop-appletsrc2")
 
-
-
-#print(getMenuStyle(data))
-#print(setMenuStyle(data))
-#print(getDesktopStyle(data))
-#print(setDesktopStyle(data))
-#print(getWallpaperGroup(data))
-#print(setWallpaperGroup(data, "met2ehan.png"))
+#print(parser.getApplets())
+#print(parser.getAppletOrder())
+#parser.setMenuStyleOrCreate("org.kde.plasma.kickerdash")
+#print(parser.setAppletOrder(0, "2"))
+#parser.setShowDesktopApplet()
+#print(parser.getWallpaper())
+#parser.setWallpaper("/home/metehan/Dropbox/metehan.png")
+#print(parser.getDesktopType())
+#parser.setDesktopType("org.kde.plasma.folder")
