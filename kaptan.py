@@ -3,7 +3,7 @@
 import sys
 import rc_kaptan
 from kaptan import *
-from PyQt5.QtWidgets import QWizard, QApplication
+from PyQt5.QtWidgets import QWizard, QApplication, QDesktopWidget
 from PyQt5.QtGui import QPixmap, QIcon
 from PyQt5.QtCore import QTranslator, QLocale, Qt, QProcess
 from os.path import *
@@ -14,9 +14,11 @@ class Kaptan(QWizard):
 
         self.setWindowTitle(self.tr("Kaptan Desktop"))
         self.setWindowIcon(QIcon(":/data/images/kaptan-icon.png"))
-        self.setMinimumSize(900, 640)
-        self.setMaximumSize(1000, 650)
-        self.move(0,0)
+        self.setMinimumSize(850, 600)
+        self.setMaximumSize(950, 620)
+        x = (QDesktopWidget().screen().width() - self.width())/2
+        y = (QDesktopWidget().screen().height() - self.height())/2
+        self.move(x, y)
         self.setPixmap(QWizard.LogoPixmap, QPixmap(":/data/images/kaptan-logo.png"))
 
         self.setButtonText(QWizard.NextButton, self.tr("Next"))
