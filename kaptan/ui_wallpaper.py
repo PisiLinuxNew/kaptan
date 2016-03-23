@@ -108,5 +108,6 @@ class WallpaperWidget(QWizardPage):
         parser = Parser(configFilePath)
         getWallpaper = parser.getWallpaper()
 
-        if "file://"+self.selectWallpaper != getWallpaper[1]:
-            parser.setWallpaper("file://"+self.selectWallpaper)
+        if self.selectWallpaper:
+            if "file://"+self.selectWallpaper != getWallpaper[1]:
+                parser.setWallpaper("file://"+self.selectWallpaper)
