@@ -4,12 +4,10 @@ import os, shutil
 
 class Install(install):
     def run(self):
-        #os.system("/setup.py build")
-
         dirPath = os.path.dirname(__file__)
 
-        autostart_dir = "/usr/share/autostart"
-        project_dir = "/usr/share/kaptan"
+        autostart_dir = os.path.join(os.environ["HOME"], "config5","autostart")
+        project_dir = "/usr/lib/kaptan"
         pixmap_dir = "/usr/share/pixmaps"
         applications_dir = "/usr/share/applications"
         icon = os.path.join(dirPath, "data", "images", "kaptan-icon.png")
@@ -18,7 +16,7 @@ class Install(install):
             os.makedirs(autostart_dir)
             os.makedirs(project_dir)
         except OSError:
-            print("He de geç...")
+            pass
 
 
         shutil.copy(os.path.join(dirPath, "data", "kaptan.desktop"), autostart_dir)
@@ -27,7 +25,7 @@ class Install(install):
         shutil.copy("kaptan.py", os.path.join(project_dir, "kaptan5.py"))
         shutil.copy("rc_kaptan.py", project_dir)
 
-        os.chmod("script/kaptan",0o755)
+        os.chmod("script/kaptan", 0o755)
         shutil.copy("script/kaptan", "/usr/bin")
 
         os.system("cp -R languages {}".format(project_dir))
