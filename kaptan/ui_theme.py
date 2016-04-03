@@ -1,9 +1,11 @@
-from PyQt5.QtWidgets import QWizardPage, QLabel, QGroupBox, QListWidget, QVBoxLayout, QSpacerItem, QSizePolicy, QHBoxLayout,\
-    QSpinBox, QComboBox, QListView, QListWidgetItem
-from PyQt5.QtGui import QPixmap, QIcon
+from PyQt5.QtWidgets import QWizardPage, QLabel, QGroupBox, QCheckBox, QVBoxLayout, QSpacerItem, QSizePolicy, QHBoxLayout,\
+    QSpinBox, QComboBox
+from PyQt5.QtGui import QPixmap
 from PyQt5.QtCore import *
 from os.path import join
-from kaptan.tools import Parser
+import os
+from .tools import Parser
+from .tabwidget import ThemeTabWidget
 
 class ThemeWidget(QWizardPage):
     def __init__(self, parent=None):
@@ -29,20 +31,30 @@ class ThemeWidget(QWizardPage):
 
         self.desktopCount = 1
         self.desktopType = "org.kde.desktopcontainment"
-        self.themeSet = None
+        self.iconSet = None
+        self.showDesktop = False
+        self.widgetStyle = "breeze"
+        self.windowStyle = None
+        self.colorScheme = None
+        self.desktopTheme = None
+
 
     def createGroupBox(self, layout):
-
         group1 = QGroupBox(self)
-        group1.setTitle(self.tr("KDE Themes"))
-        group1.setMinimumHeight(180)
+        group1.setMinimumHeight(200)
         layout.addWidget(group1)
 
         grLayout = QVBoxLayout(group1)
-        listWidget1 = QListWidget(group1)
-        grLayout.addWidget(listWidget1)
+        tabWidget = ThemeTabWidget(group1)
+        grLayout.addWidget(tabWidget)
 
         layout.addItem(QSpacerItem(20, 40, QSizePolicy.Preferred, QSizePolicy.Preferred))
+
+        tabWidget.listWidgetIconSet.itemClicked.connect(self.iconSetSelect)
+        tabWidget.listWidgetWindowStyle.itemClicked.connect(self.windowStyleSelect)
+        tabWidget.comboBoxWidgetStyle.currentIndexChanged[str].connect(self.widgetStyleSelect)
+        tabWidget.listWidgetDesktopTheme.itemClicked.connect(self.desktopThemeSelect)
+        tabWidget.listWidgetColorScheme.itemClicked.connect(self.colorSchemeSelect)
 
 
     def createDesktopOption(self, layout):
@@ -71,6 +83,28 @@ class ThemeWidget(QWizardPage):
         spinBox.setMaximum(20)
         spinBox.valueChanged.connect(self.desktopCreate)
         vlayout2.addWidget(spinBox)
+        self.checkBox = QCheckBox()
+        self.checkBox.setText(self.tr("Masaüstünü Göster eklensin mi?"))
+        self.checkBox.clicked.connect(self.showDesktopF)
+        hlayout.addWidget(self.checkBox)
+
+    def windowStyleSelect(self, item):
+        self.windowStyle = item.setStyleText
+
+    def widgetStyleSelect(self, text):
+        self.widgetStyle = text.lower()
+
+    def desktopThemeSelect(self, item):
+        self.desktopTheme = item.panelText
+
+    def colorSchemeSelect(self, item):
+        self.colorScheme = item.colorSchemeName
+
+    def showDesktopF(self):
+        self.showDesktop = self.checkBox.isChecked()
+
+    def iconSetSelect(self, item):
+        self.iconSet = str(item.text()).lower()
 
     def desktopCreate(self, value):
         self.desktopCount = value
@@ -82,10 +116,56 @@ class ThemeWidget(QWizardPage):
             self.desktopType = "org.kde.plasma.folder"
 
     def execute(self):
-        settings1 = QSettings(join(QDir.homePath(), ".config5", "kwinrc"), QSettings.IniFormat)
-        settings1.setValue("Desktops/Number", self.desktopCount)
-        settings1.setValue("Desktops/Rows", 2)
-        settings1.sync()
+        settings = QSettings(join(QDir.homePath(), ".config5", "kwinrc"), QSettings.IniFormat)
+        settings.setValue("Desktops/Number", self.desktopCount)
+        settings.setValue("Desktops/Rows", 2)
+        settings.sync()
+
+        if self.iconSet != None:
+            settings = QSettings(join(QDir.homePath(), ".config5", "kdeglobals"), QSettings.IniFormat)
+            settings.setValue("Icons/Theme", self.iconSet)
+            settings.sync()
+
+        if self.widgetStyle != None:
+            settings = QSettings(join(QDir.homePath(), ".config5", "kdeglobals"), QSettings.IniFormat)
+            settings.setValue("KDE/widgetStyle", self.widgetStyle.lower())
+            settings.sync()
+
+        if self.windowStyle != None:
+            settings = QSettings(join(QDir.homePath(), ".config5", "kwinrc"), QSettings.IniFormat)
+            settings.setValue("org.kde.kdecoration2/library", self.windowStyle)
+            settings.sync()
+
+            os.system("rm -rf {}".format(join(QDir.homePath(), ".cache5", "icon-cache.kcache")))
+
+        if self.desktopTheme != None:
+            settings = QSettings(join(QDir.homePath(), ".config5", "plasmarc"), QSettings.IniFormat)
+            settings.setValue("Theme/name", self.desktopTheme)
+            settings.sync()
+
+        """
+        if self.mouseCursor != None:
+            settings = QSettings(join(QDir.homePath(), ".config5", "plasmarc"), QSettings.IniFormat)
+            settings.setValue("Theme/name", self.desktopTheme)
+            settings.sync()"""
+
+        if self.colorScheme != None:
+            colorSettings = QSettings(join("/usr/share/color-schemes", self.colorScheme), QSettings.IniFormat)
+            colorParameter = colorSettings.allKeys()
+            print(join("/usr/share/color-schemes", self.colorScheme))
+            settings = QSettings(join(QDir.homePath(), ".config5", "kdeglobals"), QSettings.IniFormat)
+            for parameter in colorParameter:
+                print(parameter, colorSettings.value(parameter))
+                settings.setValue(parameter, colorSettings.value(parameter))
+
+            settings.sync()
+
+            #Ayar gruplarında olan : karakterini %3A ya çevirdiği için bu yöntem ile çözüyoruz.
+            with open(join(QDir.homePath(), ".config5", "kdeglobals"), "r+") as rep:
+                cache = rep.read().replace("%3A", ":")
+                rep.seek(0)
+                rep.truncate()
+                rep.write(cache)
 
         configFilePath = join(QDir.homePath(), ".config5", "plasma-org.kde.plasma.desktop-appletsrc")
 
@@ -94,3 +174,6 @@ class ThemeWidget(QWizardPage):
 
         if self.desktopType != desktopView[1]:
             parser.setDesktopType(self.desktopType)
+
+        if self.showDesktop:
+            parser.setShowDesktopApplet()
