@@ -1,4 +1,5 @@
 import re
+from PyQt5.QtCore import QSettings
 
 
 class Parser(object):
@@ -166,3 +167,49 @@ class Parser(object):
 #parser.setWallpaper("/home/metehan/Dropbox/metehan.png")
 #print(parser.getDesktopType())
 #parser.setDesktopType("org.kde.plasma.folder")
+
+def listToStr(list):
+    str = ""
+    for l in list:
+        str += l + ","
+    return str[:-1]
+
+def iniToCss(file):
+    """
+    label text color
+    button background-border-text
+    groupbox background-bordor
+    textbrowser background-text-linktext-alinktext-selecttext
+    """
+
+    iniFile = QSettings(file, QSettings.IniFormat)
+
+    cssText = """QLabel#previewLabel {
+    color : rgb(%s);
+    }
+
+    QPushButton#previewPushButton {
+    color : rgb(%s);
+    background-color : rgb(%s);
+    }
+
+    QGroupBox#previewGroupBox {
+    background-color : rgb(%s);
+    }
+
+    QTextBrowser#previewTextBrowser {
+    background-color : rgb(%s);
+    color : rgb(%s);
+    selection-background-color : rgb(%s);
+    }"""%(listToStr(iniFile.value("Colors:Window/ForegroundNormal")),
+          listToStr(iniFile.value("Colors:Button/ForegroundNormal")),
+          listToStr(iniFile.value("Colors:Button/BackgroundNormal")),
+          listToStr(iniFile.value("Colors:Window/BackgroundNormal")),
+          listToStr(iniFile.value("Colors:View/BackgroundNormal")),
+          listToStr(iniFile.value("Colors:View/ForegroundNormal")),
+          listToStr(iniFile.value("Colors:Selection/BackgroundNormal")))
+
+    return cssText
+
+
+#print(iniToCss("/usr/share/color-schemes/Breeze.colors"))
