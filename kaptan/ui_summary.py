@@ -1,5 +1,4 @@
-from PyQt5.QtWidgets import QWizardPage, QLabel, QGroupBox, QVBoxLayout, QSpacerItem, QSizePolicy
-from PyQt5.QtGui import *
+from PyQt5.QtWidgets import QWizardPage, QLabel, QGroupBox, QHBoxLayout, QSpacerItem, QSizePolicy, QVBoxLayout
 from PyQt5.QtCore import *
 
 class SummaryWidget(QWizardPage):
@@ -20,9 +19,13 @@ class SummaryWidget(QWizardPage):
         groupBox.setTitle(self.tr("The following settings will be applied"))
         groupBox.setMinimumHeight(350)
 
-        groupLayout = QVBoxLayout(groupBox)
+        groupLayout = QHBoxLayout(groupBox)
         self.labelSummary = QLabel()
+        self.labelSummary.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
         groupLayout.addWidget(    self.labelSummary)
+        self.labelSummary2 = QLabel()
+        self.labelSummary2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        groupLayout.addWidget(    self.labelSummary2)
         vlayout.addWidget(groupBox)
 
         vlayout.addItem(QSpacerItem(20, 40, QSizePolicy.Preferred, QSizePolicy.Preferred))
@@ -47,6 +50,7 @@ class SummaryWidget(QWizardPage):
 
         selectWallpaper = ""
         userAvatar = ""
+        windowStyle = None
 
         if mouseWidget.mouseButtonMap == "RightHanded":
             mouseButtonMap = self.tr("Right Handed")
@@ -76,20 +80,8 @@ class SummaryWidget(QWizardPage):
         if avatarWidget.userAvatar:
             userAvatar = "<img src='{}' width='128' height='128'/>".format(avatarWidget.userAvatar)
 
-
-        self.summary["Mouse"] = [{"mouseButtonMap" : mouseButtonMap,
-                                  "folderSingleClick" : folderSingleClick}]
-
-
-        self.summary["Theme"] = [{"desktopCount" : themeWidget.desktopCount,
-                                  "desktopType" : desktopType,
-                                  "themeSet" : themeWidget.themeSet or self.tr("Unspecified.")}]
-
-        self.summary["Menu"] = {"menuSelected" : menuSelected}
-
-        self.summary["Wallpaper"] = {"selectWallpaper" : selectWallpaper or self.tr("Unspecified.")}
-
-        self.summary["Avatar"] = {"userAvatar" : userAvatar or self.tr("Unspecified.")}
+        if themeWidget.windowStyle:
+            windowStyle = themeWidget.windowStyle.split(".")[-1].capitalize()
 
 
         html = self.tr("""
@@ -104,7 +96,11 @@ class SummaryWidget(QWizardPage):
                 <ul>
                     <li>Desktop Count: <strong>{}</strong></li>
                     <li>Desktop Type: <strong>{}</strong></li>
-                    <li>Theme Set: <strong>{}</strong></li>
+                    <li>Widget Style: <strong>{}</strong></li>
+                    <li>Window Style: <strong>{}</strong></li>
+                    <li>Color Scheme: <strong>{}</strong></li>
+                    <li>Desktop Theme: <strong>{}</strong></li>
+                    <li>Icon Set: <strong>{}</strong></li>
                 </ul>
             </li>
             <li><strong>Menu Option</strong>
@@ -112,6 +108,16 @@ class SummaryWidget(QWizardPage):
                     <li>Selected Menu: <strong>{}</strong></li>
                 </ul>
             </li>
+        </ul>""")
+
+        self.labelSummary.setText(html.format(mouseButtonMap, folderSingleClick, themeWidget.desktopCount, desktopType,
+                          (themeWidget.widgetStyle or self.tr("Unspecified.")).capitalize(), windowStyle or self.tr("Unspecified."),
+                          themeWidget.colorScheme or self.tr("Unspecified."),
+                          (themeWidget.desktopTheme or self.tr("Unspecified.")).replace("-", " ").title(),
+                          (themeWidget.iconSet or self.tr("Unspecified.")).capitalize(), menuSelected))
+
+        html = self.tr("""
+        <ul>
             <li><strong>Selected Wallpaper</strong>
                 <ul>
                     <li><strong>{}</strong></li>
@@ -124,7 +130,4 @@ class SummaryWidget(QWizardPage):
             </li>
         </ul>""")
 
-        self.labelSummary.setText(html.format(self.summary["Mouse"][0]["mouseButtonMap"], self.summary["Mouse"][0]["folderSingleClick"],
-                          self.summary["Theme"][0]["desktopCount"], self.summary["Theme"][0]["desktopType"],
-                          self.summary["Theme"][0]["themeSet"], self.summary["Menu"]["menuSelected"],
-                          self.summary["Wallpaper"]["selectWallpaper"], self.summary["Avatar"]["userAvatar"]))
+        self.labelSummary2.setText(html.format(selectWallpaper or self.tr("Unspecified."), userAvatar or self.tr("Unspecified.")))
