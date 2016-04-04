@@ -126,6 +126,8 @@ class ThemeWidget(QWizardPage):
             settings.setValue("Icons/Theme", self.iconSet)
             settings.sync()
 
+            os.system("rm -rf {}".format(join(QDir.homePath(), ".cache5", "icon-cache.kcache")))
+
         if self.widgetStyle != None:
             settings = QSettings(join(QDir.homePath(), ".config5", "kdeglobals"), QSettings.IniFormat)
             settings.setValue("KDE/widgetStyle", self.widgetStyle.lower())
@@ -136,7 +138,7 @@ class ThemeWidget(QWizardPage):
             settings.setValue("org.kde.kdecoration2/library", self.windowStyle)
             settings.sync()
 
-            os.system("rm -rf {}".format(join(QDir.homePath(), ".cache5", "icon-cache.kcache")))
+            os.system("qdbus org.kde.KWin /KWin reconfigure") #kwinrc yi sisteme işleyen komut.
 
         if self.desktopTheme != None:
             settings = QSettings(join(QDir.homePath(), ".config5", "plasmarc"), QSettings.IniFormat)
