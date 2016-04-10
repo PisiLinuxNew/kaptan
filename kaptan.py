@@ -67,12 +67,7 @@ class Kaptan(QWizard):
             self.page(5).execute()
 
 
-            proc1 = QProcess()
-            proc2 = QProcess()
-
-            proc1.startDetached("killall plasmashell")
-            proc2.waitForStarted(2000)
-            proc2.startDetached("kstart5 plasmashell")
+            QProcess().startDetached("killall plasmashell && kstart5 plasmashell")
 
         if id == self.sumId:
             self.setButtonText(QWizard.NextButton, self.tr("Apply Settings"))
@@ -86,6 +81,9 @@ def main():
     dirPath = dirname(__file__)
 
     app = QApplication(sys.argv)
+    app.setApplicationName("Kaptan")
+    app.setOrganizationName("Kaptan")
+    app.setApplicationVersion("5.0 Beta")
     #app.setStyleSheet(open(join(dirPath, "data/kaptan.qss").read())
 
     locale = QLocale.system().name()
