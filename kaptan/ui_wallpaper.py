@@ -69,7 +69,12 @@ class WallpaperWidget(QWizardPage):
             for thumb in thumbFolder:
                 if thumb.startswith("scre"):
                     item = QListWidgetItem(self.listWidget)
-                    item.setIcon(QIcon(join(path, thumb)))
+
+                    pix = QPixmap(join(path, thumb))
+                    pix = pix.scaled(QSize(240, 140), Qt.IgnoreAspectRatio, Qt.FastTransformation)
+
+                    item.setIcon(QIcon(pix))
+                    item.setSizeHint(QSize(250, 150))
                     item.screenshotPath = join(path, thumb)
 
     def wallpaperSelect(self, item):
