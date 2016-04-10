@@ -139,25 +139,29 @@ class ThemeTabWidget(QTabWidget):
         self.gridLayout.addWidget(self.listWidgetDesktopTheme, 0, 0, 1, 1)
 
         item = QListWidgetItem(self.listWidgetDesktopTheme)
-        icon = QIcon(QPixmap(":/data/images/air-panel.png"))
+        icon = QIcon(QPixmap(":/data/images/air-panel.png").scaled(QSize(660, 70), Qt.IgnoreAspectRatio, Qt.FastTransformation))
+        item.setSizeHint(QSize(660, 70))
         item.setIcon(icon)
         item.panelText = "air"
 
         item = QListWidgetItem(self.listWidgetDesktopTheme)
         item.setTextAlignment(Qt.AlignHCenter)
-        icon = QIcon(QPixmap(":/data/images/breeze-panel.png"))
+        icon = QIcon(QPixmap(":/data/images/breeze-panel.png").scaled(QSize(660, 70), Qt.IgnoreAspectRatio, Qt.FastTransformation))
+        item.setSizeHint(QSize(660, 70))
         item.setIcon(icon)
         item.panelText = "default"
 
         item = QListWidgetItem(self.listWidgetDesktopTheme)
         item.setTextAlignment(Qt.AlignHCenter)
-        icon = QIcon(QPixmap(":/data/images/breeze-dark-panel.png"))
+        icon = QIcon(QPixmap(":/data/images/breeze-dark-panel.png").scaled(QSize(660, 70), Qt.IgnoreAspectRatio, Qt.FastTransformation))
+        item.setSizeHint(QSize(660, 70))
         item.setIcon(icon)
         item.panelText = "breeze-dark"
 
         item = QListWidgetItem(self.listWidgetDesktopTheme)
         item.setTextAlignment(Qt.AlignHCenter)
-        icon = QIcon(QPixmap(":/data/images/oxygen-panel.png"))
+        icon = QIcon(QPixmap(":/data/images/oxygen-panel.png").scaled(QSize(660, 70), Qt.IgnoreAspectRatio, Qt.FastTransformation))
+        item.setSizeHint(QSize(660, 70))
         item.setIcon(icon)
         item.panelText = "oxygen"
 
@@ -375,17 +379,16 @@ class PreviewWidgetColor(QGroupBox):
         self.previewTextBrowser = QTextBrowser(self.previewGroupBox)
         self.previewTextBrowser.setObjectName("previewTextBrowser")
 
-        html = """<style>
+        self.previewTextBrowser.insertHtml(self.tr("""<style>
         #unclicked {color : rgb(255,0,0);}
         #sunclicked {color : rgb(255,0,255);}
         #clicked {color : rgb(0,255,0);}
         #sclicked {color : rgb(0,0,255);}
-        </style>"""
+        </style>
+        <p>Normal metin <a id='unclicked' href='#'>bağlantı</a> <a id='clicked' href='#'>ziyaret edilmiş</a></p>
+        <p>Seçili metin <a id='sunclicked' href='#'>bağlantı</a> <a id='sclicked' href='#'>ziyaret edilmiş</a></p>"""))
 
-        html += """<p>Normal metin <a id='unclicked' href='#'>bağlantı</a> <a id='clicked' href='#'>ziyaret edilmiş</a></p>
-                <p>Seçili metin <a id='sunclicked' href='#'>bağlantı</a> <a id='sclicked' href='#'>ziyaret edilmiş</a></p>"""
 
-        self.previewTextBrowser.setHtml(self.tr(html))
 
         cursor = self.previewTextBrowser.textCursor()
         cursor.setPosition(39)
