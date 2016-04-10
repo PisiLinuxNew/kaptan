@@ -84,7 +84,7 @@ class ThemeWidget(QWizardPage):
         spinBox.valueChanged.connect(self.desktopCreate)
         vlayout2.addWidget(spinBox)
         self.checkBox = QCheckBox()
-        self.checkBox.setText(self.tr("Masaüstünü Göster eklensin mi?"))
+        self.checkBox.setText(self.tr("Add Show Desktop Plasmoid"))
         self.checkBox.clicked.connect(self.showDesktopF)
         hlayout.addWidget(self.checkBox)
 

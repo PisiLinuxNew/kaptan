@@ -7,6 +7,7 @@ SOURCES += kaptan/ui_summary.py
 SOURCES += kaptan/ui_theme.py
 SOURCES += kaptan/ui_wallpaper.py
 SOURCES += kaptan/ui_welcome.py
+SOURCES += kaptan/tabwidget.py
 
 SOURCES += kaptan.py
 
