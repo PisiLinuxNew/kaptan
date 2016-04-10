@@ -138,7 +138,8 @@ class ThemeWidget(QWizardPage):
             settings.setValue("org.kde.kdecoration2/library", self.windowStyle)
             settings.sync()
 
-            os.system("qdbus org.kde.KWin /KWin reconfigure") #kwinrc yi sisteme işleyen komut.
+            prc = QProcess()
+            prc.startDetached("kwin_x11 --replace") #kwinrc yi sisteme işleyen komut.
 
         if self.desktopTheme != None:
             settings = QSettings(join(QDir.homePath(), ".config5", "plasmarc"), QSettings.IniFormat)
