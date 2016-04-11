@@ -1,10 +1,35 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 from distutils.command.install import install
+from distutils.command.build import build
 import os, shutil
+from os.path import abspath, dirname
+
+class Build(build):
+    def run(self):
+        # Clear all
+        os.system("rm -rf build")
+
+        # Copy icons
+        print("Copying Images...")
+        os.system("cp -R data/ build/")
+
+
+        # Copy languages
+        print("Copying Languages File...")
+        os.system("cp -R languages/ build/")
+
+        # Copy codes
+        print("Copying PYs...")
+        os.system("cp -R kaptan/ build/")
+
+
+        shutil.copy("kaptan.py", "build/")
+        shutil.copy("rc_kaptan.py", "build/")
 
 class Install(install):
     def run(self):
-        dirPath = os.path.dirname(__file__)
+        install.run(self)
+        dirPath = dirname(abspath(__file__))
 
         autostart_dir = os.path.join(os.environ["HOME"], "config5","autostart")
         project_dir = "/usr/lib/kaptan"
@@ -18,19 +43,11 @@ class Install(install):
         except OSError:
             pass
 
-
         shutil.copy(os.path.join(dirPath, "data", "kaptan.desktop"), autostart_dir)
         shutil.copy(os.path.join(dirPath, "data", "kaptan.desktop"), applications_dir)
         shutil.copy(icon, os.path.join(pixmap_dir, "kaptan.png"))
         shutil.copy("kaptan.py", os.path.join(project_dir, "kaptan5.py"))
         shutil.copy("rc_kaptan.py", project_dir)
-
-        os.chmod("script/kaptan", 0o755)
-        shutil.copy("script/kaptan", "/usr/bin")
-
-        os.system("cp -R languages {}".format(project_dir))
-        os.system("cp -R data {}".format(project_dir))
-        os.system("cp -R kaptan {}".format(project_dir))
 
         docs = ["AUTHORS", "kaptan.pro", "kaptan.qrc", "LICENSE", "MANIFEST.in", "README", "TODO"]
 
@@ -41,10 +58,9 @@ class Install(install):
 
 setup(
     name = "kaptan",
-    packages = find_packages(),
     package_data = {os.path.dirname(__file__) : ["languages/*", "data/images/*" ,"data/*"]},
     scripts = ["script/kaptan"],
-    version = "1.0",
+    version = "5.0",
     license = "GPL v3",
     description = "PisiLinux desktop configurate.",
     author = "Metehan Özbek",
@@ -56,6 +72,8 @@ setup(
         "Intended Audience :: End Users/Desktop",
         "License :: OSI Approved :: GNU Affero General Public License v3",
     ],
-    cmdclass = {'install': Install}
+    cmdclass = {"build" : Build,
+                'install': Install}
 
 )
+
