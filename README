@@ -5,7 +5,7 @@ GPLv3 (please read the COPYING file)
 
 Dependencies
 ------------
-python3, PyQt5, KDE5, python3-setuptools, python3-sip
+python3, PyQt5, KDE5, python3-setuptools, python3-sip, python3-qt5-devel
 
 
 Installation
