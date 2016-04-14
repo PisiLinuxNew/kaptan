@@ -48,6 +48,11 @@ class Install(install):
         shutil.copy(icon, os.path.join(pixmap_dir, "kaptan.png"))
         shutil.copy("kaptan.py", os.path.join(project_dir, "kaptan5.py"))
         shutil.copy("rc_kaptan.py", project_dir)
+        
+        os.system("cp -R languages {}".format(project_dir))
+        os.system("cp -R data {}".format(project_dir))
+        os.system("cp -R kaptan {}".format(project_dir))
+
 
         docs = ["AUTHORS", "kaptan.pro", "kaptan.qrc", "LICENSE", "MANIFEST.in", "README", "TODO"]
 
