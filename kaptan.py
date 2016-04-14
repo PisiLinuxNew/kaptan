@@ -67,7 +67,8 @@ class Kaptan(QWizard):
             self.page(5).execute()
 
 
-            QProcess().startDetached("killall plasmashell && kstart5 plasmashell")
+            QProcess().startDetached("killall plasmashell")
+            QProcess().startDetached("kstart5 plasmashell")
 
         if id == self.sumId:
             self.setButtonText(QWizard.NextButton, self.tr("Apply Settings"))
