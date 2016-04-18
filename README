@@ -8,9 +8,9 @@ Dependencies
 python3, PyQt5, KDE5, python3-setuptools, python3-sip, python3-qt5-devel
 
 
+
 Installation
 -----------------------
-
 
 
 * Build and "install" Kaptan to your system:
