@@ -160,6 +160,13 @@ class ThemeTabWidget(QTabWidget):
 
         item = QListWidgetItem(self.listWidgetDesktopTheme)
         item.setTextAlignment(Qt.AlignHCenter)
+        icon = QIcon(QPixmap(":/data/images/maia-panel.png").scaled(QSize(660, 70), Qt.IgnoreAspectRatio, Qt.FastTransformation))
+        item.setSizeHint(QSize(660, 70))
+        item.setIcon(icon)
+        item.panelText = "maia"
+
+        item = QListWidgetItem(self.listWidgetDesktopTheme)
+        item.setTextAlignment(Qt.AlignHCenter)
         icon = QIcon(QPixmap(":/data/images/oxygen-panel.png").scaled(QSize(660, 70), Qt.IgnoreAspectRatio, Qt.FastTransformation))
         item.setSizeHint(QSize(660, 70))
         item.setIcon(icon)
@@ -200,6 +207,10 @@ class ThemeTabWidget(QTabWidget):
         item = QListWidgetItem(self.listWidgetIconSet)
         item.setIcon(QIcon(":/data/images/breeze-set.png"))
         item.setText("Breeze")
+
+        item = QListWidgetItem(self.listWidgetIconSet)
+        item.setIcon(QIcon(":/data/images/maia-set.png"))
+        item.setText("Maia")
 
         self.verticalLayout_3.addWidget(self.listWidgetIconSet)
 

@@ -58,7 +58,9 @@ class Parser(object):
             self.sync(new_data)
             self.setAppletOrder(0, applet_index)
 
-
+    # Sadece wallpaper kısmı var mı diye aramayacak sayısını da hesap edecek.
+    # Ayrıca 1-9+ kısmındaki rakam da değer olarak döndürülecek.
+    # Masaüstünü temsil eden id li ayar kısmı baz alınarak işlenecek.
     def getWallpaper(self):
         regex = "(\[Containments\]\[[1-9]+\]\[Wallpaper\]\[org.kde.image\]\[General\]\n(.*)=(.*)\n)"
 
@@ -75,6 +77,11 @@ class Parser(object):
 
             return read.group(1), read.group(2), read.group(3)
 
+        else:
+            return False
+
+
+    #
     def setWallpaper(self, path):
         if self.getWallpaper()[1] != "Image":
             regex = "\[Containments\]\[[1-9]+\]\[Wallpaper\]\[org.kde.image\]\[General\]\n.*\n.*\n"
@@ -82,13 +89,17 @@ class Parser(object):
 
             new_data =  com.sub((self.getWallpaper()[0]+"Image=%s\n"+self.getWallpaper()[1])%path, self.read())
             self.sync(new_data)
-        else:
+            
+        elif self.getWallpaper()[1] == "Image":
             regex = r"\[Containments\]\[[1-9]+\]\[Wallpaper\]\[org.kde.image\]\[General\]\n%s=.*\n"%(self.getWallpaper()[1])
 
             com = re.compile(regex)
 
             new_data = com.sub(self.getWallpaper()[0].replace(self.getWallpaper()[2], path), self.read())
             self.sync(new_data)
+            
+        else:
+            pass # Buraya wallpaper ile ilgili bir ayar yoksa sıfırdan oluşturulacak
 
     def getDesktopType(self):
         regex = "(\[Containments\]\[[1-9]*\]\nactivityId=.+\n.*\n.*\nlastScreen=.*\n.*\nplugin=(.*)\n)"
@@ -149,7 +160,7 @@ class Parser(object):
             applet = "\n[Containments][{}][Applets][{}]\nimmutability=1\nplugin={}\n".format(first_applet[1],
                                                                                              applet_index, "org.kde.plasma.showdesktop")
 
-            com = re.compile("\n\[Containments\]\[%s\]\[Applets\]\[%s\]\nimmutability=.\nplugin=.*\n"%(first_applet[1], first_applet[2]))
+            com = re.compile(r"\n\[Containments\]\[%s\]\[Applets\]\[%s\]\nimmutability=.\nplugin=.*\n"%(first_applet[1], first_applet[2]))
 
             new_data = com.sub(first_applet[0] + applet, self.read())
             self.sync(new_data)
