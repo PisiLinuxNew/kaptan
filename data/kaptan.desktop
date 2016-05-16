@@ -1,12 +1,14 @@
 [Desktop Entry]
 Exec=kaptan
-Icon=kaptan
+Icon=kaptan-icon
 Type=Application
+
+Categories=Qt;Utility;
 
 X-KDE-StartupNotify=true
 X-KDE-autostart-after=plasma-desktop
 X-KDE-autostart-condition=kaptanrc:General:RunOnStart:true
 
 Name=Kaptan
-GenericName=Kaptan
-
+GenericName[tr_TR]=Kaptan Masaüstü
+GenericName=Kaptan Desktop

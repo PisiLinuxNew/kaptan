@@ -1,70 +1,33 @@
-from setuptools import setup
-from distutils.command.install import install
-from distutils.command.build import build
-import os, shutil
-from os.path import abspath, dirname
+# This program is free software; you can redistribute it and/or modify it under
+# the terms of the GNU General Public License as published by the Free
+# Software Foundation; either version 3 of the License, or (at your option)
+# any later version.
+#
+# Please read the docs/COPYING file.
+#
 
-class Build(build):
-    def run(self):
-        # Clear all
-        os.system("rm -rf build")
-
-        # Copy icons
-        print("Copying Images...")
-        os.system("cp -R data/ build/")
+from setuptools import setup, find_packages
+from os import listdir, system
 
 
-        # Copy languages
-        print("Copying Languages File...")
-        os.system("cp -R languages/ build/")
-
-        # Copy codes
-        print("Copying PYs...")
-        os.system("cp -R kaptan/ build/")
+langs = []
+for l in listdir('languages'):
+    if l.endswith('ts'):
+        system('lrelease-qt5 languages/%s' % l)
+        langs.append(('languages/%s' % l).replace('.ts', '.qm'))
 
 
-        shutil.copy("kaptan.py", "build/")
-        shutil.copy("rc_kaptan.py", "build/")
+system('pyrcc5 kaptan.qrc -o kaptan5/rc_kaptan.py')
 
-class Install(install):
-    def run(self):
-        install.run(self)
-        dirPath = dirname(abspath(__file__))
-
-        autostart_dir = os.path.join(os.environ["HOME"], "config5","autostart")
-        project_dir = "/usr/lib/kaptan"
-        pixmap_dir = "/usr/share/pixmaps"
-        applications_dir = "/usr/share/applications"
-        icon = os.path.join(dirPath, "data", "images", "kaptan-icon.png")
-
-        try:
-            os.makedirs(autostart_dir)
-            os.makedirs(project_dir)
-        except OSError:
-            pass
-
-        shutil.copy(os.path.join(dirPath, "data", "kaptan.desktop"), autostart_dir)
-        shutil.copy(os.path.join(dirPath, "data", "kaptan.desktop"), applications_dir)
-        shutil.copy(icon, os.path.join(pixmap_dir, "kaptan.png"))
-        shutil.copy("kaptan.py", os.path.join(project_dir, "kaptan5.py"))
-        shutil.copy("rc_kaptan.py", project_dir)
-        
-        os.system("cp -R languages {}".format(project_dir))
-        os.system("cp -R data {}".format(project_dir))
-        os.system("cp -R kaptan {}".format(project_dir))
-
-
-        docs = ["AUTHORS", "kaptan.pro", "kaptan.qrc", "LICENSE", "MANIFEST.in", "README", "TODO"]
-
-        for doc in docs:
-            shutil.copy(doc, project_dir)
-
-
+datas = [('/usr/share/applications', ['data/kaptan.desktop']),
+         ('/etc/skel/.config5/autostart', ['data/kaptan.desktop']),
+         ('/usr/share/icons/hicolor/64x64/apps', ['data/images/kaptan-icon.png']),
+         ('/usr/share/kaptan/languages', langs)]
 
 setup(
     name = "kaptan",
-    package_data = {os.path.dirname(__file__) : ["languages/*", "data/images/*" ,"data/*"]},
     scripts = ["script/kaptan"],
+    packages = find_packages(),
     version = "5.0",
     license = "GPL v3",
     description = "PisiLinux desktop configurate.",
@@ -72,13 +35,6 @@ setup(
     author_email = "mthnzbk@gmail.com",
     url = "https://github.com/PisiLinuxNew/kaptan",
     keywords = ["PyQt5"],
-    classifiers = [
-        "Environment :: X11 Applications :: Qt",
-        "Intended Audience :: End Users/Desktop",
-        "License :: OSI Approved :: GNU Affero General Public License v3",
-    ],
-    cmdclass = {"build" : Build,
-                'install': Install}
-
+    data_files = datas
 )
 

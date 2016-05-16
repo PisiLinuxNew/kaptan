@@ -1,2 +1,0 @@
-include data/* data/images/* languages/*
-global-include kaptan.pro AUTHORS README LICENSE TODO kaptan.qrc kaptan.py
