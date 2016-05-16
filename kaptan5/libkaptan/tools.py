@@ -190,7 +190,7 @@ def iniToCss(file):
     label text color
     button background-border-text
     groupbox background-bordor
-    textbrowser background-text-linktext-alinktext-selecttext
+    textbrowser background-text-linktext-alinktext
     """
 
     iniFile = QSettings(file, QSettings.IniFormat)
@@ -211,16 +211,16 @@ def iniToCss(file):
     QTextBrowser#previewTextBrowser {
     background-color : rgb(%s);
     color : rgb(%s);
-    selection-background-color : rgb(%s);
     }"""%(listToStr(iniFile.value("Colors:Window/ForegroundNormal")),
           listToStr(iniFile.value("Colors:Button/ForegroundNormal")),
           listToStr(iniFile.value("Colors:Button/BackgroundNormal")),
           listToStr(iniFile.value("Colors:Window/BackgroundNormal")),
           listToStr(iniFile.value("Colors:View/BackgroundNormal")),
-          listToStr(iniFile.value("Colors:View/ForegroundNormal")),
-          listToStr(iniFile.value("Colors:Selection/BackgroundNormal")))
+          listToStr(iniFile.value("Colors:View/ForegroundNormal")))
 
-    return cssText
+    textbrowser = listToStr(iniFile.value("Colors:View/ForegroundLink")), listToStr(iniFile.value("Colors:View/ForegroundVisited"))
+
+    return cssText, textbrowser
 
 
 #print(iniToCss("/usr/share/color-schemes/Breeze.colors"))

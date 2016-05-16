@@ -2,7 +2,7 @@ from PyQt5.QtWidgets import (QTabWidget, QGridLayout, QLabel, QPushButton, QGrou
                              QVBoxLayout, QSpacerItem, QWidget, QSizePolicy, QRadioButton, QCheckBox, QFrame,
                              QProgressBar, QSlider, QScrollBar, QListView, QListWidget, QSpinBox, QListWidgetItem,
                              QTextBrowser, QStyleFactory)
-from PyQt5.QtGui import QIcon, QPixmap, QTextCursor
+from PyQt5.QtGui import QIcon, QPixmap
 from PyQt5.QtCore import Qt, QEvent, QSize
 from .tools import iniToCss
 import os
@@ -105,11 +105,6 @@ class ThemeTabWidget(QTabWidget):
         self.listWidgetColorScheme.setObjectName("listWidgetColorScheme")
         self.verticalLayout_2.addWidget(self.listWidgetColorScheme)
 
-        self.previewWidgetColor = PreviewWidgetColor(self.tabColorScheme)
-        self.verticalLayout_2.addWidget(self.previewWidgetColor)
-
-        self.addTab(self.tabColorScheme, self.tr("Color Scheme"))
-
         color_list = os.listdir(self.colorSchemePath)
         color_list.sort()
 
@@ -118,12 +113,20 @@ class ThemeTabWidget(QTabWidget):
             item.setText(color.split(".")[0])
             item.colorSchemeName = color
 
-
         self.listWidgetColorScheme.itemClicked.connect(self.previewColorScheme)
+        self.listWidgetColorScheme.setCurrentRow(0)
+
+        self.previewWidgetColor = PreviewWidgetColor(self.tabColorScheme)
+        self.verticalLayout_2.addWidget(self.previewWidgetColor)
+
+        self.addTab(self.tabColorScheme, self.tr("Color Scheme"))
 
     def previewColorScheme(self, item):
-        css = iniToCss(os.path.join(self.colorSchemePath,item.colorSchemeName))
-        self.previewWidgetColor.previewGroupBox.setStyleSheet(css)
+        css = iniToCss(os.path.join(self.colorSchemePath, item.colorSchemeName))
+        self.previewWidgetColor.previewGroupBox.setStyleSheet(css[0])
+        self.previewWidgetColor.previewTextBrowser.setHtml("""<style>#unclicked {color : rgb(%s);}
+        #clicked {color : rgb(%s);}</style>"""%(css[1][0],css[1][1]) +
+        self.tr("""<p>Normal text <a id='unclicked' href='#'>link</a> <a id='clicked' href='#'>visited</a></p>"""))
 
     def createTabDesktopTheme(self):
         self.tabDesktopTheme = QWidget()
@@ -367,6 +370,7 @@ class PreviewWidgetColor(QGroupBox):
         super().__init__(parent)
         self.setTitle(self.tr("Preview"))
         self.setMaximumHeight(120)
+        self.parent = parent
 
         vboxLayout = QVBoxLayout(self)
         self.previewGroupBox = QGroupBox(self)
@@ -390,18 +394,12 @@ class PreviewWidgetColor(QGroupBox):
         self.previewTextBrowser = QTextBrowser(self.previewGroupBox)
         self.previewTextBrowser.setObjectName("previewTextBrowser")
 
-        self.previewTextBrowser.setHtml(self.tr("""<style>
-        #unclicked {color : rgb(255,0,0);}
-        #clicked {color : rgb(0,255,0);}
-        </style>
-        <p>Normal metin <a id='unclicked' href='#'>bağlantı</a> <a id='clicked' href='#'>ziyaret edilmiş</a></p>"""))
+        css = iniToCss(os.path.join("/usr/share/color-schemes", self.parent.children()[1].currentItem().colorSchemeName))
 
+        self.previewTextBrowser.setHtml("""<style>#unclicked {color : rgb(%s);}
+        #clicked {color : rgb(%s);}</style>"""%(css[1][0],css[1][1]) +
+        self.tr("""<p>Normal text <a id='unclicked' href='#'>link</a> <a id='clicked' href='#'>visited</a></p>"""))
 
-
-        cursor = self.previewTextBrowser.textCursor()
-        cursor.setPosition(39)
-        cursor.setPosition(76, QTextCursor.KeepAnchor)
-        self.previewTextBrowser.setTextCursor(cursor)
 
         self.horizontalLayout.addWidget(self.previewTextBrowser)
 
