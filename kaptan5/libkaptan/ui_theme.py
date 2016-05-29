@@ -116,25 +116,25 @@ class ThemeWidget(QWizardPage):
             self.desktopType = "org.kde.plasma.folder"
 
     def execute(self):
-        settings = QSettings(join(QDir.homePath(), ".config5", "kwinrc"), QSettings.IniFormat)
+        settings = QSettings(join(QDir.homePath(), ".config", "kwinrc"), QSettings.IniFormat)
         settings.setValue("Desktops/Number", self.desktopCount)
         settings.setValue("Desktops/Rows", 2)
         settings.sync()
 
         if self.iconSet != None:
-            settings = QSettings(join(QDir.homePath(), ".config5", "kdeglobals"), QSettings.IniFormat)
+            settings = QSettings(join(QDir.homePath(), ".config", "kdeglobals"), QSettings.IniFormat)
             settings.setValue("Icons/Theme", self.iconSet)
             settings.sync()
 
-            os.system("rm -rf {}".format(join(QDir.homePath(), ".cache5", "icon-cache.kcache")))
+            os.system("rm -rf {}".format(join(QDir.homePath(), ".cache", "icon-cache.kcache")))
 
         if self.widgetStyle != None:
-            settings = QSettings(join(QDir.homePath(), ".config5", "kdeglobals"), QSettings.IniFormat)
+            settings = QSettings(join(QDir.homePath(), ".config", "kdeglobals"), QSettings.IniFormat)
             settings.setValue("KDE/widgetStyle", self.widgetStyle.lower())
             settings.sync()
 
         if self.windowStyle != None:
-            settings = QSettings(join(QDir.homePath(), ".config5", "kwinrc"), QSettings.IniFormat)
+            settings = QSettings(join(QDir.homePath(), ".config", "kwinrc"), QSettings.IniFormat)
             settings.setValue("org.kde.kdecoration2/library", self.windowStyle)
             settings.sync()
 
@@ -142,13 +142,13 @@ class ThemeWidget(QWizardPage):
             prc.startDetached("kwin_x11 --replace") #kwinrc yi sisteme işleyen komut.
 
         if self.desktopTheme != None:
-            settings = QSettings(join(QDir.homePath(), ".config5", "plasmarc"), QSettings.IniFormat)
+            settings = QSettings(join(QDir.homePath(), ".config", "plasmarc"), QSettings.IniFormat)
             settings.setValue("Theme/name", self.desktopTheme)
             settings.sync()
 
         """
         if self.mouseCursor != None:
-            settings = QSettings(join(QDir.homePath(), ".config5", "plasmarc"), QSettings.IniFormat)
+            settings = QSettings(join(QDir.homePath(), ".config", "plasmarc"), QSettings.IniFormat)
             settings.setValue("Theme/name", self.desktopTheme)
             settings.sync()"""
 
@@ -156,7 +156,7 @@ class ThemeWidget(QWizardPage):
             colorSettings = QSettings(join("/usr/share/color-schemes", self.colorScheme), QSettings.IniFormat)
             colorParameter = colorSettings.allKeys()
             print(join("/usr/share/color-schemes", self.colorScheme))
-            settings = QSettings(join(QDir.homePath(), ".config5", "kdeglobals"), QSettings.IniFormat)
+            settings = QSettings(join(QDir.homePath(), ".config", "kdeglobals"), QSettings.IniFormat)
             for parameter in colorParameter:
                 print(parameter, colorSettings.value(parameter))
                 settings.setValue(parameter, colorSettings.value(parameter))
@@ -164,13 +164,13 @@ class ThemeWidget(QWizardPage):
             settings.sync()
 
             #Ayar gruplarında olan : karakterini %3A ya çevirdiği için bu yöntem ile çözüyoruz.
-            with open(join(QDir.homePath(), ".config5", "kdeglobals"), "r+") as rep:
+            with open(join(QDir.homePath(), ".config", "kdeglobals"), "r+") as rep:
                 cache = rep.read().replace("%3A", ":")
                 rep.seek(0)
                 rep.truncate()
                 rep.write(cache)
 
-        configFilePath = join(QDir.homePath(), ".config5", "plasma-org.kde.plasma.desktop-appletsrc")
+        configFilePath = join(QDir.homePath(), ".config", "plasma-org.kde.plasma.desktop-appletsrc")
 
         parser = Parser(configFilePath)
         desktopView = parser.getDesktopType()

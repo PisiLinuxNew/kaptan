@@ -76,7 +76,7 @@ class MenuWidget(QWizardPage):
         menus = ["org.kde.plasma.kickoff", "org.kde.plasma.kicker", "org.kde.plasma.kickerdash"]
         menu = menus[self.menuSelected]
 
-        configFilePath = join(QDir.homePath(), ".config5", "plasma-org.kde.plasma.desktop-appletsrc")
+        configFilePath = join(QDir.homePath(), ".config", "plasma-org.kde.plasma.desktop-appletsrc")
         parser = Parser(configFilePath)
 
         parser.setMenuStyleOrCreate(menu)

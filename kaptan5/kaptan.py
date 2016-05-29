@@ -81,7 +81,7 @@ class Kaptan(QWizard):
             self.button(QWizard.NextButton).setIcon(QIcon.fromTheme("arrow-right"))
 
     def closeEvent(self, event):
-        desktop_file = os.path.join(os.environ["HOME"], ".config5", "autostart", "kaptan.desktop")
+        desktop_file = os.path.join(os.environ["HOME"], ".config", "autostart", "kaptan.desktop")
         if os.path.exists(desktop_file):
             os.remove(desktop_file)
 
@@ -90,7 +90,7 @@ def main():
     app = QApplication(sys.argv)
     app.setApplicationName("Kaptan")
     app.setOrganizationName("Kaptan")
-    app.setApplicationVersion("5.0 Beta2")
+    app.setApplicationVersion("5.0 Beta3")
     #app.setStyleSheet(open(join(dirPath, "data/libkaptan.qss").read())
 
     locale = QLocale.system().name()

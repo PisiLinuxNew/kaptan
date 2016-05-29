@@ -108,7 +108,7 @@ class WallpaperWidget(QWizardPage):
             self.listWidget.setCurrentItem(item)
 
     def execute(self):
-        configFilePath = join(QDir.homePath(), ".config5", "plasma-org.kde.plasma.desktop-appletsrc")
+        configFilePath = join(QDir.homePath(), ".config", "plasma-org.kde.plasma.desktop-appletsrc")
 
         parser = Parser(configFilePath)
         getWallpaper = parser.getWallpaper()

@@ -111,8 +111,8 @@ class MouseWidget(QWizardPage):
             self.reverseScrollPolarity = False
 
     def execute(self):
-        settings1 = QSettings(join(QDir.homePath(), ".config5", "kcminputrc"), QSettings.IniFormat)
-        settings2 = QSettings(join(QDir.homePath(), ".config5", "kdeglobals"), QSettings.IniFormat)
+        settings1 = QSettings(join(QDir.homePath(), ".config", "kcminputrc"), QSettings.IniFormat)
+        settings2 = QSettings(join(QDir.homePath(), ".config", "kdeglobals"), QSettings.IniFormat)
 
         settings1.setValue("Mouse/MouseButtonMapping", self.mouseButtonMap)
         settings1.setValue("Mouse/ReverseScrollPolarity", self.reverseScrollPolarity)

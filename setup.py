@@ -20,7 +20,7 @@ for l in listdir('languages'):
 system('pyrcc5 kaptan.qrc -o kaptan5/rc_kaptan.py')
 
 datas = [('/usr/share/applications', ['data/kaptan.desktop']),
-         ('/etc/skel/.config5/autostart', ['data/kaptan.desktop']),
+         ('/etc/skel/.config/autostart', ['data/kaptan.desktop']),
          ('/usr/share/icons/hicolor/64x64/apps', ['data/images/kaptan-icon.png']),
          ('/usr/share/kaptan/languages', langs)]
 
