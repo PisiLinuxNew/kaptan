@@ -148,9 +148,9 @@ class AvatarWidget(QWizardPage):
         self.buttonCam.hide()
         self.buttonReplay.show()
         self.camera.searchAndLock()
-        self.cameraImageCapture.capture("/tmp/avatar.png")
+        self.cameraImageCapture.capture("/tmp/avatar")
         self.camera.unlock()
-        self.userAvatar = "/tmp/avatar.png"
+        self.userAvatar = "/tmp/avatar.jpg"
 
     def buttonReplayChanged(self):
         self.userAvatar = None
@@ -168,7 +168,13 @@ class AvatarWidget(QWizardPage):
         self.cameraLabel.setPixmap(pixmap)
 
     def execute(self):
-        if self.userAvatar:
-            if os.path.exists(os.path.join(os.environ["HOME"], ".face.icon")):
-                os.remove(os.path.join(os.environ["HOME"], ".face.icon"))
-            shutil.copy(self.userAvatar, os.path.join(os.environ["HOME"], ".face.icon"))
+        try:
+            if self.userAvatar:
+                if os.path.exists(os.path.join(os.environ["HOME"], ".face.icon")):
+                    os.remove(os.path.join(os.environ["HOME"], ".face.icon"))
+                shutil.copy(self.userAvatar, os.path.join(os.environ["HOME"], ".face.icon"))
+                os.remove(self.userAvatar)
+        except:
+            with open("/tmp/.kaptan.bug", "w") as d:
+                d.write("avatar değiştirilemedi.")
+                d.close()
