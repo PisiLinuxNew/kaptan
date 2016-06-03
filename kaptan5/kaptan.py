@@ -50,6 +50,7 @@ class Kaptan(QWizard):
         self.otherId = self.addPage(OtherWidget(self))
 
         self.currentIdChanged.connect(self.optionsAccepted)
+        self.button(QWizard.FinishButton).clicked.connect(self.close)
 
     summaryVisible = pyqtSignal()
     def optionsAccepted(self, id):
