@@ -16,9 +16,5 @@
         <file>data/images/air-panel.png</file>
         <file>data/images/maia-panel.png</file>
         <file>data/images/maia-set.png</file>
-
-        <file>data/images/background.png</file>
-        <file>data/images/arrow-down.png</file>
-        <file>data/images/arrow-up.png</file>
     </qresource>
 </RCC>
