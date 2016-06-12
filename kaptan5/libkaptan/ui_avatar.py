@@ -36,11 +36,13 @@ class AvatarWidget(QWizardPage):
         centerLayout.addItem(QSpacerItem(40, 20, QSizePolicy.Preferred, QSizePolicy.Preferred))
 
         groupBox = QGroupBox()
+        groupBox.setObjectName("group_box")
         groupBox.setMaximumWidth(500)
         vlayout2 = QVBoxLayout(groupBox)
         hlayout = QHBoxLayout()
 
         comboBox = QComboBox()
+        comboBox.setObjectName("combo_box")
         comboBox.setMinimumWidth(250)
         comboBox.addItems([self.tr("Options"), self.tr("Choose an image...")])
 
@@ -62,15 +64,17 @@ class AvatarWidget(QWizardPage):
             self.imageProcessing.setSaturation(1)
             self.imageProcessing.setSharpeningLevel(1)
             self.imageProcessing.setDenoisingLevel(1)
-            #self.imageProcessing.setColorFilter(QCameraImageProcessing.ColorFilterWhiteboard) #FIXME Qt5.5
+            self.imageProcessing.setColorFilter(QCameraImageProcessing.ColorFilterWhiteboard) #FIXME Qt5.5
             self.cameraImageCapture.imageCaptured.connect(self.imageCapture)
 
         self.buttonCam = QPushButton()
+        self.buttonCam.setObjectName("push_button")
         self.buttonCam.setText(self.tr("Capture"))
         self.buttonCam.setIcon(QIcon.fromTheme("camera-web"))
         self.buttonCam.setVisible(False)
 
         self.buttonReplay = QPushButton()
+        self.buttonReplay.setObjectName("push_button")
         self.buttonReplay.setText(self.tr("Recapture"))
         self.buttonReplay.setIcon(QIcon.fromTheme("view-refresh"))
         self.buttonReplay.setVisible(False)

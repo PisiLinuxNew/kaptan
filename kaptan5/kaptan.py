@@ -3,7 +3,7 @@
 import sys, os
 from PyQt5.QtCore import QTranslator, QLocale, Qt, QProcess, pyqtSignal
 from PyQt5.QtGui import QPixmap, QIcon
-from PyQt5.QtWidgets import QWizard, QApplication, QDesktopWidget
+from PyQt5.QtWidgets import QWizard, QApplication, QDesktopWidget, qApp
 from kaptan5 import rc_kaptan
 from kaptan5.libkaptan import *
 
@@ -11,11 +11,11 @@ from kaptan5.libkaptan import *
 class Kaptan(QWizard):
     def __init__(self):
         super().__init__()
-
+        self.setObjectName("wizard")
         self.setWindowTitle(self.tr("Kaptan Desktop"))
         self.setWindowIcon(QIcon.fromTheme("kaptan-icon"))
-        self.setMinimumSize(850, 600)
-        self.setMaximumSize(950, 620)
+        self.setMinimumSize(900, 650)
+        self.setMaximumSize(1050, 720)
         x = (QDesktopWidget().screen().width() - self.width())/2
         y = (QDesktopWidget().screen().height() - self.height())/2
         self.move(x, y)
@@ -38,6 +38,10 @@ class Kaptan(QWizard):
         self.setButtonText(QWizard.FinishButton, self.tr("Finish"))
         self.button(QWizard.FinishButton).setIcon(QIcon.fromTheme("dialog-ok-apply"))
 
+        self.button(QWizard.FinishButton).setObjectName("push_button")
+        self.button(QWizard.NextButton).setObjectName("push_button")
+        self.button(QWizard.CancelButton).setObjectName("push_button")
+        self.button(QWizard.BackButton).setObjectName("push_button")
 
         self.addPage(WelcomeWidget(self))
         self.addPage(MouseWidget(self))
@@ -91,8 +95,7 @@ def main():
     app = QApplication(sys.argv)
     app.setApplicationName("Kaptan")
     app.setOrganizationName("Kaptan")
-    app.setApplicationVersion("5.0 Beta3")
-    #app.setStyleSheet(open(join(dirPath, "data/libkaptan.qss").read())
+    app.setApplicationVersion("5.0 Beta4")
 
     locale = QLocale.system().name()
     translator = QTranslator(app)
@@ -101,6 +104,10 @@ def main():
 
     kaptan = Kaptan()
     kaptan.show()
+
+    file = open(os.path.join("/usr/share/kaptan", "data/kaptan.css"))
+    qApp.setStyleSheet(file.read())
+
     app.exec_()
 
 if __name__ == "__main__":

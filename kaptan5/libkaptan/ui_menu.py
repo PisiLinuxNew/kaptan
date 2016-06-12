@@ -40,6 +40,7 @@ class MenuWidget(QWizardPage):
         vlayout.addItem(QSpacerItem(20, 40, QSizePolicy.Preferred, QSizePolicy.Preferred))
 
         self.comboBox = QComboBox(self)
+        self.comboBox.setObjectName("combo_box")
         self.comboBox.addItem(self.tr("Application Launcher"))
         self.comboBox.addItem(self.tr("Application Menu"))
         self.comboBox.addItem(self.tr("Application Dashboard"))

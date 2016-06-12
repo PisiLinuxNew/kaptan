@@ -1,7 +1,6 @@
 from PyQt5.QtWidgets import QWizardPage, QLabel, QGroupBox, QPushButton, QVBoxLayout, QSpacerItem, QSizePolicy, QHBoxLayout
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
-import webbrowser
 
 
 class OtherWidget(QWizardPage):
@@ -24,6 +23,7 @@ class OtherWidget(QWizardPage):
         vlayout.addItem(QSpacerItem(20, 40, QSizePolicy.Preferred, QSizePolicy.Preferred))
 
         groupBox1 = QGroupBox()
+        groupBox1.setObjectName("group_box")
         groupBox1.setTitle(self.tr("System Settings"))
         groupBox1.setMinimumHeight(150)
 
@@ -36,6 +36,7 @@ class OtherWidget(QWizardPage):
         groupLabel1.setWordWrap(True)
         groupLabel1.setText(self.tr("<p>Configuration tools for Pisi Linux such as the display, firewall, keyboard, user manager...</p>"))
         groupButton1 = QPushButton()
+        groupButton1.setObjectName("push_button")
         groupButton1.setMaximumWidth(200)
         groupButton1.setText(self.tr("System Settings"))
 
@@ -48,6 +49,7 @@ class OtherWidget(QWizardPage):
         vlayout.addItem(QSpacerItem(20, 40, QSizePolicy.Preferred, QSizePolicy.Preferred))
 
         groupBox2 = QGroupBox()
+        groupBox2.setObjectName("group_box")
         groupBox2.setTitle(self.tr("Help and Support"))
         groupBox2.setMinimumHeight(150)
 
@@ -60,6 +62,7 @@ class OtherWidget(QWizardPage):
         groupLabel2.setWordWrap(True)
         groupLabel2.setText(self.tr("<p>Pisi Linux community, mailing lists, chat rooms, Wiki documents, help and support pages...</p>"))
         groupButton2 = QPushButton()
+        groupButton2.setObjectName("push_button")
         groupButton2.setMaximumWidth(200)
         groupButton2.setText(self.tr("Help and Support"))
 
@@ -75,12 +78,9 @@ class OtherWidget(QWizardPage):
         groupButton1.clicked.connect(self.systemSettingsOpen)
 
     def helpPagesOpen(self):
-        webbrowser.open_new_tab(self.homepage_url)
-        webbrowser.open_new_tab(self.forum_url)
-        webbrowser.open_new_tab(self.wiki_url)
-        """QDesktopServices.openUrl(QUrl(self.homepage_url))
+        QDesktopServices.openUrl(QUrl(self.homepage_url))
         QDesktopServices.openUrl(QUrl(self.forum_url))
-        QDesktopServices.openUrl(QUrl(self.wiki_url))"""
+        QDesktopServices.openUrl(QUrl(self.wiki_url))
 
     def systemSettingsOpen(self):
         procSettings = QProcess()

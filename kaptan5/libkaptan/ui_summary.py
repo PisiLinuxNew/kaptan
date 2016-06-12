@@ -16,16 +16,22 @@ class SummaryWidget(QWizardPage):
         vlayout.addItem(QSpacerItem(20, 40, QSizePolicy.Preferred, QSizePolicy.Preferred))
 
         groupBox = QGroupBox()
+        groupBox.setObjectName("group_box")
         groupBox.setTitle(self.tr("The following settings will be applied"))
         groupBox.setMinimumHeight(350)
 
-        groupLayout = QHBoxLayout(groupBox)
+        vlayout2 = QVBoxLayout(groupBox)
+        vlayout2.addItem(QSpacerItem(20, 40, QSizePolicy.Preferred, QSizePolicy.Preferred))
+        groupLayout = QHBoxLayout()
         self.labelSummary = QLabel()
         self.labelSummary.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        groupLayout.addWidget(    self.labelSummary)
+        groupLayout.addWidget(self.labelSummary)
+
         self.labelSummary2 = QLabel()
         self.labelSummary2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        groupLayout.addWidget(    self.labelSummary2)
+        groupLayout.addWidget(self.labelSummary2)
+        vlayout2.addLayout(groupLayout)
+
         vlayout.addWidget(groupBox)
 
         vlayout.addItem(QSpacerItem(20, 40, QSizePolicy.Preferred, QSizePolicy.Preferred))

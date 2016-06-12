@@ -41,6 +41,7 @@ class ThemeWidget(QWizardPage):
 
     def createGroupBox(self, layout):
         group1 = QGroupBox(self)
+        group1.setObjectName("group_box")
         group1.setMinimumHeight(200)
         layout.addWidget(group1)
 
@@ -74,16 +75,20 @@ class ThemeWidget(QWizardPage):
         vlayout2.addWidget(label2)
 
         comboBox = QComboBox()
+        comboBox.setObjectName("combo_box")
         comboBox.addItem(self.tr("Desktop View"))
         comboBox.addItem(self.tr("Folder View"))
         comboBox.currentIndexChanged.connect(self.desktopTypeCreate)
         vlayout1.addWidget(comboBox)
+
         spinBox = QSpinBox()
+        spinBox.setObjectName("spin_box")
         spinBox.setMinimum(1)
         spinBox.setMaximum(20)
         spinBox.valueChanged.connect(self.desktopCreate)
         vlayout2.addWidget(spinBox)
         self.checkBox = QCheckBox()
+        self.checkBox.setObjectName("check_box")
         self.checkBox.setText(self.tr("Add Show Desktop Plasmoid"))
         self.checkBox.clicked.connect(self.showDesktopF)
         hlayout.addWidget(self.checkBox)
