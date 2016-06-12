@@ -43,7 +43,6 @@ class MouseWidget(QWizardPage):
     def createGroupBox(self, layout):
         group1 = QGroupBox(self)
         group1.setTitle(self.tr("Clicking Behavior"))
-        group1.setObjectName("group_box")
         group1.setMinimumHeight(150)
         group1.setMaximumWidth(300)
         layout.addWidget(group1)
@@ -52,13 +51,11 @@ class MouseWidget(QWizardPage):
         buttonGroup = QButtonGroup(group1)
 
         self.radiobutton1 = QRadioButton(group1)
-        self.radiobutton1.setObjectName("radio_button")
         self.radiobutton1.setText(self.tr("Double-click to open files and folders."))
         self.radiobutton1.setChecked(True)
         vlayout1.addWidget(self.radiobutton1)
 
         self.radiobutton2 = QRadioButton(group1)
-        self.radiobutton2.setObjectName("radio_button")
         self.radiobutton2.setText(self.tr("Single-click to open files and folders."))
         vlayout1.addWidget(self.radiobutton2)
 
@@ -68,24 +65,20 @@ class MouseWidget(QWizardPage):
         buttonGroup.buttonClicked.connect(self.folderClick)
 
         group2 = QGroupBox(self)
-        group2.setObjectName("group_box")
         group2.setTitle(self.tr("Button Order"))
         group2.setMinimumHeight(150)
         group2.setMaximumWidth(300)
         layout.addWidget(group2)
 
         vlayout2 = QVBoxLayout(group2)
-        vlayout2.addItem(QSpacerItem(10, 20, QSizePolicy.Preferred, QSizePolicy.Preferred))
         buttonGroup2 = QButtonGroup(group2)
 
         self.radiobutton3 = QRadioButton(group2)
-        self.radiobutton3.setObjectName("radio_button")
         self.radiobutton3.setText(self.tr("Right hand."))
         self.radiobutton3.setChecked(True)
         vlayout2.addWidget(self.radiobutton3)
 
         self.radiobutton4 = QRadioButton(group2)
-        self.radiobutton4.setObjectName("radio_button")
         self.radiobutton4.setText(self.tr("Left hand."))
         vlayout2.addWidget(self.radiobutton4)
 
@@ -95,7 +88,6 @@ class MouseWidget(QWizardPage):
         buttonGroup2.buttonClicked.connect(self.mouseButton)
 
         self.checkbox = QCheckBox(group2)
-        self.checkbox.setObjectName("check_box")
         self.checkbox.setText(self.tr("Reverse scrolling."))
         self.checkbox.clicked.connect(self.reverseScroll)
         vlayout2.addWidget(self.checkbox)

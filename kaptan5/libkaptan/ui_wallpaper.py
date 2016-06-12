@@ -29,14 +29,11 @@ class WallpaperWidget(QWizardPage):
         vlayout.addItem(QSpacerItem(20, 40, QSizePolicy.Preferred, QSizePolicy.Preferred))
 
         groupBox = QGroupBox(self)
-        groupBox.setObjectName("group_box")
         groupBox.setTitle(self.tr("Wallpapers"))
         groupBox.setMinimumHeight(350)
 
         grLayout = QVBoxLayout(groupBox)
-        grLayout.addItem(QSpacerItem(20, 40, QSizePolicy.Preferred, QSizePolicy.Preferred))
         self.listWidget = QListWidget()
-        self.listWidget.setResizeMode(QListView.Adjust)
         self.listWidget.setViewMode(QListView.IconMode)
         self.listWidget.setIconSize(QSize(250, 150))
         grLayout.addWidget(self.listWidget)
@@ -46,14 +43,12 @@ class WallpaperWidget(QWizardPage):
 
         hlayout = QHBoxLayout()
         self.button = QPushButton()
-        self.button.setObjectName("push_button")
         self.button.setText(self.tr("Choose wallpaper from file"))
         hlayout.addWidget(self.button)
 
         hlayout.addItem(QSpacerItem(400, 20, QSizePolicy.Preferred, QSizePolicy.Preferred))
 
         self.checkbox = QCheckBox()
-        self.checkbox.setObjectName("check_box")
         self.checkbox.setText(self.tr("Don't change wallpaper"))
         hlayout.addWidget(self.checkbox)
 
@@ -76,9 +71,10 @@ class WallpaperWidget(QWizardPage):
                     item = QListWidgetItem(self.listWidget)
 
                     pix = QPixmap(join(path, thumb))
-                    pix = pix.scaled(QSize(240, 140))
+                    pix = pix.scaled(QSize(240, 140), Qt.IgnoreAspectRatio, Qt.FastTransformation)
 
                     item.setIcon(QIcon(pix))
+                    item.setSizeHint(QSize(250, 150))
                     item.screenshotPath = join(path, thumb)
 
     def wallpaperSelect(self, item):
@@ -102,7 +98,7 @@ class WallpaperWidget(QWizardPage):
 
     def wallpaperSelectDialog(self):
         file_url, file_type = QFileDialog.getOpenFileName(self, self.tr("Choose wallpaper"), QDir.homePath(), "Image (*.png *.jpg)")
-
+        print(file_url)
         if not "" == file_url:
             self.selectWallpaper = file_url
             item = QListWidgetItem(self.listWidget)

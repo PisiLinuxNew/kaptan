@@ -10,6 +10,7 @@ import os
 class ThemeTabWidget(QTabWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
+        self.setStyleSheet("QTabWidget#tabWidget::tab-bar {alignment:center;}")
         self.setObjectName("tabWidget")
         self.setCurrentIndex(0)
 
@@ -25,17 +26,21 @@ class ThemeTabWidget(QTabWidget):
 
     def createTabWidgetStyle(self):
         self.tabWidgetStyle = QWidget()
+        self.tabWidgetStyle.setObjectName("tabWidgetStyle")
 
         self.verticalLayout = QVBoxLayout(self.tabWidgetStyle)
+        self.verticalLayout.setObjectName("verticalLayout")
 
         self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setObjectName("horizontalLayout")
 
         self.labelWidgetStyle = QLabel(self.tabWidgetStyle)
         self.labelWidgetStyle.setText(self.tr("Widget Style:"))
+        self.labelWidgetStyle.setObjectName("labelWidgetStyle")
         self.horizontalLayout.addWidget(self.labelWidgetStyle)
 
         self.comboBoxWidgetStyle = QComboBox(self.tabWidgetStyle)
-        self.comboBoxWidgetStyle.setObjectName("combo_box")
+        self.comboBoxWidgetStyle.setObjectName("comboBoxWidgetStyle")
         self.comboBoxWidgetStyle.addItem(self.tr("Breeze"))
         self.comboBoxWidgetStyle.addItem(self.tr("Oxygen"))
         self.comboBoxWidgetStyle.addItem(self.tr("Fusion"))
@@ -61,13 +66,16 @@ class ThemeTabWidget(QTabWidget):
 
     def createTabWindowStyle(self):
         self.tabWindowStyle = QWidget()
+        self.tabWindowStyle.setObjectName("tabWindowStyle")
 
         self.verticalLayout_6 = QVBoxLayout(self.tabWindowStyle)
+        self.verticalLayout_6.setObjectName("verticalLayout_6")
 
         self.listWidgetWindowStyle = QListWidget(self.tabWindowStyle)
         self.listWidgetWindowStyle.setResizeMode(QListView.Adjust)
         self.listWidgetWindowStyle.setIconSize(QSize(340, 105))
         self.listWidgetWindowStyle.setViewMode(QListView.IconMode)
+        self.listWidgetWindowStyle.setObjectName("listWidgetWindowStyle")
 
         item = QListWidgetItem(self.listWidgetWindowStyle)
         icon = QIcon()
@@ -88,9 +96,13 @@ class ThemeTabWidget(QTabWidget):
 
     def createTabColorScheme(self):
         self.tabColorScheme = QWidget()
+        self.tabColorScheme.setObjectName("tabColorScheme")
+
         self.verticalLayout_2 = QVBoxLayout(self.tabColorScheme)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
 
         self.listWidgetColorScheme = QListWidget(self.tabColorScheme)
+        self.listWidgetColorScheme.setObjectName("listWidgetColorScheme")
         self.verticalLayout_2.addWidget(self.listWidgetColorScheme)
 
         color_list = os.listdir(self.colorSchemePath)
@@ -118,9 +130,13 @@ class ThemeTabWidget(QTabWidget):
 
     def createTabDesktopTheme(self):
         self.tabDesktopTheme = QWidget()
+        self.tabDesktopTheme.setObjectName("tabDesktopTheme")
+
         self.gridLayout = QGridLayout(self.tabDesktopTheme)
+        self.gridLayout.setObjectName("gridLayout")
 
         self.listWidgetDesktopTheme = QListWidget(self.tabDesktopTheme)
+        self.listWidgetDesktopTheme.setObjectName("listWidgetDesktopTheme")
         self.listWidgetDesktopTheme.setViewMode(QListView.IconMode)
         self.listWidgetDesktopTheme.setIconSize(QSize(660, 70))
         self.gridLayout.addWidget(self.listWidgetDesktopTheme, 0, 0, 1, 1)
@@ -176,10 +192,14 @@ class ThemeTabWidget(QTabWidget):
 
     def createTabIconSet(self):
         self.tabIconSet = QWidget()
+        self.tabIconSet.setObjectName("tabIconSet")
+
         self.verticalLayout_3 = QVBoxLayout(self.tabIconSet)
+        self.verticalLayout_3.setObjectName("verticalLayout_3")
 
         self.listWidgetIconSet = QListWidget(self.tabIconSet)
         self.listWidgetIconSet.setResizeMode(QListView.Adjust)
+        self.listWidgetIconSet.setObjectName("listWidgetIconSet")
         self.listWidgetIconSet.setViewMode(QListView.IconMode)
         self.listWidgetIconSet.setIconSize(QSize(370, 64))
 
@@ -205,7 +225,7 @@ class PreviewWidgetStyle(QGroupBox):
         super().__init__(parent)
         self.setTitle(self.tr("Preview"))
         self.setMaximumHeight(220)
-        self.setObjectName("group_box")
+        self.setObjectName("groupBox")
 
         self.verticalLayout = QVBoxLayout(self)
         self.verticalLayout.setObjectName("verticalLayout")
@@ -349,7 +369,6 @@ class PreviewWidgetColor(QGroupBox):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setTitle(self.tr("Preview"))
-        self.setObjectName("group_box")
         self.setMaximumHeight(120)
         self.parent = parent
 
