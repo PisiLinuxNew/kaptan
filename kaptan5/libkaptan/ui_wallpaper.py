@@ -36,6 +36,7 @@ class WallpaperWidget(QWizardPage):
         grLayout = QVBoxLayout(groupBox)
         grLayout.addItem(QSpacerItem(20, 40, QSizePolicy.Preferred, QSizePolicy.Preferred))
         self.listWidget = QListWidget()
+        self.listWidget.setObjectName("listview")
         self.listWidget.setResizeMode(QListView.Adjust)
         self.listWidget.setViewMode(QListView.IconMode)
         self.listWidget.setIconSize(QSize(250, 150))
