@@ -65,7 +65,6 @@ class ThemeTabWidget(QTabWidget):
         self.verticalLayout_6 = QVBoxLayout(self.tabWindowStyle)
 
         self.listWidgetWindowStyle = QListWidget(self.tabWindowStyle)
-        self.listWidgetWindowStyle.setObjectName("listview")
         self.listWidgetWindowStyle.setResizeMode(QListView.Adjust)
         self.listWidgetWindowStyle.setIconSize(QSize(340, 105))
         self.listWidgetWindowStyle.setViewMode(QListView.IconMode)
@@ -92,7 +91,6 @@ class ThemeTabWidget(QTabWidget):
         self.verticalLayout_2 = QVBoxLayout(self.tabColorScheme)
 
         self.listWidgetColorScheme = QListWidget(self.tabColorScheme)
-        self.listWidgetColorScheme.setObjectName("listview")
         self.verticalLayout_2.addWidget(self.listWidgetColorScheme)
 
         color_list = os.listdir(self.colorSchemePath)
@@ -123,7 +121,6 @@ class ThemeTabWidget(QTabWidget):
         self.gridLayout = QGridLayout(self.tabDesktopTheme)
 
         self.listWidgetDesktopTheme = QListWidget(self.tabDesktopTheme)
-        self.listWidgetDesktopTheme.setObjectName("listview")
         self.listWidgetDesktopTheme.setViewMode(QListView.IconMode)
         self.listWidgetDesktopTheme.setIconSize(QSize(660, 70))
         self.gridLayout.addWidget(self.listWidgetDesktopTheme, 0, 0, 1, 1)
@@ -182,7 +179,6 @@ class ThemeTabWidget(QTabWidget):
         self.verticalLayout_3 = QVBoxLayout(self.tabIconSet)
 
         self.listWidgetIconSet = QListWidget(self.tabIconSet)
-        self.listWidgetIconSet.setObjectName("listview")
         self.listWidgetIconSet.setResizeMode(QListView.Adjust)
         self.listWidgetIconSet.setViewMode(QListView.IconMode)
         self.listWidgetIconSet.setIconSize(QSize(370, 64))

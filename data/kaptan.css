@@ -5,7 +5,7 @@
 
 QLabel {color: white;}
 
-#listview {
+QListView {
     background-attachment: scroll;
     background-color: #47b8f3;
     border: none;
@@ -14,12 +14,12 @@ QLabel {color: white;}
 
 }
 
-#listview::item:selected {
+QListView::item:selected {
     border: 1px solid #2f86b1;
     border-radius: 3px;
 }
 
-#listview::item:hover {
+QListView::item:hover {
     background-color: #42b3ee;
 }
 
