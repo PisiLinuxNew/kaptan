@@ -44,7 +44,7 @@ class WelcomeWidget(QWizardPage):
         hlayout.addWidget(label)
 
         kaptan_logo = QLabel(self)
-        kaptan_logo.setPixmap(QPixmap(":/data/images/kaptan_welcome.png"))
+        kaptan_logo.setPixmap(QPixmap(":/data/images/kaptan_welcome.svg"))
         kaptan_logo.setAlignment(Qt.AlignRight)
         kaptan_logo.setMaximumSize(157, 181)
         hlayout.addWidget(kaptan_logo)
