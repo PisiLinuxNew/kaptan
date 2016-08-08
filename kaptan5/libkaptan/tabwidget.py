@@ -157,50 +157,42 @@ class ThemeTabWidget(QTabWidget):
         self.gridLayout.setObjectName("gridLayout")
 
         self.listWidgetDesktopTheme = QListWidget(self.tabDesktopTheme)
-        self.listWidgetDesktopTheme.setObjectName("listWidgetDesktopTheme")
         self.listWidgetDesktopTheme.setViewMode(QListView.IconMode)
+        self.listWidgetDesktopTheme.setResizeMode(QListView.Adjust)
         self.listWidgetDesktopTheme.setIconSize(QSize(212, 129))
         self.gridLayout.addWidget(self.listWidgetDesktopTheme, 0, 0, 1, 1)
 
         item = QListWidgetItem(self.listWidgetDesktopTheme)
-        icon = QIcon(QPixmap(":/data/images/air-panel.png").scaled(QSize(212, 129), Qt.IgnoreAspectRatio, Qt.FastTransformation))
-        item.setSizeHint(QSize(212, 129))
+        icon = QIcon(":/data/images/air-panel.png")
         item.setIcon(icon)
         item.panelText = "air"
 
         item = QListWidgetItem(self.listWidgetDesktopTheme)
         item.setTextAlignment(Qt.AlignHCenter)
-        icon = QIcon(QPixmap(":/data/images/breeze-panel.png").scaled(QSize(212, 129), Qt.IgnoreAspectRatio, Qt.FastTransformation))
-        item.setSizeHint(QSize(212, 129))
+        icon = QIcon(":/data/images/breeze-panel.png")
         item.setIcon(icon)
         item.panelText = "default"
 
         item = QListWidgetItem(self.listWidgetDesktopTheme)
         item.setTextAlignment(Qt.AlignHCenter)
-        icon = QIcon(QPixmap(":/data/images/breeze-light-panel.png").scaled(QSize(212, 129), Qt.IgnoreAspectRatio,
-                                                                           Qt.FastTransformation))
-        item.setSizeHint(QSize(212, 129))
+        icon = QIcon(":/data/images/breeze-light-panel.png")
         item.setIcon(icon)
         item.panelText = "breeze-light"
 
         item = QListWidgetItem(self.listWidgetDesktopTheme)
-        item.setTextAlignment(Qt.AlignHCenter)
-        icon = QIcon(QPixmap(":/data/images/breeze-dark-panel.png").scaled(QSize(212, 129), Qt.IgnoreAspectRatio, Qt.FastTransformation))
-        item.setSizeHint(QSize(212, 129))
+        icon = QIcon(":/data/images/breeze-dark-panel.png")
         item.setIcon(icon)
         item.panelText = "breeze-dark"
 
         item = QListWidgetItem(self.listWidgetDesktopTheme)
         item.setTextAlignment(Qt.AlignHCenter)
-        icon = QIcon(QPixmap(":/data/images/maia-panel.png").scaled(QSize(212, 129), Qt.IgnoreAspectRatio, Qt.FastTransformation))
-        item.setSizeHint(QSize(212, 129))
+        icon = QIcon(":/data/images/maia-panel.png")
         item.setIcon(icon)
         item.panelText = "maia"
 
         item = QListWidgetItem(self.listWidgetDesktopTheme)
         item.setTextAlignment(Qt.AlignHCenter)
-        icon = QIcon(QPixmap(":/data/images/oxygen-panel.png").scaled(QSize(212, 129), Qt.IgnoreAspectRatio, Qt.FastTransformation))
-        item.setSizeHint(QSize(212, 129))
+        icon = QIcon(":/data/images/oxygen-panel.png")
         item.setIcon(icon)
         item.panelText = "oxygen"
 
