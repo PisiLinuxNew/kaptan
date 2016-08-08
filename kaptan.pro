@@ -11,4 +11,4 @@ SOURCES += kaptan5/libkaptan/tabwidget.py
 
 SOURCES += kaptan5/kaptan.py
 
-TRANSLATIONS += languages/tr_TR.ts
+TRANSLATIONS += languages/tr_TR.ts languages/en_US.ts languages/fr_FR.ts languages/de_DE.ts languages/nl_NL.ts

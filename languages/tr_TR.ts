@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="tr_TR" sourcelanguage="en_US">
+<!DOCTYPE TS><TS version="2.0" language="tr_TR" sourcelanguage="en_US">
 <context>
     <name>AvatarWidget</name>
     <message>
@@ -47,7 +46,7 @@
 <context>
     <name>Kaptan</name>
     <message>
-        <location filename="../kaptan5/kaptan.py" line="80"/>
+        <location filename="../kaptan5/kaptan.py" line="81"/>
         <source>Next</source>
         <translation>İleri</translation>
     </message>
@@ -67,7 +66,7 @@
         <translation>Bitir</translation>
     </message>
     <message>
-        <location filename="../kaptan5/kaptan.py" line="76"/>
+        <location filename="../kaptan5/kaptan.py" line="77"/>
         <source>Apply Settings</source>
         <translation>Ayarları Uygula</translation>
     </message>
@@ -385,7 +384,7 @@
                 &lt;ul&gt;
                     &lt;li&gt;Desktop Count: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
                     &lt;li&gt;Desktop Type: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
-                    &lt;li&gt;Ä°con Set: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
+                    &lt;li&gt;&#xc4;&#xb0;con Set: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
                     &lt;li&gt;Theme Set: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
                 &lt;/ul&gt;
             &lt;/li&gt;
@@ -725,7 +724,7 @@
     </message>
     <message>
         <location filename="../kaptan/ui_theme.py" line="50"/>
-        <source>Ä°con Sets</source>
+        <source>&#xc4;&#xb0;con Sets</source>
         <translation type="obsolete">İkon Setleri</translation>
     </message>
     <message>
