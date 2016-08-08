@@ -1,7 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>data/images/kaptan-icon.svg</file>
-        <file>data/images/kaptan-logo.png</file>
+        <file>data/images/kaptan.png</file>
         <file>data/images/kaptan_welcome.svg</file>
         <file>data/images/menu-kicker.png</file>
         <file>data/images/menu-kickoff.png</file>
