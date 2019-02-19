@@ -43,6 +43,8 @@ class Parser(object):
 
         if all_applets:
             return all_applets
+
+        return []
     # Example [('[Containments][1][Applets][2]\nimmutability=1\nplugin=org.kde.plasma.kickoff\n', '1', '2', 'org.kde.plasma.kickoff')]
 
     def setMenuStyleOrCreate(self, menu_style):
