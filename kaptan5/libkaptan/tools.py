@@ -43,6 +43,8 @@ class Parser(object):
 
         if all_applets:
             return all_applets
+
+        return []
     # Example [('[Containments][1][Applets][2]\nimmutability=1\nplugin=org.kde.plasma.kickoff\n', '1', '2', 'org.kde.plasma.kickoff')]
 
     def setMenuStyleOrCreate(self, menu_style):
@@ -66,18 +68,20 @@ class Parser(object):
             # '[Containments][1][Applets][2]\nimmutability=1\nplugin=org.kde.plasma.kicker\n'
         else:
             last_nums = []
-            first_applet = applets[0]
-            for applet in applets:
-                last_nums.append(int(applet[2]))
 
-            applet_index = str(max(last_nums)+1)
-            applet = "\n[Containments][{}][Applets][{}]\nimmutability=1\nplugin={}\n".format(first_applet[1], applet_index, menu_style)
+            if applets:
+                first_applet = applets[0]
+                for applet in applets:
+                    last_nums.append(int(applet[2]))
 
-            com = re.compile("\n\[Containments\]\[%s\]\[Applets\]\[%s\]\nimmutability=.\nplugin=.*\n"%(first_applet[1], first_applet[2]))
+                applet_index = str(max(last_nums)+1)
+                applet = "\n[Containments][{}][Applets][{}]\nimmutability=1\nplugin={}\n".format(first_applet[1], applet_index, menu_style)
 
-            new_data = com.sub(first_applet[0] + applet, self.read())
-            self.sync(new_data)
-            self.setAppletOrder(0, applet_index)
+                com = re.compile("\n\[Containments\]\[%s\]\[Applets\]\[%s\]\nimmutability=.\nplugin=.*\n"%(first_applet[1], first_applet[2]))
+
+                new_data = com.sub(first_applet[0] + applet, self.read())
+                self.sync(new_data)
+                self.setAppletOrder(0, applet_index)
 
     # Sadece wallpaper kısmı var mı diye aramayacak sayısını da hesap edecek.
     # Ayrıca 1-9+ kısmındaki rakam da değer olarak döndürülecek.
