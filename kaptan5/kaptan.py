@@ -20,15 +20,12 @@
 #
 #
 
-import sys, os
-from PyQt5.QtCore import QTranslator, QLocale, Qt, QProcess, pyqtSignal
-from PyQt5.QtGui import QPixmap, QIcon
-from PyQt5.QtWidgets import QWizard, QApplication, QDesktopWidget
-from kaptan5 import rc_kaptan
+import sys
+from PyQt5 import QtWidgets
 from kaptan5.libkaptan import *
 
 
-class Kaptan(QWizard):
+class Kaptan(QtWidgets.QWizard):
     def __init__(self):
         super().__init__()
 
@@ -36,28 +33,27 @@ class Kaptan(QWizard):
         self.setWindowIcon(QIcon.fromTheme("kaptan-icon"))
         self.setMinimumSize(850, 600)
         self.setMaximumSize(950, 620)
-        x = (QDesktopWidget().screen().width() - self.width())/2
-        y = (QDesktopWidget().screen().height() - self.height())/2
+        x = (QtWidgets.QDesktopWidget().size().width() - self.width())/2
+        y = (QtWidgets.QDesktopWidget().size().height() - self.height())/2
         self.move(x, y)
-        self.setPixmap(QWizard.LogoPixmap, QPixmap(":/data/images/kaptan.png"))
+        self.setPixmap(QtWidgets.QWizard.LogoPixmap, QPixmap("../data/images/kaptan.png"))
 
-        self.setButtonText(QWizard.NextButton, self.tr("Next"))
-        self.button(QWizard.NextButton).setIcon(QIcon.fromTheme("arrow-right"))
-        self.button(QWizard.NextButton).setLayoutDirection(Qt.RightToLeft)
+        self.setButtonText(QtWidgets.QWizard.NextButton, self.tr("Next"))
+        self.button(QtWidgets.QWizard.NextButton).setIcon(QIcon.fromTheme("arrow-right"))
+        self.button(QtWidgets.QWizard.NextButton).setLayoutDirection(Qt.RightToLeft)
 
-        self.setButtonText(QWizard.CancelButton, self.tr("Cancel"))
-        self.button(QWizard.CancelButton).setIcon(QIcon.fromTheme("dialog-cancel"))
-        self.setOption(QWizard.NoCancelButtonOnLastPage, True)
-        self.setOption(QWizard.CancelButtonOnLeft, True)
+        self.setButtonText(QtWidgets.QWizard.CancelButton, self.tr("Cancel"))
+        self.button(QtWidgets.QWizard.CancelButton).setIcon(QIcon.fromTheme("dialog-cancel"))
+        self.setOption(QtWidgets.QWizard.NoCancelButtonOnLastPage, True)
+        self.setOption(QtWidgets.QWizard.CancelButtonOnLeft, True)
 
-        self.setButtonText(QWizard.BackButton, self.tr("Back"))
-        self.setOption(QWizard.NoBackButtonOnLastPage, True)
-        self.setOption(QWizard.NoBackButtonOnStartPage, True)
-        self.button(QWizard.BackButton).setIcon(QIcon.fromTheme("arrow-left"))
+        self.setButtonText(QtWidgets.QWizard.BackButton, self.tr("Back"))
+        self.setOption(QtWidgets.QWizard.NoBackButtonOnLastPage, True)
+        self.setOption(QtWidgets.QWizard.NoBackButtonOnStartPage, True)
+        self.button(QtWidgets.QWizard.BackButton).setIcon(QIcon.fromTheme("arrow-left"))
 
-        self.setButtonText(QWizard.FinishButton, self.tr("Finish"))
-        self.button(QWizard.FinishButton).setIcon(QIcon.fromTheme("dialog-ok-apply"))
-
+        self.setButtonText(QtWidgets.QWizard.FinishButton, self.tr("Finish"))
+        self.button(QtWidgets.QWizard.FinishButton).setIcon(QIcon.fromTheme("dialog-ok-apply"))
 
         self.addPage(WelcomeWidget(self))
         self.addPage(MouseWidget(self))
@@ -70,7 +66,7 @@ class Kaptan(QWizard):
         self.otherId = self.addPage(OtherWidget(self))
 
         self.currentIdChanged.connect(self.optionsAccepted)
-        self.button(QWizard.FinishButton).clicked.connect(self.close)
+        self.button(QtWidgets.QWizard.FinishButton).clicked.connect(self.close)
 
     summaryVisible = pyqtSignal()
     def optionsAccepted(self, id):
@@ -87,19 +83,18 @@ class Kaptan(QWizard):
             #AvatarWidget
             self.page(5).execute()
 
-
             p = QProcess()
             p.startDetached("killall plasmashell")
             p.waitForStarted(2000)
             p.startDetached("kstart5 plasmashell")
 
         if id == self.sumId:
-            self.setButtonText(QWizard.NextButton, self.tr("Apply Settings"))
-            self.button(QWizard.NextButton).setIcon(QIcon.fromTheme("dialog-ok-apply"))
+            self.setButtonText(QtWidgets.QWizard.NextButton, self.tr("Apply Settings"))
+            self.button(QtWidgets.QWizard.NextButton).setIcon(QIcon.fromTheme("dialog-ok-apply"))
             self.summaryVisible.emit()
         else:
-            self.setButtonText(QWizard.NextButton, self.tr("Next"))
-            self.button(QWizard.NextButton).setIcon(QIcon.fromTheme("arrow-right"))
+            self.setButtonText(QtWidgets.QWizard.NextButton, self.tr("Next"))
+            self.button(QtWidgets.QWizard.NextButton).setIcon(QIcon.fromTheme("arrow-right"))
 
     def closeEvent(self, event):
         desktop_file = os.path.join(os.environ["HOME"], ".config", "autostart", "kaptan.desktop")
@@ -108,7 +103,7 @@ class Kaptan(QWizard):
 
 
 def main():
-    app = QApplication(sys.argv)
+    app = QtWidgets.QApplication(sys.argv)
     app.setApplicationName("Kaptan")
     app.setOrganizationName("Kaptan")
     app.setApplicationVersion("5.0 Beta3")
