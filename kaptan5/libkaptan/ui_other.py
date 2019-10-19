@@ -30,7 +30,7 @@ class OtherWidget(QWizardPage):
         super().__init__(parent)
         self.setSubTitle(self.tr("<h2>Congratulations!</h2>"))
 
-        self.homepage_url = "httpswww.pisilinux.org"
+        self.homepage_url = "https://pisilinux.org"
         self.forum_url = "https://pisilinux.org/forum"
         self.wiki_url = "https://pisilinux.org/git"
 
