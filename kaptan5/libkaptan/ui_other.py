@@ -32,7 +32,7 @@ class OtherWidget(QWizardPage):
 
         self.homepage_url = "https://pisilinux.org"
         self.forum_url = "https://pisilinux.org/forum"
-        self.wiki_url = "https://pisilinux.org/git"
+        self.wiki_url = "https://pisilinux.org/wiki"
 
         vlayout = QVBoxLayout(self)
 
