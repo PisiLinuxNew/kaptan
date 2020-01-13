@@ -1,5 +1,3 @@
-#
-#
 #  Copyright 2016 Metehan Özbek <mthnzbk@gmail.com>
 #
 #  This program is free software; you can redistribute it and/or modify
@@ -16,8 +14,6 @@
 #  along with this program; if not, write to the Free Software
 #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 #  MA 02110-1301, USA.
-#
-#
 
 from setuptools import setup, find_packages
 from os import listdir, system
@@ -35,7 +31,7 @@ for l in listdir('languages'):
 system('pyrcc5 kaptan.qrc -o kaptan5/rc_kaptan.py')
 
 datas = [('/usr/share/applications', ['data/kaptan.desktop']),
-         # welcome uygulaması ile başlatılacak.
+         # Kaptan will be started via Pisi Linux Welcome Application
          #('/etc/skel/.config/autostart', ['data/kaptan.desktop']),
          ('/usr/share/icons/hicolor/scalable/apps', ['data/images/kaptan-icon.svg']),
          ('/usr/share/kaptan/languages', langs)]
@@ -45,8 +41,8 @@ setup(
     scripts = ["script/kaptan"],
     packages = find_packages(),
     version = "5.0",
-    license = "GPL v3",
-    description = "PisiLinux desktop configurate.",
+    license = "GPLv3",
+    description = "Pisi Linux quick desktop configuraton tool.",
     author = "Metehan Özbek",
     author_email = "mthnzbk@gmail.com",
     url = "https://github.com/PisiLinuxNew/kaptan",
