@@ -38,7 +38,7 @@ setup(
     name = "kaptan",
     scripts = ["script/kaptan"],
     packages = find_packages(),
-    version = "5.0",
+    version = "7.4pre1",
     license = "GPLv3",
     description = "Pisi Linux quick desktop configuraton tool.",
     author = "Metehan Özbek",
