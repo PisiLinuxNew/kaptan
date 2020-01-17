@@ -15,30 +15,29 @@
 #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 #  MA 02110-1301, USA.
 
+import subprocess
 from setuptools import setup, find_packages
-from os import listdir, system
+from os import listdir
 
 langs = []
-for l in listdir('languages'):
-    if l.endswith('ts'):
-        #Temporary bindir to avoid qt4 conflicts
-        #system('lrelease-qt5 languages/%s' % l)
-        system('lrelease languages/%s' % l)
-        langs.append(('languages/%s' % l).replace('.ts', '.qm'))
+for langfile in listdir("languages"):
+    if langfile.endswith("ts"):
+        subprocess.run(["lrelease", "languages/{}".format(langfile)])
+        langs.append("languages/{}".format(langfile).replace(".ts", ".qm"))
 
-system('pyrcc5 kaptan.qrc -o kaptan5/rc_kaptan.py')
+subprocess.run(["pyrcc5", "kaptan.qrc", "-o", "kaptan5/rc_kaptan.py"])
 
-datas = [('/usr/share/applications', ['data/kaptan.desktop']),
+datas = [("/usr/share/applications", ["data/kaptan.desktop"]),
          # Kaptan will be started via Pisi Linux Welcome Application
-         #('/etc/skel/.config/autostart', ['data/kaptan.desktop']),
-         ('/usr/share/icons/hicolor/scalable/apps', ['data/images/kaptan-icon.svg']),
-         ('/usr/share/kaptan/languages', langs)]
+         #("/etc/skel/.config/autostart", ["data/kaptan.desktop"]),
+         ("/usr/share/icons/hicolor/scalable/apps", ["data/images/kaptan-icon.svg"]),
+         ("/usr/share/kaptan/languages", langs)]
 
 setup(
     name = "kaptan",
     scripts = ["script/kaptan"],
     packages = find_packages(),
-    version = "7.4pre1",
+    version = "7.4rc2",
     license = "GPLv3",
     description = "Pisi Linux quick desktop configuraton tool.",
     author = "Metehan Özbek",
