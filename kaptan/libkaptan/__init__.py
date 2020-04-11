@@ -23,6 +23,6 @@ from .ui_mouse import *
 from .ui_other import *
 from .ui_summary import *
 from .ui_theme import *
-from .version import *
 from .ui_wallpaper import *
 from .ui_welcome import *
+from .version import *
