@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+#
 #  Copyright 2016 Metehan Özbek <mthnzbk@gmail.com>
 #            2020 Erdem Ersoy <erdemersoy@erdemersoy.net>
 #
@@ -30,20 +32,20 @@ subprocess.run(["pyrcc5", "kaptan.qrc", "-o", "kaptan5/rc_kaptan.py"])
 
 datas = [("/usr/share/applications", ["data/kaptan.desktop"]),
          # Kaptan will be started via Pisi Linux Welcome Application
-         #("/etc/skel/.config/autostart", ["data/kaptan.desktop"]),
+         # ("/etc/skel/.config/autostart", ["data/kaptan.desktop"]),
          ("/usr/share/icons/hicolor/scalable/apps", ["data/images/kaptan-icon.svg"]),
          ("/usr/share/kaptan/languages", langs)]
 
 setup(
-    name = "kaptan",
-    scripts = ["script/kaptan"],
-    packages = find_packages(),
-    version = "7.4rc2",
-    license = "GPLv3",
-    description = "Pisi Linux quick desktop configuraton tool.",
-    author = "Metehan Özbek",
-    author_email = "mthnzbk@gmail.com",
-    url = "https://github.com/PisiLinuxNew/kaptan",
-    keywords = ["PyQt5"],
-    data_files = datas
+    name="kaptan",
+    scripts=["script/kaptan"],
+    packages=find_packages(),
+    version="7.4rc2",
+    license="GPLv3",
+    description="Pisi Linux quick desktop configuraton tool.",
+    author="Metehan Özbek",
+    author_email="mthnzbk@gmail.com",
+    url="https://github.com/PisiLinuxNew/kaptan",
+    keywords=["PyQt5"],
+    data_files=datas
 )
