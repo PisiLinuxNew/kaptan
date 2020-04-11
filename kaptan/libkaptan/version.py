@@ -1,4 +1,6 @@
-# Copyright 2016 Metehan Özbek <mthnzbk@gmail.com>
+#!/usr/bin/env python3
+#
+# Copyright 2020 Erdem Ersoy <erdemersoy@erdemersoy.net>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -15,12 +17,10 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 # MA 02110-1301, USA.
 
-from PyQt5.QtWidgets import QWizardPage, QLabel
 
+class Version(object):
+    VersionString = "7.4rc2"
 
-class PMWidget(QWizardPage):
-    def __init__(self, parent=None):
-        super().__init__(parent)
-
-        label = QLabel(self)
-        label.setText("Merhaba!")
+    @classmethod
+    def getVersion(cls):
+        return cls.VersionString

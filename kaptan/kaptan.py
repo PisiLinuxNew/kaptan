@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 #
 # Copyright 2016 Metehan Özbek <mthnzbk@gmail.com>
+#           2020 Erdem Ersoy <erdemersoy@erdemersoy.net>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -26,12 +27,12 @@ class Kaptan(QtWidgets.QWizard):
     def __init__(self):
         super().__init__()
 
-        self.setWindowTitle(self.tr("Kaptan Desktop"))
+        self.setWindowTitle(self.tr("Kaptan"))
         self.setWindowIcon(QIcon.fromTheme("kaptan-icon"))
         self.setMinimumSize(850, 600)
         self.setMaximumSize(950, 620)
-        x = (QtWidgets.QDesktopWidget().size().width() - self.width())/2
-        y = (QtWidgets.QDesktopWidget().size().height() - self.height())/2
+        x = (QtWidgets.QDesktopWidget().size().width() - self.width()) / 2
+        y = (QtWidgets.QDesktopWidget().size().height() - self.height()) / 2
         self.move(x, y)
         self.setPixmap(QtWidgets.QWizard.LogoPixmap, QPixmap("../data/images/kaptan.png"))
 
@@ -58,7 +59,6 @@ class Kaptan(QtWidgets.QWizard):
         self.addPage(MenuWidget(self))
         self.addPage(WallpaperWidget(self))
         self.addPage(AvatarWidget(self))
-        #self.addPage(PMWidget()) FIXME
         self.sumId = self.addPage(SummaryWidget(self))
         self.otherId = self.addPage(OtherWidget(self))
 
@@ -66,26 +66,26 @@ class Kaptan(QtWidgets.QWizard):
         self.button(QtWidgets.QWizard.FinishButton).clicked.connect(self.close)
 
     summaryVisible = pyqtSignal()
-    def optionsAccepted(self, id):
-        if id == self.otherId:
 
-            #MouseWidget
+    def optionsAccepted(self, identity):
+        if identity == self.otherId:
+            # MouseWidget
             self.page(1).execute()
-            #ThemeWidget
+            # ThemeWidget
             self.page(2).execute()
-            #MenuWidget
+            # MenuWidget
             self.page(3).execute()
-            #WallpaperWidget
+            # WallpaperWidget
             self.page(4).execute()
-            #AvatarWidget
+            # AvatarWidget
             self.page(5).execute()
 
             p = QProcess()
-            p.startDetached("killall plasmashell")
+            p.startDetached("kquitapp5 plasmashell")
             p.waitForStarted(2000)
             p.startDetached("kstart5 plasmashell")
 
-        if id == self.sumId:
+        if identity == self.sumId:
             self.setButtonText(QtWidgets.QWizard.NextButton, self.tr("Apply Settings"))
             self.button(QtWidgets.QWizard.NextButton).setIcon(QIcon.fromTheme("dialog-ok-apply"))
             self.summaryVisible.emit()
@@ -103,8 +103,8 @@ def main():
     app = QtWidgets.QApplication(sys.argv)
     app.setApplicationName("Kaptan")
     app.setOrganizationName("Kaptan")
-    app.setApplicationVersion("5.0 Beta3")
-    #app.setStyleSheet(open(join(dirPath, "data/libkaptan.qss").read())
+    app.setApplicationVersion(Version.getVersion())
+    # app.setStyleSheet(open(join(dirPath, "data/libkaptan.qss").read())
 
     locale = QLocale.system().name()
     translator = QTranslator(app)
@@ -114,6 +114,7 @@ def main():
     kaptan = Kaptan()
     kaptan.show()
     app.exec_()
+
 
 if __name__ == "__main__":
     main()

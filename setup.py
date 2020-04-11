@@ -21,6 +21,7 @@
 import subprocess
 from setuptools import setup, find_packages
 from os import listdir
+from kaptan.libkaptan.version import Version
 
 langs = []
 for langfile in listdir("languages"):
@@ -40,7 +41,7 @@ setup(
     name="kaptan",
     scripts=["script/kaptan"],
     packages=find_packages(),
-    version="7.4rc2",
+    version=Version.getVersion(),
     license="GPLv3",
     description="Pisi Linux quick desktop configuraton tool.",
     author="Metehan Özbek",
