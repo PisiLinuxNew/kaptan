@@ -96,13 +96,13 @@ class ThemeTabWidget(QTabWidget):
 
         item = QListWidgetItem(self.listWidgetWindowStyle)
         icon = QIcon()
-        icon.addPixmap(QPixmap(":/data/images/breeze-window.png"))
+        icon.addPixmap(QPixmap("/usr/share/kaptan/images/breeze-window.png"))
         item.setIcon(icon)
         item.setText("Breeze")
         item.setStyleText = "org.kde.breeze"
         item = QListWidgetItem(self.listWidgetWindowStyle)
         icon1 = QIcon()
-        icon1.addPixmap(QPixmap(":/data/images/oxygen-window.png"))
+        icon1.addPixmap(QPixmap("/usr/share/kaptan/images/oxygen-window.png"))
         item.setIcon(icon1)
         item.setText("Oxygen")
         item.setStyleText = "org.kde.oxygen"
@@ -159,36 +159,36 @@ class ThemeTabWidget(QTabWidget):
         self.gridLayout.addWidget(self.listWidgetDesktopTheme, 0, 0, 1, 1)
 
         item = QListWidgetItem(self.listWidgetDesktopTheme)
-        icon = QIcon(":/data/images/air-panel.png")
+        icon = QIcon("/usr/share/kaptan/images/air-panel.png")
         item.setIcon(icon)
         item.panelText = "air"
 
         item = QListWidgetItem(self.listWidgetDesktopTheme)
         item.setTextAlignment(Qt.AlignHCenter)
-        icon = QIcon(":/data/images/breeze-panel.png")
+        icon = QIcon("/usr/share/kaptan/images/breeze-panel.png")
         item.setIcon(icon)
         item.panelText = "default"
 
         item = QListWidgetItem(self.listWidgetDesktopTheme)
         item.setTextAlignment(Qt.AlignHCenter)
-        icon = QIcon(":/data/images/breeze-light-panel.png")
+        icon = QIcon("/usr/share/kaptan/images/breeze-light-panel.png")
         item.setIcon(icon)
         item.panelText = "breeze-light"
 
         item = QListWidgetItem(self.listWidgetDesktopTheme)
-        icon = QIcon(":/data/images/breeze-dark-panel.png")
+        icon = QIcon("/usr/share/kaptan/images/breeze-dark-panel.png")
         item.setIcon(icon)
         item.panelText = "breeze-dark"
 
         item = QListWidgetItem(self.listWidgetDesktopTheme)
         item.setTextAlignment(Qt.AlignHCenter)
-        icon = QIcon(":/data/images/maia-panel.png")
+        icon = QIcon("/usr/share/kaptan/images/maia-panel.png")
         item.setIcon(icon)
         item.panelText = "maia"
 
         item = QListWidgetItem(self.listWidgetDesktopTheme)
         item.setTextAlignment(Qt.AlignHCenter)
-        icon = QIcon(":/data/images/oxygen-panel.png")
+        icon = QIcon("/usr/share/kaptan/images/oxygen-panel.png")
         item.setIcon(icon)
         item.panelText = "oxygen"
 
@@ -221,15 +221,15 @@ class ThemeTabWidget(QTabWidget):
         self.listWidgetIconSet.setIconSize(QSize(370, 64))
 
         item = QListWidgetItem(self.listWidgetIconSet)
-        item.setIcon(QIcon(":/data/images/oxygen-set.png"))
+        item.setIcon(QIcon("/usr/share/kaptan/images/oxygen-set.png"))
         item.setText("Oxygen")
 
         item = QListWidgetItem(self.listWidgetIconSet)
-        item.setIcon(QIcon(":/data/images/breeze-set.png"))
+        item.setIcon(QIcon("/usr/share/kaptan/images/breeze-set.png"))
         item.setText("Breeze")
 
         item = QListWidgetItem(self.listWidgetIconSet)
-        item.setIcon(QIcon(":/data/images/maia-set.png"))
+        item.setIcon(QIcon("/usr/share/kaptan/images/maia-set.png"))
         item.setText("Maia")
 
         self.verticalLayout_3.addWidget(self.listWidgetIconSet)

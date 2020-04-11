@@ -27,22 +27,23 @@ class SummaryWidget(QWizardPage):
 
         label = QLabel(self)
         label.setWordWrap(True)
-        label.setText(self.tr("<p>You have successfully finished all steps. Here's a summary of the settings you want to apply. \
-        Click <strong>Apply Settings</strong> to save them now. You are now ready to enjoy Pisi Linux!</p>"))
+        label.setText(self.tr("<p>You have successfully finished all steps. Here's a summary of the settings you want "
+                              "to apply. Click <strong>Apply Settings</strong> to save them now. You are now ready to "
+                              "enjoy Pisi Linux!</p>"))
         vlayout.addWidget(label)
         vlayout.addItem(QSpacerItem(20, 40, QSizePolicy.Preferred, QSizePolicy.Preferred))
 
         groupBox = QGroupBox()
-        groupBox.setTitle(self.tr("The following settings will be applied"))
+        groupBox.setTitle(self.tr("The following settings will be applied:"))
         groupBox.setMinimumHeight(350)
 
         groupLayout = QHBoxLayout(groupBox)
         self.labelSummary = QLabel()
         self.labelSummary.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        groupLayout.addWidget(    self.labelSummary)
+        groupLayout.addWidget(self.labelSummary)
         self.labelSummary2 = QLabel()
         self.labelSummary2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        groupLayout.addWidget(    self.labelSummary2)
+        groupLayout.addWidget(self.labelSummary2)
         vlayout.addWidget(groupBox)
 
         vlayout.addItem(QSpacerItem(20, 40, QSizePolicy.Preferred, QSizePolicy.Preferred))

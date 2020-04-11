@@ -34,7 +34,7 @@ class Kaptan(QtWidgets.QWizard):
         x = (QtWidgets.QDesktopWidget().size().width() - self.width()) / 2
         y = (QtWidgets.QDesktopWidget().size().height() - self.height()) / 2
         self.move(x, y)
-        self.setPixmap(QtWidgets.QWizard.LogoPixmap, QPixmap("../data/images/kaptan.png"))
+        self.setPixmap(QtWidgets.QWizard.LogoPixmap, QPixmap("/usr/share/kaptan/images/kaptan.png"))
 
         self.setButtonText(QtWidgets.QWizard.NextButton, self.tr("Next"))
         self.button(QtWidgets.QWizard.NextButton).setIcon(QIcon.fromTheme("arrow-right"))

@@ -42,8 +42,9 @@ class AvatarWidget(QWizardPage):
 
         label = QLabel(self)
         label.setWordWrap(True)
-        label.setText(self.tr("<p>This screen helps you set your <strong>user picture</strong>. You can either choose an image from a \
-        file or you can capture an image from your camera. Select an option from the <strong>options</strong> menu.</p>"))
+        label.setText(self.tr("<p>This screen helps you set your <strong>user picture</strong>. You can either choose "
+                              "an image from a file or you can capture an image from your camera. Select an option "
+                              "from the <strong>options</strong> menu.</p>"))
         labelLayout.addWidget(label)
         vlayout.addLayout(labelLayout)
 
@@ -59,7 +60,7 @@ class AvatarWidget(QWizardPage):
 
         comboBox = QComboBox()
         comboBox.setMinimumWidth(250)
-        comboBox.addItems([self.tr("Options"), self.tr("Choose an image...")])
+        comboBox.addItems([self.tr("Options"), self.tr("Choose an Image...")])
 
         #Camera control
         self.cameraInfo = None
@@ -193,5 +194,5 @@ class AvatarWidget(QWizardPage):
                 os.remove(self.userAvatar)
         except:
             with open("/tmp/.kaptan.bug", "w") as d:
-                d.write("avatar değiştirilemedi.")
+                d.write("Avatar couldn't be changed.")
                 d.close()
