@@ -1,87 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="2.0" language="tr_TR" sourcelanguage="en_US">
+<!DOCTYPE TS>
+<TS version="2.1" language="tr_TR">
 <context>
     <name>AvatarWidget</name>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_avatar.py" line="16"/>
+        <location filename="../kaptan/libkaptan/ui_avatar.py" line="33"/>
         <source>&lt;h2&gt;Create Your Avatar&lt;/h2&gt;</source>
-        <translation>&lt;h2&gt;Kullanıcı Resminizi Oluşturun&lt;/h2&gt;</translation>
+        <translation>&lt;h2&gt;Kullanıcı Resminizi Oluşturunuz&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_avatar.py" line="28"/>
+        <location filename="../kaptan/libkaptan/ui_avatar.py" line="45"/>
         <source>&lt;p&gt;This screen helps you set your &lt;strong&gt;user picture&lt;/strong&gt;. You can either choose an image from a         file or you can capture an image from your camera. Select an option from the &lt;strong&gt;options&lt;/strong&gt; menu.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Bu ekran &lt;strong&gt;kullanıcı resminizi&lt;/strong&gt; seçmenize yardımcı olur. Dosyalarınız  arasından bir resim seçebilir ya da kameradan aldığınız görüntüyü kullanabilirsiniz. &lt;strong&gt;Seçenekler&lt;/strong&gt; menüsünden tercihinizi yapabilirsiniz..&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Bu ekran &lt;strong&gt;kullanıcı resminizi&lt;/strong&gt; seçmenize yardımcı olur. Dosyalar arasından bir resim seçebilir ya da kameradan bir görüntü yakalayabilirsiniz. &lt;strong&gt;Seçenekler&lt;/strong&gt; menüsünden bir seçenek seçiniz.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_avatar.py" line="45"/>
+        <location filename="../kaptan/libkaptan/ui_avatar.py" line="62"/>
         <source>Options</source>
         <translation>Seçenekler</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_avatar.py" line="45"/>
+        <location filename="../kaptan/libkaptan/ui_avatar.py" line="62"/>
         <source>Choose an image...</source>
-        <translation>Resim seçin...</translation>
+        <translation>Resim seçiniz...</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_avatar.py" line="55"/>
+        <location filename="../kaptan/libkaptan/ui_avatar.py" line="72"/>
         <source>Camera </source>
-        <translation>Kamera</translation>
+        <translation>Kamera </translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_avatar.py" line="69"/>
+        <location filename="../kaptan/libkaptan/ui_avatar.py" line="86"/>
         <source>Capture</source>
-        <translation>Çek</translation>
+        <translation>Yakala</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_avatar.py" line="74"/>
+        <location filename="../kaptan/libkaptan/ui_avatar.py" line="91"/>
         <source>Recapture</source>
-        <translation>Tekrar Çek</translation>
+        <translation>Tekrar Yakala</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_avatar.py" line="133"/>
+        <location filename="../kaptan/libkaptan/ui_avatar.py" line="150"/>
         <source>Choose Avatar</source>
-        <translation>Kullanıcı Resmi Seç</translation>
+        <translation>Kullanıcı Resmini Seç</translation>
     </message>
 </context>
 <context>
     <name>Kaptan</name>
     <message>
-        <location filename="../kaptan5/kaptan.py" line="81"/>
+        <location filename="../kaptan/kaptan.py" line="93"/>
         <source>Next</source>
         <translation>İleri</translation>
     </message>
     <message>
-        <location filename="../kaptan5/kaptan.py" line="28"/>
+        <location filename="../kaptan/kaptan.py" line="43"/>
         <source>Cancel</source>
         <translation>İptal</translation>
     </message>
     <message>
-        <location filename="../kaptan5/kaptan.py" line="33"/>
+        <location filename="../kaptan/kaptan.py" line="48"/>
         <source>Back</source>
         <translation>Geri</translation>
     </message>
     <message>
-        <location filename="../kaptan5/kaptan.py" line="38"/>
+        <location filename="../kaptan/kaptan.py" line="53"/>
         <source>Finish</source>
         <translation>Bitir</translation>
     </message>
     <message>
-        <location filename="../kaptan5/kaptan.py" line="77"/>
+        <location filename="../kaptan/kaptan.py" line="89"/>
         <source>Apply Settings</source>
         <translation>Ayarları Uygula</translation>
     </message>
     <message>
         <location filename="../kaptan5/kaptan.py" line="15"/>
         <source>Kaptan Desktop</source>
-        <translation>Kaptan Masaüstü</translation>
+        <translation type="obsolete">Kaptan Masaüstü</translation>
+    </message>
+    <message>
+        <location filename="../kaptan/kaptan.py" line="30"/>
+        <source>Kaptan</source>
+        <translation>Kaptan</translation>
     </message>
 </context>
 <context>
     <name>MenuWidget</name>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_menu.py" line="11"/>
+        <location filename="../kaptan/libkaptan/ui_menu.py" line="28"/>
         <source>&lt;h2&gt;Select Menu Style&lt;/h2&gt;</source>
-        <translation>&lt;h2&gt;Bir Menü Stili Seçin&lt;/h2&gt;</translation>
+        <translation>&lt;h2&gt;Bir Menü Tarzı Seçiniz&lt;/h2&gt;</translation>
     </message>
     <message>
         <location filename="../kaptan/ui_menu.py" line="14"/>
@@ -89,9 +95,9 @@
         <translation type="obsolete">&lt;p&gt;Uygulama Başlatıcısı, Pisi Linux&apos;un öntanımlı menüsüdür. Uygulama kısayolları hızlı ve kolay erişilebilecek şekilde düzenlenmiştir.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_menu.py" line="16"/>
+        <location filename="../kaptan/libkaptan/ui_menu.py" line="33"/>
         <source>&lt;p&gt;Application Menu is recommended for slow computers because of extremely lightweight structure.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Uygulama Menüsü, oldukça hafif yapısı yüzünden yavaş bilgisayarlar için önerilir.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Uygulama Menüsü, oldukça hafif yapısından dolayı yavaş bilgisayarlar için önerilir.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../kaptan/ui_menu.py" line="17"/>
@@ -104,29 +110,29 @@
         <translation type="obsolete">&lt;p&gt;&lt;strong&gt;KDE menüsünü&lt;/strong&gt; istediğiniz stili seçerek kişiselleştirebilirsiniz.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_menu.py" line="43"/>
+        <location filename="../kaptan/libkaptan/ui_menu.py" line="60"/>
         <source>Application Launcher</source>
         <translation>Uygulama Başlatıcısı</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_menu.py" line="44"/>
+        <location filename="../kaptan/libkaptan/ui_menu.py" line="61"/>
         <source>Application Menu</source>
         <translation>Uygulama Menüsü</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_menu.py" line="45"/>
+        <location filename="../kaptan/libkaptan/ui_menu.py" line="62"/>
         <source>Application Dashboard</source>
         <translation>Uygulama Paneli</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_menu.py" line="14"/>
+        <location filename="../kaptan/libkaptan/ui_menu.py" line="31"/>
         <source>&lt;p&gt;Application Launcher is the default menu for Pisi Linux.             Application shortcuts are arranged so that you can access quickly and easily.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Uygulama Başlatıcısı, Pisi Linux&apos;un öntanımlı menüsüdür. Uygulama kısayolları hızlı ve kolay erişilebilecek şekilde düzenlenmiştir.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Uygulama Başlatıcısı, Pisi Linux&apos;ın ön tanımlı menüsüdür. Uygulama kısayolları, çabuk ve kolay erişilebileceğiniz şekilde düzenlenmiştir.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_menu.py" line="17"/>
+        <location filename="../kaptan/libkaptan/ui_menu.py" line="34"/>
         <source>&lt;p&gt;Aplication Panel is a full screen menu style.             Application shortcuts are arranged so that you can access quickly and easily.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Uygulama Paneli, ekranı kaplayan bir menü çeşididir. Uygulama kısayolları hızlı ve kolay erişilebilecek şekilde düzenlenmiştir.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Uygulama Paneli, tam ekran bir menü tarzıdır. Uygulama kısayolları çabuk ve kolay erişilebileceğiniz şekilde düzenlenmiştir.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../kaptan/ui_menu.py" line="35"/>
@@ -134,59 +140,59 @@
         <translation type="obsolete">&lt;p&gt;&lt;strong&gt;KDE menüsünü&lt;/strong&gt; istediğiniz stili seçerek kişiselleştirebilirsiniz.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_menu.py" line="35"/>
+        <location filename="../kaptan/libkaptan/ui_menu.py" line="52"/>
         <source>&lt;p&gt;You can also customize your &lt;strong&gt;KDE menu&lt;/strong&gt; as you like.         Please choose one from the following styles.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;&lt;strong&gt;KDE menüsünü&lt;/strong&gt; istediğiniz stili seçerek kişiselleştirebilirsiniz.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;&lt;strong&gt;KDE menünüzü&lt;/strong&gt; istediğiniz şekilde kişiselleştirebilirsiniz. Lütfen aşağıdaki tarzlardan birini seçiniz.&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
     <name>MouseWidget</name>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_mouse.py" line="11"/>
+        <location filename="../kaptan/libkaptan/ui_mouse.py" line="29"/>
         <source>&lt;h2&gt;Setup Mouse Behavior&lt;/h2&gt;</source>
-        <translation>&lt;h2&gt;Fare Tıklama Davranışını Belirleyin&lt;/h2&gt;</translation>
+        <translation>&lt;h2&gt;Fare Tıklama Davranışını Belirleyiniz&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_mouse.py" line="22"/>
+        <location filename="../kaptan/libkaptan/ui_mouse.py" line="40"/>
         <source>&lt;p&gt;The &lt;strong&gt;clicking behavior&lt;/strong&gt; defines how many times you want
         to click when you are opening a file. If you are &lt;strong&gt;left handed&lt;/strong&gt;, you may prefer to
         swap the left and right buttons of your pointing device.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;&lt;strong&gt;Tıklama Biçimi&lt;/strong&gt; dosya açarken simgelere kaç kere tıklamanız gerektiğini belirlemenize yardımcı olur. Eğer &lt;strong&gt;sol elinizi&lt;/strong&gt; kullanıyorsanız, fare butonlarının yerini değiştirerek farenizi daha rahat kullanabilirsiniz.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;&lt;strong&gt;Tıklama Davranışı&lt;/strong&gt;, bir dosya açtığınızda kaç kere tıklamanık istediğinizi belirler. Eğer &lt;strong&gt;solaksanız&lt;/strong&gt; işaretçi aygıtınızın sağ ve sol düğmelerinin yerlerini değiştirmeyi tercih edebilirsiniz.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_mouse.py" line="45"/>
+        <location filename="../kaptan/libkaptan/ui_mouse.py" line="62"/>
         <source>Clicking Behavior</source>
         <translation>Tıklama Biçimi</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_mouse.py" line="54"/>
+        <location filename="../kaptan/libkaptan/ui_mouse.py" line="71"/>
         <source>Double-click to open files and folders.</source>
-        <translation>Dosya ve dizinleri açmak için çift tıkla.</translation>
+        <translation>Dosyaları ve dizinleri açmak için çift tıklama.</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_mouse.py" line="59"/>
+        <location filename="../kaptan/libkaptan/ui_mouse.py" line="76"/>
         <source>Single-click to open files and folders.</source>
-        <translation>Dosya ve dizinleri açmak için tek tıkla.</translation>
+        <translation>Dosyaları ve dizinleri açmak için tek tıklama.</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_mouse.py" line="68"/>
+        <location filename="../kaptan/libkaptan/ui_mouse.py" line="85"/>
         <source>Button Order</source>
         <translation>Düğme Sırası</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_mouse.py" line="77"/>
+        <location filename="../kaptan/libkaptan/ui_mouse.py" line="94"/>
         <source>Right hand.</source>
         <translation>Sağ el.</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_mouse.py" line="82"/>
+        <location filename="../kaptan/libkaptan/ui_mouse.py" line="99"/>
         <source>Left hand.</source>
         <translation>Sol el.</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_mouse.py" line="91"/>
+        <location filename="../kaptan/libkaptan/ui_mouse.py" line="108"/>
         <source>Reverse scrolling.</source>
-        <translation>Tekerlek ters kaydırsın.</translation>
+        <translation>Ters kaydırma.</translation>
     </message>
 </context>
 <context>
@@ -197,12 +203,12 @@
         <translation type="obsolete">&lt;h2&gt;Tebrikler!&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_other.py" line="20"/>
+        <location filename="../kaptan/libkaptan/ui_other.py" line="37"/>
         <source>&lt;p&gt;&lt;strong&gt;Your settings have been applied.&lt;/strong&gt; Now you can start enjoying Pisi Linux         or you can and support. Don&apos;t forget to &lt;strong&gt;join our community!&lt;strong&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;&lt;strong&gt;Ayarlarınız kaydedildi.&lt;/strong&gt; Artık Pisi Linux&apos;un tadını çıkarmaya başlayabilirsiniz. Daha detaylı ayarlar veya yardım ve destek için aşağıdaki program ve linkleri inceleyebilirsiniz. &lt;strong&gt;Topluluğumuza üye olmayı unutmayın!&lt;/strong&gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;&lt;strong&gt;Ayarlarınız kaydedildi.&lt;/strong&gt; Artık Pisi Linux&apos;ın tadını çıkarmaya başlayabilirsiniz.&lt;strong&gt;Topluluğumuza üye olun!&lt;/strong&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_other.py" line="40"/>
+        <location filename="../kaptan/libkaptan/ui_other.py" line="57"/>
         <source>System Settings</source>
         <translation>Sistem Ayarları</translation>
     </message>
@@ -212,7 +218,7 @@
         <translation type="obsolete">Ekran, güvenlik duvarı, klavye ve kullanıcı hesapları gibi Pisi Linux ayarlarını içerir...</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_other.py" line="64"/>
+        <location filename="../kaptan/libkaptan/ui_other.py" line="81"/>
         <source>Help and Support</source>
         <translation>Yardım ve Destek</translation>
     </message>
@@ -222,40 +228,40 @@
         <translation type="obsolete">Pisi Linux topluluğu, e-posta listeleri, sohbet odaları, Wiki belgeleri, yardım ve destek sayfaları...</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_other.py" line="10"/>
+        <location filename="../kaptan/libkaptan/ui_other.py" line="27"/>
         <source>&lt;h2&gt;Congratulations!&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;Tebrikler!&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_other.py" line="37"/>
+        <location filename="../kaptan/libkaptan/ui_other.py" line="54"/>
         <source>&lt;p&gt;Configuration tools for Pisi Linux such as the display, firewall, keyboard, user manager...&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Ekran, güvenlik duvarı, klavye ve kullanıcı hesapları gibi Pisi Linux ayarlarını içerir...&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Ekran, güvenlik duvarı, klavye ve kullanıcı hesapları gibi Pisi Linux için yapılandırma araçlarını içerir...&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_other.py" line="61"/>
+        <location filename="../kaptan/libkaptan/ui_other.py" line="78"/>
         <source>&lt;p&gt;Pisi Linux community, mailing lists, chat rooms, Wiki documents, help and support pages...&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Pisi Linux topluluğu, e-posta listeleri, sohbet odaları, Wiki belgeleri, yardım ve destek sayfaları...&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Pisi Linux topluluğu, posta listeleri, sohbet odaları, Wiki belgeleri, yardım ve destek sayfaları...&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
     <name>PreviewWidgetColor</name>
     <message>
-        <location filename="../kaptan5/libkaptan/tabwidget.py" line="371"/>
+        <location filename="../kaptan/libkaptan/tabwidget.py" line="388"/>
         <source>Preview</source>
-        <translation>Önizleme</translation>
+        <translation>Ön İzleme</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/tabwidget.py" line="385"/>
+        <location filename="../kaptan/libkaptan/tabwidget.py" line="402"/>
         <source>Window Text</source>
         <translation>Pencere Metni</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/tabwidget.py" line="390"/>
+        <location filename="../kaptan/libkaptan/tabwidget.py" line="407"/>
         <source>Button</source>
-        <translation>Buton</translation>
+        <translation>Düğme</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/tabwidget.py" line="399"/>
+        <location filename="../kaptan/libkaptan/tabwidget.py" line="416"/>
         <source>&lt;p&gt;Normal text &lt;a id=&apos;unclicked&apos; href=&apos;#&apos;&gt;link&lt;/a&gt; &lt;a id=&apos;clicked&apos; href=&apos;#&apos;&gt;visited&lt;/a&gt;&lt;/p&gt;</source>
         <translation>&lt;p&gt;Normal metin &lt;a id=&apos;unclicked&apos; href=&apos;#&apos;&gt;bağlantı&lt;/a&gt; &lt;a id=&apos;clicked&apos; href=&apos;#&apos;&gt;ziyaret edilmiş&lt;/a&gt;&lt;/p&gt;</translation>
     </message>
@@ -263,42 +269,42 @@
 <context>
     <name>PreviewWidgetStyle</name>
     <message>
-        <location filename="../kaptan5/libkaptan/tabwidget.py" line="226"/>
+        <location filename="../kaptan/libkaptan/tabwidget.py" line="243"/>
         <source>Preview</source>
-        <translation>Önizleme</translation>
+        <translation>Ön İzleme</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/tabwidget.py" line="243"/>
+        <location filename="../kaptan/libkaptan/tabwidget.py" line="260"/>
         <source>Group Box</source>
         <translation>Grup Kutusu</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/tabwidget.py" line="257"/>
+        <location filename="../kaptan/libkaptan/tabwidget.py" line="274"/>
         <source>Radio Button</source>
-        <translation>Radyo Butonu</translation>
+        <translation>Radyo Düğmesi</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/tabwidget.py" line="268"/>
+        <location filename="../kaptan/libkaptan/tabwidget.py" line="285"/>
         <source>Check Box</source>
         <translation>Onay Kutusu</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/tabwidget.py" line="299"/>
+        <location filename="../kaptan/libkaptan/tabwidget.py" line="316"/>
         <source>Button</source>
-        <translation>Buton</translation>
+        <translation>Düğme</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/tabwidget.py" line="307"/>
+        <location filename="../kaptan/libkaptan/tabwidget.py" line="324"/>
         <source>Combo Box</source>
         <translation>Çoklu Kutu</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/tabwidget.py" line="317"/>
+        <location filename="../kaptan/libkaptan/tabwidget.py" line="334"/>
         <source>Tab 1</source>
         <translation>Sekme 1</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/tabwidget.py" line="322"/>
+        <location filename="../kaptan/libkaptan/tabwidget.py" line="339"/>
         <source>Tab 2</source>
         <translation>Sekme 2</translation>
     </message>
@@ -306,67 +312,67 @@
 <context>
     <name>SummaryWidget</name>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_summary.py" line="7"/>
+        <location filename="../kaptan/libkaptan/ui_summary.py" line="24"/>
         <source>&lt;h2&gt;Save Your Settings&lt;/h2&gt;</source>
-        <translation>&lt;h2&gt;Ayarlarınızı Kaydedin&lt;/h2&gt;</translation>
+        <translation>&lt;h2&gt;Ayarlarınızı Kaydediniz&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_summary.py" line="13"/>
+        <location filename="../kaptan/libkaptan/ui_summary.py" line="30"/>
         <source>&lt;p&gt;You have successfully finished all steps. Here&apos;s a summary of the settings you want to apply.         Click &lt;strong&gt;Apply Settings&lt;/strong&gt; to save them now. You are now ready to enjoy Pisi Linux!&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Bütün adımları başarıyla tamamladınız. Aşağıda uygulanmasını istediğiniz ayarların listesini görebilirsiniz. &lt;strong&gt;Ayarları Uygula&lt;/strong&gt; tuşuna bastığınızda ayarlarınız kaydedilecektir. Artık Pisi Linux&apos;un tadını çıkarmaya hazırsınız!&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Bütün adımları başarıyla tamamladınız. Aşağıda uygulanmasını istediğiniz ayarların özetini görebilirsiniz. Onları şimdi kaydetmek için &lt;strong&gt;Ayarları Uygula&lt;/strong&gt;ya tıklayınız. Artık Pisi Linux&apos;ın tadını çıkarmaya hazırsınız!&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_summary.py" line="19"/>
+        <location filename="../kaptan/libkaptan/ui_summary.py" line="36"/>
         <source>The following settings will be applied</source>
         <translation>Aşağıdaki ayarlar uygulanacaktır</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_summary.py" line="58"/>
+        <location filename="../kaptan/libkaptan/ui_summary.py" line="73"/>
         <source>Right Handed</source>
-        <translation>Sağlak</translation>
+        <translation>Sağ El</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_summary.py" line="60"/>
+        <location filename="../kaptan/libkaptan/ui_summary.py" line="75"/>
         <source>Left Handed</source>
-        <translation>Solak</translation>
+        <translation>Sol El</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_summary.py" line="63"/>
+        <location filename="../kaptan/libkaptan/ui_summary.py" line="78"/>
         <source>Single Click</source>
-        <translation>Tek tıklama</translation>
+        <translation>Tek Tıklama</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_summary.py" line="65"/>
+        <location filename="../kaptan/libkaptan/ui_summary.py" line="80"/>
         <source>Double Click</source>
         <translation>Çift Tıklama</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_summary.py" line="68"/>
+        <location filename="../kaptan/libkaptan/ui_summary.py" line="83"/>
         <source>Desktop View</source>
         <translation>Masaüstü Görünümü</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_summary.py" line="70"/>
+        <location filename="../kaptan/libkaptan/ui_summary.py" line="85"/>
         <source>Folder View</source>
         <translation>Dizin Görünümü</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_summary.py" line="73"/>
+        <location filename="../kaptan/libkaptan/ui_summary.py" line="88"/>
         <source>Application Launcher</source>
         <translation>Uygulama Başlatıcısı</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_summary.py" line="75"/>
+        <location filename="../kaptan/libkaptan/ui_summary.py" line="90"/>
         <source>Application Menu</source>
         <translation>Uygulama Menüsü</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_summary.py" line="77"/>
+        <location filename="../kaptan/libkaptan/ui_summary.py" line="92"/>
         <source>Application Panel</source>
         <translation>Uygulama Paneli</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_summary.py" line="135"/>
+        <location filename="../kaptan/libkaptan/ui_summary.py" line="150"/>
         <source>Unspecified.</source>
         <translation>Belirtilmemiş.</translation>
     </message>
@@ -384,7 +390,7 @@
                 &lt;ul&gt;
                     &lt;li&gt;Desktop Count: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
                     &lt;li&gt;Desktop Type: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
-                    &lt;li&gt;&#xc4;&#xb0;con Set: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
+                    &lt;li&gt;Ä°con Set: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
                     &lt;li&gt;Theme Set: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
                 &lt;/ul&gt;
             &lt;/li&gt;
@@ -570,7 +576,7 @@
         &lt;/ul&gt; </translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_summary.py" line="89"/>
+        <location filename="../kaptan/libkaptan/ui_summary.py" line="104"/>
         <source>
         &lt;ul&gt;
             &lt;li&gt;&lt;strong&gt;Mouse Options&lt;/strong&gt;
@@ -602,17 +608,17 @@
             &lt;/li&gt;
                 &lt;ul&gt;
                     &lt;li&gt;Seçilen El: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
-                    &lt;li&gt;Tıklama Biçimi: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
+                    &lt;li&gt;Seçilen Tıklama Davranışı: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
                 &lt;/ul&gt;
             &lt;li&gt;&lt;strong&gt;Tema Ayarları&lt;/strong&gt;
                 &lt;ul&gt;
                     &lt;li&gt;Masaüstü Sayısı: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
                     &lt;li&gt;Masaüstü Tipi: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
-                    &lt;li&gt;Parçacık Stili: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
-                    &lt;li&gt;Pencere Stili: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
+                    &lt;li&gt;Parçacık Tarzı: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
+                    &lt;li&gt;Pencere Tarzı: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
                     &lt;li&gt;Renk Şeması: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
-                    &lt;li&gt;Masaüstü Paneli: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
-                    &lt;li&gt;İkon Seti: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
+                    &lt;li&gt;Masaüstü Teması: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
+                    &lt;li&gt;Simge Seti: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
                 &lt;/ul&gt;
             &lt;/li&gt;
             &lt;li&gt;&lt;strong&gt;Menü Ayarları&lt;/strong&gt;
@@ -623,7 +629,7 @@
         &lt;/ul&gt;</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_summary.py" line="121"/>
+        <location filename="../kaptan/libkaptan/ui_summary.py" line="136"/>
         <source>
         &lt;ul&gt;
             &lt;li&gt;&lt;strong&gt;Selected Wallpaper&lt;/strong&gt;
@@ -655,52 +661,52 @@
 <context>
     <name>ThemeTabWidget</name>
     <message>
-        <location filename="../kaptan5/libkaptan/tabwidget.py" line="38"/>
+        <location filename="../kaptan/libkaptan/tabwidget.py" line="55"/>
         <source>Widget Style:</source>
         <translation>Parçacık Biçimi:</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/tabwidget.py" line="44"/>
+        <location filename="../kaptan/libkaptan/tabwidget.py" line="61"/>
         <source>Breeze</source>
-        <translation>Breeze</translation>
+        <translation>Esinti</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/tabwidget.py" line="45"/>
+        <location filename="../kaptan/libkaptan/tabwidget.py" line="62"/>
         <source>Oxygen</source>
         <translation>Oxygen</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/tabwidget.py" line="46"/>
+        <location filename="../kaptan/libkaptan/tabwidget.py" line="63"/>
         <source>Fusion</source>
         <translation>Fusion</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/tabwidget.py" line="60"/>
+        <location filename="../kaptan/libkaptan/tabwidget.py" line="77"/>
         <source>Widget Style</source>
         <translation>Parçacık Biçimi</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/tabwidget.py" line="95"/>
+        <location filename="../kaptan/libkaptan/tabwidget.py" line="112"/>
         <source>Window Style</source>
-        <translation>Pencere Stili</translation>
+        <translation>Pencere Tarzı</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/tabwidget.py" line="122"/>
+        <location filename="../kaptan/libkaptan/tabwidget.py" line="139"/>
         <source>Color Scheme</source>
         <translation>Renk Şeması</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/tabwidget.py" line="178"/>
+        <location filename="../kaptan/libkaptan/tabwidget.py" line="195"/>
         <source>Desktop Theme</source>
-        <translation>Masaüstü Paneli</translation>
+        <translation>Masaüstü Teması</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/tabwidget.py" line="220"/>
+        <location filename="../kaptan/libkaptan/tabwidget.py" line="237"/>
         <source>Icon Set</source>
-        <translation>İkon Seti</translation>
+        <translation>Simge Seti</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/tabwidget.py" line="127"/>
+        <location filename="../kaptan/libkaptan/tabwidget.py" line="144"/>
         <source>&lt;p&gt;Normal text &lt;a id=&apos;unclicked&apos; href=&apos;#&apos;&gt;link&lt;/a&gt; &lt;a id=&apos;clicked&apos; href=&apos;#&apos;&gt;visited&lt;/a&gt;&lt;/p&gt;</source>
         <translation>&lt;p&gt;Normal metin &lt;a id=&apos;unclicked&apos; href=&apos;#&apos;&gt;bağlantı&lt;/a&gt; &lt;a id=&apos;clicked&apos; href=&apos;#&apos;&gt;ziyaret edilmiş&lt;/a&gt;&lt;/p&gt;</translation>
     </message>
@@ -708,14 +714,14 @@
 <context>
     <name>ThemeWidget</name>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_theme.py" line="13"/>
+        <location filename="../kaptan/libkaptan/ui_theme.py" line="30"/>
         <source>&lt;h2&gt;Customize Your Desktop&lt;/h2&gt;</source>
-        <translation>&lt;h2&gt;Masaüstünüzü Kişiselleştirin&lt;/h2&gt;</translation>
+        <translation>&lt;h2&gt;Masaüstünüzü Kişiselleştiriniz&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_theme.py" line="24"/>
+        <location filename="../kaptan/libkaptan/ui_theme.py" line="41"/>
         <source>&lt;p&gt;Choose your favorite theme and desktop type. Customize Pisi Linux with colorful styles and themes.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Favori temanızı ve masaüstü tipini seçip, Pisi Linux&apos;u renkli stil ve temalarla kişiselleştirebilirsiniz.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Favori temanızı ve masaüstü tipinizi seçiniz. Pisi Linux&apos;u renkli tarz ve temalarla kişiselleştirebilirsiniz.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../kaptan/ui_theme.py" line="37"/>
@@ -724,28 +730,28 @@
     </message>
     <message>
         <location filename="../kaptan/ui_theme.py" line="50"/>
-        <source>&#xc4;&#xb0;con Sets</source>
+        <source>Ä°con Sets</source>
         <translation type="obsolete">İkon Setleri</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_theme.py" line="70"/>
+        <location filename="../kaptan/libkaptan/ui_theme.py" line="87"/>
         <source>Desktop Type</source>
         <translation>Masaüstü Tipi</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_theme.py" line="73"/>
+        <location filename="../kaptan/libkaptan/ui_theme.py" line="90"/>
         <source>Number of Desktops</source>
         <translation>Masaüstü Sayısı</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_theme.py" line="77"/>
+        <location filename="../kaptan/libkaptan/ui_theme.py" line="94"/>
         <source>Desktop View</source>
         <translation>Masaüstü Görünümü</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_theme.py" line="78"/>
+        <location filename="../kaptan/libkaptan/ui_theme.py" line="95"/>
         <source>Folder View</source>
-        <translation>Dizin görünümü</translation>
+        <translation>Dizin Görünümü</translation>
     </message>
     <message>
         <location filename="../kaptan/ui_theme.py" line="50"/>
@@ -753,48 +759,48 @@
         <translation type="obsolete">İkon Setleri</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_theme.py" line="87"/>
+        <location filename="../kaptan/libkaptan/ui_theme.py" line="104"/>
         <source>Add Show Desktop Plasmoid</source>
-        <translation>Masaüstünü Göster Plasmoid&apos;i Ekle</translation>
+        <translation>Masaüstünü Göster Eklentisini Ekle</translation>
     </message>
 </context>
 <context>
     <name>WallpaperWidget</name>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_wallpaper.py" line="12"/>
+        <location filename="../kaptan/libkaptan/ui_wallpaper.py" line="29"/>
         <source>&lt;h2&gt;Choose Wallpaper&lt;/h2&gt;</source>
-        <translation>&lt;h2&gt;Duvar Kağıdı Seçin&lt;/h2&gt;</translation>
+        <translation>&lt;h2&gt;Duvar Kağıdını Seçiniz&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_wallpaper.py" line="23"/>
+        <location filename="../kaptan/libkaptan/ui_wallpaper.py" line="40"/>
         <source>&lt;p&gt;Choose your favorite wallpaper for Pisi Linux. Don&apos;t forget to check out         &lt;strong&gt;Desktop Settings&lt;/strong&gt; for downloading new and cool wallpapers.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Masaüstünüz için en beğendiğiniz duvar kağıdını seçin. &lt;strong&gt;Masaüstü Ayarları&lt;/strong&gt;&apos;na girerek yeni ve havalı duvar kağıtları indirebileceğinizi unutmayın.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Pisi Linux için en beğendiğiniz duvar kağıdını seçiniz.&lt;strong&gt;Masaüstü Ayarları&lt;/strong&gt;&apos;na girerek yeni ve havalı duvar kağıtları indirmeyi unutmayınız.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_wallpaper.py" line="32"/>
+        <location filename="../kaptan/libkaptan/ui_wallpaper.py" line="49"/>
         <source>Wallpapers</source>
         <translation>Duvar Kağıtları</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_wallpaper.py" line="46"/>
+        <location filename="../kaptan/libkaptan/ui_wallpaper.py" line="63"/>
         <source>Choose wallpaper from file</source>
         <translation>Duvar Kağıdını Dosyadan Seç</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_wallpaper.py" line="52"/>
+        <location filename="../kaptan/libkaptan/ui_wallpaper.py" line="69"/>
         <source>Don&apos;t change wallpaper</source>
-        <translation>Duvar Kağıdını değiştirme</translation>
+        <translation>Duvar Kağıdını Değiştirme</translation>
     </message>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_wallpaper.py" line="100"/>
+        <location filename="../kaptan/libkaptan/ui_wallpaper.py" line="117"/>
         <source>Choose wallpaper</source>
-        <translation>Duvar Kağıdı Seç</translation>
+        <translation>Duvar Kağıdını Seç</translation>
     </message>
 </context>
 <context>
     <name>WelcomeWidget</name>
     <message>
-        <location filename="../kaptan5/libkaptan/ui_welcome.py" line="8"/>
+        <location filename="../kaptan/libkaptan/ui_welcome.py" line="26"/>
         <source>&lt;h2&gt;Welcome to Pisi Linux!&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;Pisi Linux&apos;a Hoş Geldiniz!&lt;/h2&gt;</translation>
     </message>
@@ -806,12 +812,27 @@
          watch movies, play music, develop applications, play games and much more!&lt;/p&gt;
         &lt;p&gt;&lt;strong&gt;Kaptan&lt;/strong&gt;,  will help you personalize your Pisi Linux workspace easily and quickly.
          Please click &lt;strong&gt;Next&lt;/strong&gt; in order to begin.&lt;/p&gt;</source>
-        <translation>&lt;h1&gt;Pisi Linux Nedir?&lt;/h1&gt;
+        <translation type="obsolete">&lt;h1&gt;Pisi Linux Nedir?&lt;/h1&gt;
         &lt;p&gt;&lt;strong&gt;Pisi Linux&lt;/strong&gt; güvenilir, hızlı ve kullanıcı dostu bir işletim sistemidir.&lt;/p&gt;
         &lt;p&gt;Pisi Linux ile Internet&apos;e bağlanabilir, e-postalarınızı okuyabilir, ofis dökümanlarıyla çalışabilir, 
          film izleyebilir, müzik  dinleyebilir, uygulama geliştirebilir, oyunlar oynayabilir ve çok daha fazlasını yapabilirsiniz!&lt;/p&gt;
         &lt;p&gt;&lt;strong&gt;Kaptan&lt;/strong&gt;, Pisi Linux çalışma ortamınızı hızlı ve kolayca kişiselleştirmenize yardımcı olan bir uygulamadır
          Lütfen başlamak için  &lt;strong&gt;İleri&lt;/strong&gt; &apos;ye tıklayın.&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <location filename="../kaptan/libkaptan/ui_welcome.py" line="33"/>
+        <source>&lt;h1&gt;What is Pisi Linux?&lt;/h1&gt;
+        &lt;p&gt;&lt;strong&gt;Pisi Linux&lt;/strong&gt; is a reliable, secure, fast and user friendly operating system.&lt;/p&gt;
+        &lt;p&gt;With Pisi Linux, you can connect to the internet, read your e-mails, work with your office documents,
+         watch movies, play music, develop applications, play games and much more!&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;Kaptan&lt;/strong&gt;, will help you personalize your Pisi Linux workspace easily and quickly.
+         Please click &lt;strong&gt;Next&lt;/strong&gt; in order to begin.&lt;/p&gt;</source>
+        <translation>&lt;h1&gt;Pisi Linux Nedir?&lt;/h1&gt;
+        &lt;p&gt;&lt;strong&gt;Pisi Linux&lt;/strong&gt; güvenilir, güvenli, hızlı ve kullanıcı dostu bir işletim sistemidir.&lt;/p&gt;
+        &lt;p&gt;Pisi Linux ile, İnternet&apos;e bağlanabilir, postalarınızı okuyabilir, ofis belgelerinizle çalışabilir,
+         filmler izleyebilir, müzik çalabilir, uygulama geliştirebilir, oyunlar oynayabilir ve daha fazlasını yapabilirsiniz.&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;Kaptan&lt;/strong&gt;, Pisi Linux çalışma alanını kolayca ve çabukça kişiselleştirmenizde yardımcı olacaktır.
+         Başlamak için lütfen &lt;strong&gt;İleri&lt;/strong&gt;&apos;ye tıklayınız.&lt;/p&gt;</translation>
     </message>
 </context>
 </TS>

@@ -19,6 +19,7 @@ from PyQt5.QtWidgets import QWizardPage, QLabel, QHBoxLayout, QVBoxLayout, QSpac
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtCore import Qt
 
+
 class WelcomeWidget(QWizardPage):
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -33,7 +34,7 @@ class WelcomeWidget(QWizardPage):
         <p><strong>Pisi Linux</strong> is a reliable, secure, fast and user friendly operating system.</p>
         <p>With Pisi Linux, you can connect to the internet, read your e-mails, work with your office documents,
          watch movies, play music, develop applications, play games and much more!</p>
-        <p><strong>Kaptan</strong>,  will help you personalize your Pisi Linux workspace easily and quickly.
+        <p><strong>Kaptan</strong>, will help you personalize your Pisi Linux workspace easily and quickly.
          Please click <strong>Next</strong> in order to begin.</p>"""))
         label.setWordWrap(True)
         label.setAlignment(Qt.AlignLeft)
@@ -41,7 +42,7 @@ class WelcomeWidget(QWizardPage):
 
         kaptan_logo = QLabel(self)
         kaptan_logo.setScaledContents(True)
-        kaptan_logo.setPixmap(QPixmap(":/data/images/kaptan_welcome.svg"))
+        kaptan_logo.setPixmap(QPixmap("/usr/share/kaptan/images/kaptan_welcome.svg"))
         kaptan_logo.setAlignment(Qt.AlignRight)
         kaptan_logo.setFixedSize(196, 196)
         hlayout.addWidget(kaptan_logo)

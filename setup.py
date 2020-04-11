@@ -29,13 +29,19 @@ for langfile in listdir("languages"):
         subprocess.run(["lrelease", "languages/{}".format(langfile)])
         langs.append("languages/{}".format(langfile).replace(".ts", ".qm"))
 
+images = []
+for imagefile in listdir("data/images"):
+    if imagefile != "kaptan-icon.svg":
+        images.append("data/images/{}".format(imagefile))
+
 subprocess.run(["pyrcc5", "kaptan.qrc", "-o", "kaptan5/rc_kaptan.py"])
 
 datas = [("/usr/share/applications", ["data/kaptan.desktop"]),
          # Kaptan will be started via Pisi Linux Welcome Application
          # ("/etc/skel/.config/autostart", ["data/kaptan.desktop"]),
          ("/usr/share/icons/hicolor/scalable/apps", ["data/images/kaptan-icon.svg"]),
-         ("/usr/share/kaptan/languages", langs)]
+         ("/usr/share/kaptan/languages", langs),
+         ("/usr/share/kaptan/images", images)]
 
 setup(
     name="kaptan",

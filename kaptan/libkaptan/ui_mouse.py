@@ -22,6 +22,7 @@ from PyQt5.QtCore import *
 
 from os.path import join
 
+
 class MouseWidget(QWizardPage):
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -55,7 +56,6 @@ class MouseWidget(QWizardPage):
         self.folderSingleClick = False
         self.mouseButtonMap = "RightHanded"
         self.reverseScrollPolarity = False
-
 
     def createGroupBox(self, layout):
         group1 = QGroupBox(self)
