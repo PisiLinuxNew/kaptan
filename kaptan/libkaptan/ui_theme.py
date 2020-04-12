@@ -81,6 +81,7 @@ class ThemeWidget(QWizardPage):
         vlayout1 = QVBoxLayout()
         vlayout2 = QVBoxLayout()
         hlayout.addLayout(vlayout1)
+        hlayout.addItem(QSpacerItem(20, 30, QSizePolicy.Preferred, QSizePolicy.Preferred))
         hlayout.addLayout(vlayout2)
 
         label1 = QLabel()
@@ -103,6 +104,7 @@ class ThemeWidget(QWizardPage):
         self.checkBox = QCheckBox()
         self.checkBox.setText(self.tr("Add Show Desktop Applet"))
         self.checkBox.clicked.connect(self.showDesktopF)
+        hlayout.addItem(QSpacerItem(20, 30, QSizePolicy.Preferred, QSizePolicy.Preferred))
         hlayout.addWidget(self.checkBox)
 
     def windowStyleSelect(self, item):

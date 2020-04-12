@@ -47,7 +47,7 @@ class WallpaperWidget(QWizardPage):
 
         groupBox = QGroupBox(self)
         groupBox.setTitle(self.tr("Wallpapers"))
-        groupBox.setMinimumHeight(350)
+        groupBox.setMinimumHeight(325)
 
         grLayout = QVBoxLayout(groupBox)
         self.listWidget = QListWidget()
@@ -56,7 +56,7 @@ class WallpaperWidget(QWizardPage):
         grLayout.addWidget(self.listWidget)
         vlayout.addWidget(groupBox)
 
-        vlayout.addItem(QSpacerItem(20, 40, QSizePolicy.Preferred, QSizePolicy.Preferred))
+        vlayout.addItem(QSpacerItem(20, 60, QSizePolicy.Preferred, QSizePolicy.Preferred))
 
         hlayout = QHBoxLayout()
         self.button = QPushButton()

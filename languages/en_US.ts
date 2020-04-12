@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="2.0" language="en_US" sourcelanguage="">
+<!DOCTYPE TS>
+<TS version="2.1" language="en_US">
 <context>
     <name>AvatarWidget</name>
     <message>
@@ -228,7 +229,7 @@
     <message>
         <location filename="../kaptan/libkaptan/ui_mouse.py" line="77"/>
         <source>Single-click to Open Files and Folders</source>
-        <translation type="unfinished"></translation>
+        <translation>Single-click to Open Files and Folders</translation>
     </message>
 </context>
 <context>
@@ -566,12 +567,12 @@
         <translation type="obsolete">Add Show Desktop Plasmoid</translation>
     </message>
     <message>
-        <location filename="../kaptan/libkaptan/ui_theme.py" line="87"/>
+        <location filename="../kaptan/libkaptan/ui_theme.py" line="88"/>
         <source>Desktop Type</source>
         <translation>Desktop Type</translation>
     </message>
     <message>
-        <location filename="../kaptan/libkaptan/ui_theme.py" line="94"/>
+        <location filename="../kaptan/libkaptan/ui_theme.py" line="95"/>
         <source>Desktop View</source>
         <translation>Desktop View</translation>
     </message>
@@ -581,12 +582,12 @@
         <translation>&lt;p&gt;Choose your favorite theme and desktop type. Customize Pisi Linux with colorful styles and themes.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../kaptan/libkaptan/ui_theme.py" line="95"/>
+        <location filename="../kaptan/libkaptan/ui_theme.py" line="96"/>
         <source>Folder View</source>
         <translation>Folder View</translation>
     </message>
     <message>
-        <location filename="../kaptan/libkaptan/ui_theme.py" line="90"/>
+        <location filename="../kaptan/libkaptan/ui_theme.py" line="91"/>
         <source>Number of Desktops</source>
         <translation>Number of Desktops</translation>
     </message>
@@ -596,7 +597,7 @@
         <translation>&lt;h2&gt;Customize Your Desktop&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../kaptan/libkaptan/ui_theme.py" line="104"/>
+        <location filename="../kaptan/libkaptan/ui_theme.py" line="105"/>
         <source>Add Show Desktop Applet</source>
         <translation>Add Show Desktop Applet</translation>
     </message>

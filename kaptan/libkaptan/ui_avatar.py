@@ -86,12 +86,12 @@ class AvatarWidget(QWizardPage):
         self.buttonCam = QPushButton()
         self.buttonCam.setText(self.tr("Capture"))
         self.buttonCam.setIcon(QIcon.fromTheme("camera-web"))
-        self.buttonCam.setVisible(False)
+        self.buttonCam.setEnabled(False)
 
         self.buttonReplay = QPushButton()
         self.buttonReplay.setText(self.tr("Recapture"))
         self.buttonReplay.setIcon(QIcon.fromTheme("view-refresh"))
-        self.buttonReplay.setVisible(False)
+        self.buttonReplay.setEnabled(False)
 
         hlayout.addWidget(comboBox)
         hlayout.addItem(QSpacerItem(300, 20, QSizePolicy.Preferred, QSizePolicy.Preferred))
@@ -159,7 +159,7 @@ class AvatarWidget(QWizardPage):
             self.cameraView.show()
             self.camera.setViewfinder(self.cameraView)
             self.camera.start()
-            self.buttonCam.setVisible(True)
+            self.buttonCam.setEnabled(True)
             self.buttonReplay.hide()
 
     def buttonCamChanged(self):

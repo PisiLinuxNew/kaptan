@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="tr_TR">
+<!DOCTYPE TS><TS version="2.0" language="tr_TR" sourcelanguage="">
 <context>
     <name>AvatarWidget</name>
     <message>
@@ -460,7 +459,7 @@
                 &lt;ul&gt;
                     &lt;li&gt;Desktop Count: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
                     &lt;li&gt;Desktop Type: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
-                    &lt;li&gt;Ä°con Set: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
+                    &lt;li&gt;&#xc4;&#xb0;con Set: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
                     &lt;li&gt;Theme Set: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
                 &lt;/ul&gt;
             &lt;/li&gt;
@@ -810,26 +809,26 @@
     </message>
     <message>
         <location filename="../kaptan/ui_theme.py" line="50"/>
-        <source>Ä°con Sets</source>
+        <source>&#xc4;&#xb0;con Sets</source>
         <translation type="obsolete">İkon Setleri</translation>
     </message>
     <message>
-        <location filename="../kaptan/libkaptan/ui_theme.py" line="87"/>
+        <location filename="../kaptan/libkaptan/ui_theme.py" line="88"/>
         <source>Desktop Type</source>
         <translation>Masaüstü Tipi</translation>
     </message>
     <message>
-        <location filename="../kaptan/libkaptan/ui_theme.py" line="90"/>
+        <location filename="../kaptan/libkaptan/ui_theme.py" line="91"/>
         <source>Number of Desktops</source>
         <translation>Masaüstü Sayısı</translation>
     </message>
     <message>
-        <location filename="../kaptan/libkaptan/ui_theme.py" line="94"/>
+        <location filename="../kaptan/libkaptan/ui_theme.py" line="95"/>
         <source>Desktop View</source>
         <translation>Masaüstü Görünümü</translation>
     </message>
     <message>
-        <location filename="../kaptan/libkaptan/ui_theme.py" line="95"/>
+        <location filename="../kaptan/libkaptan/ui_theme.py" line="96"/>
         <source>Folder View</source>
         <translation>Dizin Görünümü</translation>
     </message>
@@ -844,7 +843,7 @@
         <translation type="obsolete">Masaüstünü Göster Eklentisini Ekle</translation>
     </message>
     <message>
-        <location filename="../kaptan/libkaptan/ui_theme.py" line="104"/>
+        <location filename="../kaptan/libkaptan/ui_theme.py" line="105"/>
         <source>Add Show Desktop Applet</source>
         <translation>Masaüstünü Göster Applet&apos;i Ekle</translation>
     </message>
