@@ -136,16 +136,16 @@ class AvatarWidget(QWizardPage):
         if index == 0:
             if self.camera != None:
                 self.camera.stop()
-            self.buttonReplay.hide()
-            self.buttonCam.hide()
+            self.buttonReplay.setEnabled(False)
+            self.buttonCam.setenabled(False)
             self.cameraView.hide()
             self.cameraLabel.show()
         elif index == 1:
             if self.camera != None:
                 self.camera.stop()
             self.userAvatar = None
-            self.buttonReplay.hide()
-            self.buttonCam.hide()
+            self.buttonReplay.setEnabled(False)
+            self.buttonCam.setEnabled(False)
             self.cameraView.hide()
             self.cameraLabel.show()
             file_url, file_type = QFileDialog.getOpenFileName(self, self.tr("Choose Avatar"), QDir.homePath(), "Image (*.png *.jpg)")
@@ -160,11 +160,11 @@ class AvatarWidget(QWizardPage):
             self.camera.setViewfinder(self.cameraView)
             self.camera.start()
             self.buttonCam.setEnabled(True)
-            self.buttonReplay.hide()
+            self.buttonReplay.setEnabled(False)
 
     def buttonCamChanged(self):
-        self.buttonCam.hide()
-        self.buttonReplay.show()
+        self.buttonCam.setEnabled(False)
+        self.buttonReplay.setEnabled(True)
         self.camera.searchAndLock()
         self.cameraImageCapture.capture("/tmp/avatar")
         self.camera.unlock()
@@ -172,8 +172,8 @@ class AvatarWidget(QWizardPage):
 
     def buttonReplayChanged(self):
         self.userAvatar = None
-        self.buttonReplay.hide()
-        self.buttonCam.show()
+        self.buttonReplay.setEnabled(False)
+        self.buttonCam.setEnabled(True)
         self.camera.start()
         self.cameraLabel.hide()
         self.cameraView.show()
