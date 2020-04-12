@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# Copyright 2016 Metehan Özbek <mthnzbk@gmail.com>
+# Copyright 2020 Erdem Ersoy <erdemersoy@erdemersoy.net>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,7 +17,10 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 # MA 02110-1301, USA.
 
-from kaptan.kaptan import main
 
-if __name__ == "__main__":
-    main()
+class Version(object):
+    VersionString = "7.4rc2"
+
+    @classmethod
+    def getVersion(cls):
+        return cls.VersionString

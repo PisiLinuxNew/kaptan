@@ -1,23 +1,19 @@
+# Copyright 2016 Metehan Özbek <mthnzbk@gmail.com>
 #
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
 #
-#  Copyright 2016 Metehan Özbek <mthnzbk@gmail.com>
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
 #
-#  This program is free software; you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License as published by
-#  the Free Software Foundation; either version 3 of the License, or
-#  (at your option) any later version.
-#
-#  This program is distributed in the hope that it will be useful,
-#  but WITHOUT ANY WARRANTY; without even the implied warranty of
-#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#  GNU General Public License for more details.
-#
-#  You should have received a copy of the GNU General Public License
-#  along with this program; if not, write to the Free Software
-#  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
-#  MA 02110-1301, USA.
-#
-#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+# MA 02110-1301, USA.
 
 from PyQt5.QtWidgets import QWizardPage, QLabel, QGroupBox, QCheckBox, QVBoxLayout, QSpacerItem, QSizePolicy, QHBoxLayout,\
     QSpinBox, QComboBox
@@ -85,6 +81,7 @@ class ThemeWidget(QWizardPage):
         vlayout1 = QVBoxLayout()
         vlayout2 = QVBoxLayout()
         hlayout.addLayout(vlayout1)
+        hlayout.addItem(QSpacerItem(20, 30, QSizePolicy.Preferred, QSizePolicy.Preferred))
         hlayout.addLayout(vlayout2)
 
         label1 = QLabel()
@@ -105,8 +102,9 @@ class ThemeWidget(QWizardPage):
         spinBox.valueChanged.connect(self.desktopCreate)
         vlayout2.addWidget(spinBox)
         self.checkBox = QCheckBox()
-        self.checkBox.setText(self.tr("Add Show Desktop Plasmoid"))
+        self.checkBox.setText(self.tr("Add Show Desktop Applet"))
         self.checkBox.clicked.connect(self.showDesktopF)
+        hlayout.addItem(QSpacerItem(20, 30, QSizePolicy.Preferred, QSizePolicy.Preferred))
         hlayout.addWidget(self.checkBox)
 
     def windowStyleSelect(self, item):

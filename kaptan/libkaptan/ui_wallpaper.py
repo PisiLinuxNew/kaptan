@@ -1,23 +1,19 @@
+# Copyright 2016 Metehan Özbek <mthnzbk@gmail.com>
 #
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
 #
-#  Copyright 2016 Metehan Özbek <mthnzbk@gmail.com>
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
 #
-#  This program is free software; you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License as published by
-#  the Free Software Foundation; either version 3 of the License, or
-#  (at your option) any later version.
-#
-#  This program is distributed in the hope that it will be useful,
-#  but WITHOUT ANY WARRANTY; without even the implied warranty of
-#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#  GNU General Public License for more details.
-#
-#  You should have received a copy of the GNU General Public License
-#  along with this program; if not, write to the Free Software
-#  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
-#  MA 02110-1301, USA.
-#
-#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+# MA 02110-1301, USA.
 
 from PyQt5.QtWidgets import QWizardPage, QLabel, QGroupBox, QListWidget, QVBoxLayout, QSpacerItem, QSizePolicy, QHBoxLayout,\
     QCheckBox, QPushButton, QFileDialog, QListView, QListWidgetItem
@@ -41,8 +37,8 @@ class WallpaperWidget(QWizardPage):
         labelLayout.addWidget(labelImage)
 
         label = QLabel(self)
-        label.setText(self.tr("<p>Choose your favorite wallpaper for Pisi Linux. Don't forget to check out \
-        <strong>Desktop Settings</strong> for downloading new and cool wallpapers.</p>"))
+        label.setText(self.tr("<p>Choose your favorite wallpaper for Pisi Linux. Don't forget to check out "
+                              "<strong>Desktop Settings</strong> for downloading new and cool wallpapers.</p>"))
         label.setWordWrap(True)
         labelLayout.addWidget(label)
         vlayout.addLayout(labelLayout)
@@ -51,7 +47,7 @@ class WallpaperWidget(QWizardPage):
 
         groupBox = QGroupBox(self)
         groupBox.setTitle(self.tr("Wallpapers"))
-        groupBox.setMinimumHeight(350)
+        groupBox.setMinimumHeight(325)
 
         grLayout = QVBoxLayout(groupBox)
         self.listWidget = QListWidget()
@@ -60,17 +56,17 @@ class WallpaperWidget(QWizardPage):
         grLayout.addWidget(self.listWidget)
         vlayout.addWidget(groupBox)
 
-        vlayout.addItem(QSpacerItem(20, 40, QSizePolicy.Preferred, QSizePolicy.Preferred))
+        vlayout.addItem(QSpacerItem(20, 60, QSizePolicy.Preferred, QSizePolicy.Preferred))
 
         hlayout = QHBoxLayout()
         self.button = QPushButton()
-        self.button.setText(self.tr("Choose wallpaper from file"))
+        self.button.setText(self.tr("Choose Wallpaper from File"))
         hlayout.addWidget(self.button)
 
         hlayout.addItem(QSpacerItem(400, 20, QSizePolicy.Preferred, QSizePolicy.Preferred))
 
         self.checkbox = QCheckBox()
-        self.checkbox.setText(self.tr("Don't change wallpaper"))
+        self.checkbox.setText(self.tr("Don't Change Wallpaper"))
         hlayout.addWidget(self.checkbox)
 
         vlayout.addLayout(hlayout)
@@ -118,7 +114,7 @@ class WallpaperWidget(QWizardPage):
             self.button.setEnabled(True)
 
     def wallpaperSelectDialog(self):
-        file_url, file_type = QFileDialog.getOpenFileName(self, self.tr("Choose wallpaper"), QDir.homePath(), "Image (*.png *.jpg)")
+        file_url, file_type = QFileDialog.getOpenFileName(self, self.tr("Choose Wallpaper"), QDir.homePath(), "Image (*.png *.jpg)")
         print(file_url)
         if not "" == file_url:
             self.selectWallpaper = file_url
@@ -129,29 +125,11 @@ class WallpaperWidget(QWizardPage):
             self.listWidget.setCurrentItem(item)
 
     def execute(self):
-        configFilePath = join(QDir.homePath(), ".config", "plasma-org.kde.plasma.desktop-appletsrc")
-
-        parser = Parser(configFilePath)
-        getWallpaper = parser.getWallpaper()
-
-        if self.selectWallpaper:
-            if "file://"+self.selectWallpaper != getWallpaper[2]:
-                parser.setWallpaper("file://"+self.selectWallpaper)
-
-        wp_isin = False
-        appletsrc = open(configFilePath).readlines()
-        for lines in appletsrc:
-            if "Wallpaper" in lines:
-                wp_isin = True
-
-        wp = "\n[Containments][52][Wallpaper][org.kde.image][General]\nImage=file://{!s}\n" .format(self.selectWallpaper)
-
-        if wp_isin:
-            if self.selectWallpaper:
-                if "file://"+self.selectWallpaper != getWallpaper[1]:
-                    parser.setWallpaper("file://"+self.selectWallpaper)
-
+        if self.selectWallpaper is None:
+            pass
         else:
-            if self.selectWallpaper:
-                with open(configFilePath, "a") as rcfile:
-                    rcfile.write(wp)
+            configFilePath = join(QDir.homePath(), ".config", "plasma-org.kde.plasma.desktop-appletsrc")
+            parser = Parser(configFilePath)
+            wallpaper = parser.getWallpaper()
+            if wallpaper is not None:
+                parser.setWallpaper(self.selectWallpaper)

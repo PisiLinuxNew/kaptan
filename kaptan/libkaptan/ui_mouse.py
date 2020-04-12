@@ -1,23 +1,20 @@
+# Copyright 2016 Metehan Özbek <mthnzbk@gmail.com>
+#           2020 Erdem Ersoy <erdemersoy@erdemersoy.net>
 #
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
 #
-#  Copyright 2016 Metehan Özbek <mthnzbk@gmail.com>
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
 #
-#  This program is free software; you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License as published by
-#  the Free Software Foundation; either version 3 of the License, or
-#  (at your option) any later version.
-#
-#  This program is distributed in the hope that it will be useful,
-#  but WITHOUT ANY WARRANTY; without even the implied warranty of
-#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#  GNU General Public License for more details.
-#
-#  You should have received a copy of the GNU General Public License
-#  along with this program; if not, write to the Free Software
-#  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
-#  MA 02110-1301, USA.
-#
-#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+# MA 02110-1301, USA.
 
 from PyQt5.QtWidgets import QWizardPage, QLabel, QGroupBox, QRadioButton, QHBoxLayout, QVBoxLayout, QCheckBox, \
     QSpacerItem, QSizePolicy, QButtonGroup
@@ -25,6 +22,7 @@ from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import *
 
 from os.path import join
+
 
 class MouseWidget(QWizardPage):
     def __init__(self, parent=None):
@@ -60,7 +58,6 @@ class MouseWidget(QWizardPage):
         self.mouseButtonMap = "RightHanded"
         self.reverseScrollPolarity = False
 
-
     def createGroupBox(self, layout):
         group1 = QGroupBox(self)
         group1.setTitle(self.tr("Clicking Behavior"))
@@ -72,12 +69,12 @@ class MouseWidget(QWizardPage):
         buttonGroup = QButtonGroup(group1)
 
         self.radiobutton1 = QRadioButton(group1)
-        self.radiobutton1.setText(self.tr("Double-click to open files and folders."))
+        self.radiobutton1.setText(self.tr("Double-click to Open Files and Folders"))
         self.radiobutton1.setChecked(True)
         vlayout1.addWidget(self.radiobutton1)
 
         self.radiobutton2 = QRadioButton(group1)
-        self.radiobutton2.setText(self.tr("Single-click to open files and folders."))
+        self.radiobutton2.setText(self.tr("Single-click to Open Files and Folders"))
         vlayout1.addWidget(self.radiobutton2)
 
         buttonGroup.addButton(self.radiobutton1)
@@ -95,12 +92,12 @@ class MouseWidget(QWizardPage):
         buttonGroup2 = QButtonGroup(group2)
 
         self.radiobutton3 = QRadioButton(group2)
-        self.radiobutton3.setText(self.tr("Right hand."))
+        self.radiobutton3.setText(self.tr("Right Hand"))
         self.radiobutton3.setChecked(True)
         vlayout2.addWidget(self.radiobutton3)
 
         self.radiobutton4 = QRadioButton(group2)
-        self.radiobutton4.setText(self.tr("Left hand."))
+        self.radiobutton4.setText(self.tr("Left Hand"))
         vlayout2.addWidget(self.radiobutton4)
 
         buttonGroup2.addButton(self.radiobutton3)
@@ -109,7 +106,7 @@ class MouseWidget(QWizardPage):
         buttonGroup2.buttonClicked.connect(self.mouseButton)
 
         self.checkbox = QCheckBox(group2)
-        self.checkbox.setText(self.tr("Reverse scrolling."))
+        self.checkbox.setText(self.tr("Reverse Scrolling"))
         self.checkbox.clicked.connect(self.reverseScroll)
         vlayout2.addWidget(self.checkbox)
 

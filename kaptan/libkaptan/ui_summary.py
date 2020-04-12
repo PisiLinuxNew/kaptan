@@ -1,23 +1,19 @@
+# Copyright 2016 Metehan Özbek <mthnzbk@gmail.com>
 #
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
 #
-#  Copyright 2016 Metehan Özbek <mthnzbk@gmail.com>
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
 #
-#  This program is free software; you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License as published by
-#  the Free Software Foundation; either version 3 of the License, or
-#  (at your option) any later version.
-#
-#  This program is distributed in the hope that it will be useful,
-#  but WITHOUT ANY WARRANTY; without even the implied warranty of
-#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#  GNU General Public License for more details.
-#
-#  You should have received a copy of the GNU General Public License
-#  along with this program; if not, write to the Free Software
-#  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
-#  MA 02110-1301, USA.
-#
-#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+# MA 02110-1301, USA.
 
 from PyQt5.QtWidgets import QWizardPage, QLabel, QGroupBox, QHBoxLayout, QSpacerItem, QSizePolicy, QVBoxLayout
 from PyQt5.QtCore import *
@@ -31,22 +27,23 @@ class SummaryWidget(QWizardPage):
 
         label = QLabel(self)
         label.setWordWrap(True)
-        label.setText(self.tr("<p>You have successfully finished all steps. Here's a summary of the settings you want to apply. \
-        Click <strong>Apply Settings</strong> to save them now. You are now ready to enjoy Pisi Linux!</p>"))
+        label.setText(self.tr("<p>You have successfully finished all steps. Here's a summary of the settings you want "
+                              "to apply. Click <strong>Apply Settings</strong> to save them now. You are now ready to "
+                              "enjoy Pisi Linux!</p>"))
         vlayout.addWidget(label)
         vlayout.addItem(QSpacerItem(20, 40, QSizePolicy.Preferred, QSizePolicy.Preferred))
 
         groupBox = QGroupBox()
-        groupBox.setTitle(self.tr("The following settings will be applied"))
+        groupBox.setTitle(self.tr("The following settings will be applied:"))
         groupBox.setMinimumHeight(350)
 
         groupLayout = QHBoxLayout(groupBox)
         self.labelSummary = QLabel()
         self.labelSummary.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        groupLayout.addWidget(    self.labelSummary)
+        groupLayout.addWidget(self.labelSummary)
         self.labelSummary2 = QLabel()
         self.labelSummary2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        groupLayout.addWidget(    self.labelSummary2)
+        groupLayout.addWidget(self.labelSummary2)
         vlayout.addWidget(groupBox)
 
         vlayout.addItem(QSpacerItem(20, 40, QSizePolicy.Preferred, QSizePolicy.Preferred))

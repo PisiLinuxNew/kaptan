@@ -1,23 +1,19 @@
+# Copyright 2016 Metehan Özbek <mthnzbk@gmail.com>
 #
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
 #
-#  Copyright 2016 Metehan Özbek <mthnzbk@gmail.com>
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
 #
-#  This program is free software; you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License as published by
-#  the Free Software Foundation; either version 3 of the License, or
-#  (at your option) any later version.
-#
-#  This program is distributed in the hope that it will be useful,
-#  but WITHOUT ANY WARRANTY; without even the implied warranty of
-#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#  GNU General Public License for more details.
-#
-#  You should have received a copy of the GNU General Public License
-#  along with this program; if not, write to the Free Software
-#  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
-#  MA 02110-1301, USA.
-#
-#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+# MA 02110-1301, USA.
 
 from PyQt5.QtWidgets import QWizardPage, QLabel, QGroupBox, QVBoxLayout, QSpacerItem, QSizePolicy, QHBoxLayout,\
     QComboBox, QPushButton, QFileDialog
@@ -46,8 +42,9 @@ class AvatarWidget(QWizardPage):
 
         label = QLabel(self)
         label.setWordWrap(True)
-        label.setText(self.tr("<p>This screen helps you set your <strong>user picture</strong>. You can either choose an image from a \
-        file or you can capture an image from your camera. Select an option from the <strong>options</strong> menu.</p>"))
+        label.setText(self.tr("<p>This screen helps you set your <strong>user picture</strong>. You can either choose "
+                              "an image from a file or you can capture an image from your camera. Select an option "
+                              "from the <strong>options</strong> menu.</p>"))
         labelLayout.addWidget(label)
         vlayout.addLayout(labelLayout)
 
@@ -63,7 +60,7 @@ class AvatarWidget(QWizardPage):
 
         comboBox = QComboBox()
         comboBox.setMinimumWidth(250)
-        comboBox.addItems([self.tr("Options"), self.tr("Choose an image...")])
+        comboBox.addItems([self.tr("Options"), self.tr("Choose an Image...")])
 
         #Camera control
         self.cameraInfo = None
@@ -89,12 +86,12 @@ class AvatarWidget(QWizardPage):
         self.buttonCam = QPushButton()
         self.buttonCam.setText(self.tr("Capture"))
         self.buttonCam.setIcon(QIcon.fromTheme("camera-web"))
-        self.buttonCam.setVisible(False)
+        self.buttonCam.setEnabled(False)
 
         self.buttonReplay = QPushButton()
         self.buttonReplay.setText(self.tr("Recapture"))
         self.buttonReplay.setIcon(QIcon.fromTheme("view-refresh"))
-        self.buttonReplay.setVisible(False)
+        self.buttonReplay.setEnabled(False)
 
         hlayout.addWidget(comboBox)
         hlayout.addItem(QSpacerItem(300, 20, QSizePolicy.Preferred, QSizePolicy.Preferred))
@@ -139,16 +136,16 @@ class AvatarWidget(QWizardPage):
         if index == 0:
             if self.camera != None:
                 self.camera.stop()
-            self.buttonReplay.hide()
-            self.buttonCam.hide()
+            self.buttonReplay.setEnabled(False)
+            self.buttonCam.setenabled(False)
             self.cameraView.hide()
             self.cameraLabel.show()
         elif index == 1:
             if self.camera != None:
                 self.camera.stop()
             self.userAvatar = None
-            self.buttonReplay.hide()
-            self.buttonCam.hide()
+            self.buttonReplay.setEnabled(False)
+            self.buttonCam.setEnabled(False)
             self.cameraView.hide()
             self.cameraLabel.show()
             file_url, file_type = QFileDialog.getOpenFileName(self, self.tr("Choose Avatar"), QDir.homePath(), "Image (*.png *.jpg)")
@@ -162,12 +159,12 @@ class AvatarWidget(QWizardPage):
             self.cameraView.show()
             self.camera.setViewfinder(self.cameraView)
             self.camera.start()
-            self.buttonCam.setVisible(True)
-            self.buttonReplay.hide()
+            self.buttonCam.setEnabled(True)
+            self.buttonReplay.setEnabled(False)
 
     def buttonCamChanged(self):
-        self.buttonCam.hide()
-        self.buttonReplay.show()
+        self.buttonCam.setEnabled(False)
+        self.buttonReplay.setEnabled(True)
         self.camera.searchAndLock()
         self.cameraImageCapture.capture("/tmp/avatar")
         self.camera.unlock()
@@ -175,8 +172,8 @@ class AvatarWidget(QWizardPage):
 
     def buttonReplayChanged(self):
         self.userAvatar = None
-        self.buttonReplay.hide()
-        self.buttonCam.show()
+        self.buttonReplay.setEnabled(False)
+        self.buttonCam.setEnabled(True)
         self.camera.start()
         self.cameraLabel.hide()
         self.cameraView.show()
@@ -197,5 +194,5 @@ class AvatarWidget(QWizardPage):
                 os.remove(self.userAvatar)
         except:
             with open("/tmp/.kaptan.bug", "w") as d:
-                d.write("avatar değiştirilemedi.")
+                d.write("Avatar couldn't be changed.")
                 d.close()

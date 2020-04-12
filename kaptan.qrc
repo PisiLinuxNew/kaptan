@@ -1,4 +1,4 @@
-<RCC>
+<!DOCTYPE RCC><RCC version="1.0">
     <qresource prefix="/">
         <file>data/images/kaptan-icon.svg</file>
         <file>data/images/kaptan.png</file>

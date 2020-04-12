@@ -1,23 +1,19 @@
+# Copyright 2016 Metehan Özbek <mthnzbk@gmail.com>
 #
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
 #
-#  Copyright 2016 Metehan Özbek <mthnzbk@gmail.com>
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
 #
-#  This program is free software; you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License as published by
-#  the Free Software Foundation; either version 3 of the License, or
-#  (at your option) any later version.
-#
-#  This program is distributed in the hope that it will be useful,
-#  but WITHOUT ANY WARRANTY; without even the implied warranty of
-#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#  GNU General Public License for more details.
-#
-#  You should have received a copy of the GNU General Public License
-#  along with this program; if not, write to the Free Software
-#  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
-#  MA 02110-1301, USA.
-#
-#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+# MA 02110-1301, USA.
 
 from PyQt5.QtWidgets import QWizardPage, QLabel, QGroupBox, QPushButton, QVBoxLayout, QSpacerItem, QSizePolicy, QHBoxLayout
 from PyQt5.QtGui import *
@@ -38,8 +34,8 @@ class OtherWidget(QWizardPage):
 
         label = QLabel(self)
         label.setWordWrap(True)
-        label.setText(self.tr("<p><strong>Your settings have been applied.</strong> Now you can start enjoying Pisi Linux \
-        or you can and support. Don't forget to <strong>join our community!<strong></p>"))
+        label.setText(self.tr("<p><strong>Your settings have been applied.</strong> Now you can start enjoying Pisi "
+                              "Linux or you can and support. Don't forget to <strong>join our community!<strong></p>"))
         vlayout.addWidget(label)
 
         vlayout.addItem(QSpacerItem(20, 40, QSizePolicy.Preferred, QSizePolicy.Preferred))
@@ -55,7 +51,8 @@ class OtherWidget(QWizardPage):
         groupHLayout1.addWidget(groupLabelImage)
         groupLabel1 = QLabel()
         groupLabel1.setWordWrap(True)
-        groupLabel1.setText(self.tr("<p>Configuration tools for Pisi Linux such as the display, firewall, keyboard, user manager...</p>"))
+        groupLabel1.setText(self.tr("<p>Configuration tools for Pisi Linux such as the display, firewall, keyboard, "
+                                    "user manager.</p>"))
         groupButton1 = QPushButton()
         groupButton1.setMaximumWidth(200)
         groupButton1.setText(self.tr("System Settings"))
@@ -79,7 +76,8 @@ class OtherWidget(QWizardPage):
         groupLabelImage2.setMaximumSize(64,64)
         groupLabel2 = QLabel()
         groupLabel2.setWordWrap(True)
-        groupLabel2.setText(self.tr("<p>Pisi Linux community, mailing lists, chat rooms, Wiki documents, help and support pages...</p>"))
+        groupLabel2.setText(self.tr("<p>Pisi Linux community, mailing lists, chat rooms, Wiki documents, help and "
+                                    "support pages.</p>"))
         groupButton2 = QPushButton()
         groupButton2.setMaximumWidth(200)
         groupButton2.setText(self.tr("Help and Support"))
