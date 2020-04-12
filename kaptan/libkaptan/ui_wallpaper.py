@@ -125,29 +125,17 @@ class WallpaperWidget(QWizardPage):
             self.listWidget.setCurrentItem(item)
 
     def execute(self):
-        configFilePath = join(QDir.homePath(), ".config", "plasma-org.kde.plasma.desktop-appletsrc")
-
-        parser = Parser(configFilePath)
-        getWallpaper = parser.getWallpaper()
-
-        if self.selectWallpaper:
-            if "file://"+self.selectWallpaper != getWallpaper[2]:
-                parser.setWallpaper("file://"+self.selectWallpaper)
-
-        wp_isin = False
-        appletsrc = open(configFilePath).readlines()
-        for lines in appletsrc:
-            if "Wallpaper" in lines:
-                wp_isin = True
-
-        wp = "\n[Containments][52][Wallpaper][org.kde.image][General]\nImage=file://{!s}\n" .format(self.selectWallpaper)
-
-        if wp_isin:
-            if self.selectWallpaper:
-                if "file://"+self.selectWallpaper != getWallpaper[1]:
-                    parser.setWallpaper("file://"+self.selectWallpaper)
-
+        if self.selectWallpaper is None:
+            pass
         else:
-            if self.selectWallpaper:
-                with open(configFilePath, "a") as rcfile:
-                    rcfile.write(wp)
+            configFilePath = join(QDir.homePath(), ".config", "plasma-org.kde.plasma.desktop-appletsrc")
+            parser = Parser(configFilePath)
+            wallpaper = parser.getWallpaper()
+            if wallpaper is not None:
+                parser.setWallpaper("file://" + self.selectWallpaper)
+            else:
+                entireWallpaperConfigString = "\n[Containments][52][Wallpaper][org.kde.image][" \
+                                              "General]\nFillMode=0\nImage=file://{!s}\n".format(self.selectWallpaper)
+                with open(configFilePath, "a") as fp:
+                    fp.write(entireWallpaperConfigString)
+

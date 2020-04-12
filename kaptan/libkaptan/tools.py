@@ -79,48 +79,38 @@ class Parser(object):
                 self.sync(new_data)
                 self.setAppletOrder(0, applet_index)
 
-    # Sadece wallpaper kısmı var mı diye aramayacak sayısını da hesap edecek.
-    # Ayrıca 1-9+ kısmındaki rakam da değer olarak döndürülecek.
-    # Masaüstünü temsil eden id li ayar kısmı baz alınarak işlenecek.
     def getWallpaper(self):
-        regex = "(\[Containments\]\[[1-9]+\]\[Wallpaper\]\[org.kde.image\]\[General\]\n(.*)=(.*)\n)"
+        regex = "(\[Containments\]\[[1-9]+\]\[Wallpaper\]\[org.kde.image\]\[General\]\n(.*)=(.*)\n(.*)=(.*)\n)"
+        reading_regex = re.search(regex, self.read())
 
-        read = re.search(regex, self.read())
-
-        if read:
-            if read.group(2) != "Image":
-                regex = "(\[Containments\]\[[1-9]+\]\[Wallpaper\]\[org.kde.image\]\[General\]\n)((.*)=.*\n.*\n)"
-
-                read = re.search(regex, self.read())
-
-                if read:
-                    return read.group(1), read.group(2), read.group(3)
-
-            return read.group(1), read.group(2), read.group(3)
-
+        if reading_regex is not None:
+            # entireWallpaperString = reading_regex.group(0)
+            # header = reading_regex.group(1)
+            # fillMode = reading_regex.group(2)
+            imageString = reading_regex.group(3)
+            wallpaperFilePath = imageString[6:]
+            return wallpaperFilePath
         else:
-            return False
+            return None
 
 
-    #
     def setWallpaper(self, path):
-        if self.getWallpaper()[1] != "Image":
-            regex = "\[Containments\]\[[1-9]+\]\[Wallpaper\]\[org.kde.image\]\[General\]\n.*\n.*\n"
-            com = re.compile(regex)
+        regex = "(\[Containments\]\[[1-9]+\]\[Wallpaper\]\[org.kde.image\]\[General\]\n(.*)=(.*)\n(.*)=(.*)\n)"
+        reading_regex = re.search(regex, self.read())
 
-            new_data =  com.sub((self.getWallpaper()[0]+"Image=%s\n"+self.getWallpaper()[1])%path, self.read())
-            self.sync(new_data)
-            
-        elif self.getWallpaper()[1] == "Image":
-            regex = r"\[Containments\]\[[1-9]+\]\[Wallpaper\]\[org.kde.image\]\[General\]\n%s=.*\n"%(self.getWallpaper()[1])
+        if reading_regex is not None:
+            entireWallpaperString = reading_regex.group(0)
+            # header = reading_regex.group(1)
+            # fillMode = reading_regex.group(2)
+            imageString = reading_regex.group(3)
+            newImageString = "Image=" + path
 
-            com = re.compile(regex)
+            regex_compiled = re.compile(regex)
+            newEntireWallpaperString = regex_compiled.sub(entireWallpaperString.replace(imageString, newImageString),
+                                                          self.read())
 
-            new_data = com.sub(self.getWallpaper()[0].replace(self.getWallpaper()[2], path), self.read())
-            self.sync(new_data)
-            
-        else:
-            pass # Buraya wallpaper ile ilgili bir ayar yoksa sıfırdan oluşturulacak
+            self.sync(newEntireWallpaperString)
+
 
     def getDesktopType(self):
         regex = "(\[Containments\]\[[1-9]*\]\nactivityId=.+\n.*\n.*\nlastScreen=.*\n.*\nplugin=(.*)\n)"
@@ -137,7 +127,7 @@ class Parser(object):
 
         if view != self.getDesktopType()[1]:
             new_data = com.sub(self.getDesktopType()[0].replace(self.getDesktopType()[1], view), self.read())
-            self.sync(new_data)
+            self.sync_append(new_data)
 
     def getAppletOrder(self):
         regex = "(\n\[Containments\]\[([1-9]+)\]\[General\]\nAppletOrder=(.*)\n)"
