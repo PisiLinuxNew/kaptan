@@ -132,7 +132,7 @@ class WallpaperWidget(QWizardPage):
             parser = Parser(configFilePath)
             wallpaper = parser.getWallpaper()
             if wallpaper is not None:
-                parser.setWallpaper("file://" + self.selectWallpaper)
+                parser.setWallpaper(self.selectWallpaper)
             else:
                 entireWallpaperConfigString = "\n[Containments][52][Wallpaper][org.kde.image][" \
                                               "General]\nFillMode=0\nImage=file://{!s}\n".format(self.selectWallpaper)

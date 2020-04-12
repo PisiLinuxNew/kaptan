@@ -102,11 +102,11 @@ class Parser(object):
             entireWallpaperString = reading_regex.group(0)
             # header = reading_regex.group(1)
             # fillMode = reading_regex.group(2)
-            imageString = reading_regex.group(3)
+            imageString = reading_regex.group(4) + "=" + reading_regex.group(5)
             newImageString = "Image=" + path
 
             regex_compiled = re.compile(regex)
-            newEntireWallpaperString = regex_compiled.sub(entireWallpaperString.replace(imageString, newImageString),
+            newEntireWallpaperString = regex_compiled.sub(entireWallpaperString.replace(imageString, newImageString, 1),
                                                           self.read())
 
             self.sync(newEntireWallpaperString)
