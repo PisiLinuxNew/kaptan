@@ -127,7 +127,7 @@ class Parser(object):
 
         if view != self.getDesktopType()[1]:
             new_data = com.sub(self.getDesktopType()[0].replace(self.getDesktopType()[1], view), self.read())
-            self.sync_append(new_data)
+            self.sync(new_data)
 
     def getAppletOrder(self):
         regex = "(\n\[Containments\]\[([1-9]+)\]\[General\]\nAppletOrder=(.*)\n)"
