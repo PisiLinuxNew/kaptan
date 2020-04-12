@@ -68,12 +68,13 @@ class MenuWidget(QWizardPage):
         hlayout = QHBoxLayout(self)
 
         self.labelMenu = QLabel(self)
-        self.labelMenu.setPixmap(QPixmap(self.menus[0][0]))
-        self.labelMenu.setMaximumSize(350 ,214)
+        self.labelMenu.setPixmap(QPixmap(self.menus[0][0]).scaled(350, 214))
+        self.labelMenu.setMaximumSize(350, 214)
         hlayout.addWidget(self.labelMenu)
         self.labelText = QLabel(self)
         self.labelText.setWordWrap(True)
         self.labelText.setText(self.tr(self.menus[0][1]))
+        hlayout.addItem(QSpacerItem(20, 50, QSizePolicy.Preferred, QSizePolicy.Preferred))
         hlayout.addWidget(self.labelText)
 
         vlayout.addLayout(hlayout)
@@ -87,7 +88,7 @@ class MenuWidget(QWizardPage):
 
     def menuSelect(self, index):
         self.menuSelected = index
-        self.labelMenu.setPixmap(QPixmap(self.menus[index][0]))
+        self.labelMenu.setPixmap(QPixmap(self.menus[index][0]).scaled(350, 214))
         self.labelText.setText(self.menus[index][1])
 
     def execute(self):

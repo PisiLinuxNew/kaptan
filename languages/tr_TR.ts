@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="2.0" language="tr_TR" sourcelanguage="">
+<!DOCTYPE TS>
+<TS version="2.1" language="tr_TR">
 <context>
     <name>AvatarWidget</name>
     <message>
@@ -156,7 +157,7 @@
     <message>
         <location filename="../kaptan/libkaptan/ui_menu.py" line="31"/>
         <source>&lt;p&gt;Application Launcher is the default menu for Pisi Linux. Application shortcuts are arranged so that you can access quickly and easily.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Uygulama Başlatıcısı, Pisi Linux&apos;un öntanımlı menüsüdür. Uygulama kısayolları hızlı ve kolay erişilebilecek şekilde düzenlenmiştir.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Uygulama Başlatıcısı, Pisi Linux&apos;ın öntanımlı menüsüdür. Uygulama kısayolları hızlı ve kolay erişilebilecek şekilde düzenlenmiştir.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../kaptan/libkaptan/ui_menu.py" line="35"/>
@@ -459,7 +460,7 @@
                 &lt;ul&gt;
                     &lt;li&gt;Desktop Count: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
                     &lt;li&gt;Desktop Type: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
-                    &lt;li&gt;&#xc4;&#xb0;con Set: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
+                    &lt;li&gt;Ä°con Set: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
                     &lt;li&gt;Theme Set: &lt;strong&gt;{}&lt;/strong&gt;&lt;/li&gt;
                 &lt;/ul&gt;
             &lt;/li&gt;
@@ -809,7 +810,7 @@
     </message>
     <message>
         <location filename="../kaptan/ui_theme.py" line="50"/>
-        <source>&#xc4;&#xb0;con Sets</source>
+        <source>Ä°con Sets</source>
         <translation type="obsolete">İkon Setleri</translation>
     </message>
     <message>
