@@ -20,7 +20,7 @@
 
 import sys
 from PyQt5 import QtWidgets
-from libkaptan import *
+from kaptan.libkaptan import *
 
 
 class Kaptan(QtWidgets.QWizard):
