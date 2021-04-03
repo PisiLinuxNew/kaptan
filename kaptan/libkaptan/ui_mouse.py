@@ -56,7 +56,8 @@ class MouseWidget(QWizardPage):
         vlayout.addItem(QSpacerItem(20, 40, QSizePolicy.Preferred, QSizePolicy.Preferred))
 
         self.folderSingleClick = False
-        self.mouseButtonMap = "RightHanded"
+        self.mouseButtonMap = "false"
+        os.system('xmodmap -e "pointer = 1 2 3"')
         self.reverseScrollPolarity = False
 
     def createGroupBox(self, layout):
@@ -136,12 +137,11 @@ class MouseWidget(QWizardPage):
         settings1.setValue("Mouse/XLbInptLeftHanded", self.mouseButtonMap)
         settings1.setValue("Mouse/ReverseScrollPolarity", self.reverseScrollPolarity)
         settings1.sync()
-        
-        if self.mouseButtonMap == "false":
-            os.system('xmodmap -e "pointer = 3 2 1"')
-        else:
-            os.system('xmodmap -e "pointer = 1 2 3"')
-        
 
         settings2.setValue("KDE/SingleClick", self.folderSingleClick)
         settings2.sync()
+
+        if self.mouseButtonMap == "false":
+            os.system('xmodmap -e "pointer = 1 2 3"')
+        else:
+            os.system('xmodmap -e "pointer = 3 2 1"')
