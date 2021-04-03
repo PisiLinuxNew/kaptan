@@ -57,6 +57,7 @@ class MouseWidget(QWizardPage):
 
         self.folderSingleClick = False
         self.mouseButtonMap = "false"
+        os.system('xmodmap -e "pointer = 1 2 3"')
         self.reverseScrollPolarity = False
 
     def createGroupBox(self, layout):
@@ -141,6 +142,6 @@ class MouseWidget(QWizardPage):
         settings2.sync()
 
         if self.mouseButtonMap == "false":
-            os.system('xmodmap -e "pointer = 1 2 3')
+            os.system('xmodmap -e "pointer = 1 2 3"')
         else:
-            os.system('xmodmap -e "pointer = 3 2 1')
+            os.system('xmodmap -e "pointer = 3 2 1"')
