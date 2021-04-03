@@ -194,8 +194,9 @@ class ThemeWidget(QWizardPage):
         parser = Parser(configFilePath)
         desktopView = parser.getDesktopType()
 
-        if self.desktopType != desktopView[1]:
-            parser.setDesktopType(self.desktopType)
+        #no need for these lines, parser is already executing this logic
+        #if self.desktopType != desktopView[1]:
+        #    parser.setDesktopType(self.desktopType)
 
         if self.showDesktop:
             parser.setShowDesktopApplet()
