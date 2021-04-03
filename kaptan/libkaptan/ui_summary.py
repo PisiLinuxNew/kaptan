@@ -70,7 +70,7 @@ class SummaryWidget(QWizardPage):
         userAvatar = ""
         windowStyle = None
 
-        if mouseWidget.mouseButtonMap == "RightHanded":
+        if mouseWidget.mouseButtonMap == "false":
             mouseButtonMap = self.tr("Right Handed")
         else:
             mouseButtonMap = self.tr("Left Handed")
