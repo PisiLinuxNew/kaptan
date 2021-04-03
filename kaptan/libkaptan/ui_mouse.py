@@ -120,8 +120,10 @@ class MouseWidget(QWizardPage):
     def mouseButton(self, button):
         if button == self.radiobutton3:
             self.mouseButtonMap = "false"
+            os.system('xmodmap -e "pointer = 1 2 3"')
         else:
             self.mouseButtonMap = "true"
+            os.system('xmodmap -e "pointer = 3 2 1"')
 
     def reverseScroll(self):
         if self.checkbox.isChecked():
@@ -136,12 +138,6 @@ class MouseWidget(QWizardPage):
         settings1.setValue("Mouse/XLbInptLeftHanded", self.mouseButtonMap)
         settings1.setValue("Mouse/ReverseScrollPolarity", self.reverseScrollPolarity)
         settings1.sync()
-        
-        if self.mouseButtonMap == "false":
-            os.system('xmodmap -e "pointer = 3 2 1"')
-        else:
-            os.system('xmodmap -e "pointer = 1 2 3"')
-        
 
         settings2.setValue("KDE/SingleClick", self.folderSingleClick)
         settings2.sync()
